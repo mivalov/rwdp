@@ -1,0 +1,24 @@
+# docker-compose.yml
+#
+# This compose file starts the following services:
+#   - Flask container
+
+version: '3.9'
+services:
+
+  flask:
+    image: flask-py:3.10.4
+    container_name: flask-py
+    hostname: flask-py
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: bind
+        source: ./rwdp
+        target: /rwdp
+    restart: always
