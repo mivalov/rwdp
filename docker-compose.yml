@@ -1,6 +1,6 @@
 # docker-compose.yml
 #
-# This compose file starts the following services:
+# This docker-compose file starts the following services:
 #   - Flask container
 
 version: '3.9'
