@@ -1,62 +1,158 @@
 *{
-    margin:0px;
-    padding:0px;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
-nav{
-    background-color: burlywood;
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 45px;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
     padding: 0px 10px;
+    line-height: 45px;
+    display: inline-block;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: burlywood;
 }
-label.open-slide{
-    float: center;
-    padding: 10px;
-}
-label.open-slide:hover{
-    background-color: hsla(33, 100%, 88%, 0.555);
-    border-radius: 4px;
-    transition: .6s;
-}
-label.logo{
+.logo a{
     color: white;
+    margin-left: 3rem;
+    padding: 0px 8px;
     float: left;
     font-size: 32px;
     font-weight: bold;
     letter-spacing: 2.5px;
     text-transform: uppercase;
 }
-label.logo:hover{
-    color: rgb(184, 63, 32);
-    transition: .6s;
+.logo a:hover{
+    transition: .5s;
+    background-color: hsla(33, 100%, 88%, 0.555);
 }
-nav ul{
+.nav-list{
     float: right;
 }
-nav ul li{
+.nav-list li{
     display: inline-block;
     list-style: none;
 }
-nav ul li a{
+.nav-list li a{
+    transition: 0.3s;
     color: white;
-    font-size: 24px;
-    padding: 4px 18px;
-    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 20px;
+    border-radius: 5px;
     text-transform: uppercase;
 }
-nav ul li a:hover{
+.nav-list li a:hover{
+    transition: .5s;
     background-color: hsla(33, 100%, 88%, 0.555);
-    transition: .6s;
 }
-nav ul li .active{
-    color: rgb(184, 63, 32);
+.nav-list li .active{
+    color: rgba(0, 0, 0, 0.850);
 }
-body{
-    background-color: blanchedalmond;
-    margin-top: 0px;
+.nav-projects + li:before{
+    color: white;
+    content: ' | ';
+    position: relative;
+    top: -2px;
 }
-h1{
-    color: red;
+.return-to-index + li:before{
+    color: white;
+    content: ' | ';
+    position: relative;
+    top: -2px;
+}
+@media (max-width: 42rem){
+    .nav-list li a{
+        transition: 0.3s;
+        padding: 4px 6px;
+        font-size: 14px;
+    }
+}
+.welcome-section{
+    padding: 12rem 2rem;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background-color: rgb(255, 220, 178);
+}
+.mainBody-h1{
+    transition: 0.3s;
+    color:cornsilk;
+    font-size: 8rem;
+    text-transform: uppercase;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
+    -webkit-text-stroke-width: 2px;
+}
+@media (max-width: 58rem){
+    .mainBody-h1{
+        transition: 0.3s;
+        font-size: 6rem;
+        -webkit-text-stroke-width: 1.5px;
+    }
+}
+@media (max-width: 50rem){
+    .mainBody-h1{
+        transition: 0.3s;
+        font-size: 4rem;
+        -webkit-text-stroke-width: 1.2px;
+    }
+}
+.projects-section-header{
+    font-size: 2.5rem;
+    text-align: center;
+    text-decoration: underline;
+}
+.projects-section{
+    height: auto;
+    padding: 6rem 2rem;
+    scroll-snap-align: start;
+    background-color: rgba(255, 235, 205, 0.800);
+}
+.project-grid{
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(28rem, 28rem));
+    grid-gap: 4rem;
+    width: 100%;
+    max-width: 1240px;
+    text-align: center;
+    justify-content: center;
+}
+@media (max-width: 66rem){
+    .project-grid{
+        grid-template-columns: repeat(1, minmax(28rem, 28rem));
+    }
+}
+.project-title{
+    color: white;
+    padding: 0.3rem;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    background-color: rgba(222, 184, 135, 0.700);
+}
+.project-tile{
+    padding-top: 14rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.project-tile:hover{
+    transition: 0.2s;
+    box-shadow: 0px 5px 15px firebrick;
+}
+.footer{
+    color: aliceblue;
+    padding-top: 2rem;
+    text-align: center;
+    height: 30vh;
+    scroll-snap-align: end;
+    background-color: #000000d0;
 }
