@@ -1,0 +1,28 @@
+{% extends "pages/base/base.html" %}
+{% block title %}About Page{% endblock %}
+
+<!-- Nav bar highlight -->
+{% block ABOUT %}class="active"{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block navListSubBut %}
+<li class="return-to-index">
+    <a href="{{ url_for('index') }}">Return</a>
+</li>
+{% endblock %}
+
+{% block body %}
+<section id="welcome-section" class="welcome-section">
+    <h1 class="mainBody-h1">About us</h1>
+    <p>FUCK YOU</p>
+</section>
+{% endblock %}
+
+{% block footer %}
+About Page
+{% endblock %}
