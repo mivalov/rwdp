@@ -84,7 +84,7 @@
     scroll-snap-stop: always;
     background-color: rgb(255, 220, 178);
 }
-.mainBody-h1{
+.main-body-h1{
     transition: 0.3s;
     color:cornsilk;
     font-size: 8rem;
@@ -93,14 +93,14 @@
     -webkit-text-stroke-width: 2px;
 }
 @media (max-width: 58rem){
-    .mainBody-h1{
+    .main-body-h1{
         transition: 0.3s;
         font-size: 6rem;
         -webkit-text-stroke-width: 1.5px;
     }
 }
 @media (max-width: 50rem){
-    .mainBody-h1{
+    .main-body-h1{
         transition: 0.3s;
         font-size: 4rem;
         -webkit-text-stroke-width: 1.2px;
