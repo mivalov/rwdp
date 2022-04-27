@@ -3,9 +3,8 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-}
-html{
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 .nav{
     display: flex;
@@ -32,8 +31,8 @@ html{
     text-transform: uppercase;
 }
 .logo a:hover{
-    background-color: hsla(33, 100%, 88%, 0.555);
     transition: .5s;
+    background-color: hsla(33, 100%, 88%, 0.555);
 }
 .nav-list{
     float: right;
@@ -43,16 +42,16 @@ html{
     list-style: none;
 }
 .nav-list li a{
+    transition: 0.3s;
     color: white;
     padding: 4px 12px;
     font-size: 20px;
     border-radius: 5px;
     text-transform: uppercase;
-    transition: 0.3s;
 }
 .nav-list li a:hover{
-    background-color: hsla(33, 100%, 88%, 0.555);
     transition: .5s;
+    background-color: hsla(33, 100%, 88%, 0.555);
 }
 .nav-list li .active{
     color: rgba(0, 0, 0, 0.850);
@@ -71,37 +70,40 @@ html{
 }
 @media (max-width: 42rem){
     .nav-list li a{
+        transition: 0.3s;
         padding: 4px 6px;
         font-size: 14px;
-        transition: 0.3s;
     }
-}
-.mainBody-h1{
-    font-size: 8rem;
-    text-transform: uppercase;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
-    -webkit-text-stroke-width: 2px;
-    color:cornsilk;
-    transition: 0.3s;
 }
 .welcome-section{
     padding: 12rem 2rem;
     text-align: center;
     width: 100%;
     height: 100vh;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     background-color: rgb(255, 220, 178);
+}
+.mainBody-h1{
+    transition: 0.3s;
+    color:cornsilk;
+    font-size: 8rem;
+    text-transform: uppercase;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
+    -webkit-text-stroke-width: 2px;
 }
 @media (max-width: 58rem){
     .mainBody-h1{
-        font-size: 6rem;
         transition: 0.3s;
+        font-size: 6rem;
+        -webkit-text-stroke-width: 1.5px;
     }
 }
 @media (max-width: 50rem){
     .mainBody-h1{
-        font-size: 4rem;
         transition: 0.3s;
+        font-size: 4rem;
+        -webkit-text-stroke-width: 1.2px;
     }
 }
 .projects-section-header{
@@ -112,6 +114,7 @@ html{
 .projects-section{
     height: auto;
     padding: 6rem 2rem;
+    scroll-snap-align: start;
     background-color: rgba(255, 235, 205, 0.800);
 }
 .project-grid{
@@ -147,8 +150,9 @@ html{
 }
 .footer{
     color: aliceblue;
-    background-color: #000000d0;
     padding-top: 2rem;
     text-align: center;
     height: 30vh;
+    scroll-snap-align: end;
+    background-color: #000000d0;
 }
