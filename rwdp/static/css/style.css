@@ -161,6 +161,11 @@
         height: auto;
     }
 }
+@media (min-height: 1px) and (max-width: 1920px){
+    .projects-section{
+        height: auto;
+    }
+}
 /* ================================================================= */
 .footer{
     color: aliceblue;
