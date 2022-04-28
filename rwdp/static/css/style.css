@@ -1,3 +1,9 @@
+:root{
+    /* MAIN COLORS */
+    --main-clr: burlywood;
+    --nav-text-clr: white;
+    --nav-hover-clr: hsla(33, 100%, 88%, 0.555);
+}
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +12,7 @@
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
+/* ================================================================= */
 .nav{
     display: flex;
     justify-content: flex-end;
@@ -18,10 +25,10 @@
     line-height: 45px;
     display: inline-block;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    background-color: burlywood;
+    background-color: var(--main-clr);
 }
 .logo a{
-    color: white;
+    color: var(--nav-text-clr);
     margin-left: 3rem;
     padding: 0px 8px;
     float: left;
@@ -32,7 +39,7 @@
 }
 .logo a:hover{
     transition: .5s;
-    background-color: hsla(33, 100%, 88%, 0.555);
+    background-color: var(--nav-hover-clr);
 }
 .nav-list{
     float: right;
@@ -41,40 +48,41 @@
     display: inline-block;
     list-style: none;
 }
-.nav-list li a{
+.nav-list li .active{
+    color: rgba(0, 0, 0, 0.850);
+}
+.nav-list a{
     transition: 0.3s;
-    color: white;
+    color: var(--nav-text-clr);
     padding: 4px 12px;
     font-size: 20px;
     border-radius: 5px;
     text-transform: uppercase;
 }
-.nav-list li a:hover{
+.nav-list a:hover{
     transition: .5s;
-    background-color: hsla(33, 100%, 88%, 0.555);
-}
-.nav-list li .active{
-    color: rgba(0, 0, 0, 0.850);
+    background-color: var(--nav-hover-clr);
 }
 .nav-projects + li:before{
-    color: white;
+    color: var(--nav-text-clr);
     content: ' | ';
     position: relative;
     top: -2px;
 }
 .return-to-index + li:before{
-    color: white;
+    color: var(--nav-text-clr);
     content: ' | ';
     position: relative;
     top: -2px;
 }
 @media (max-width: 42rem){
-    .nav-list li a{
+    .nav-list a{
         transition: 0.3s;
         padding: 4px 6px;
         font-size: 14px;
     }
 }
+/* ================================================================= */
 .welcome-section{
     padding: 12rem 2rem;
     text-align: center;
@@ -87,72 +95,79 @@
 .main-body-h1{
     transition: 0.3s;
     color:cornsilk;
-    font-size: 8rem;
+    margin-inline: auto;
+    font-size: clamp(3rem, 4vw + 1rem, 6rem);
+    text-align: center;
+    justify-content: center;
     text-transform: uppercase;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: clamp(1.4px, 0.1vw, 2.4px);
 }
-@media (max-width: 58rem){
-    .main-body-h1{
-        transition: 0.3s;
-        font-size: 6rem;
-        -webkit-text-stroke-width: 1.5px;
-    }
+.welcome-section p{
+    font-size: clamp(1rem, 1vw + 5px, 2vw);
 }
-@media (max-width: 50rem){
-    .main-body-h1{
-        transition: 0.3s;
-        font-size: 4rem;
-        -webkit-text-stroke-width: 1.2px;
-    }
-}
+/* ================================================================= */
 .projects-section-header{
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 2vw + 5px, 3vw);
     text-align: center;
     text-decoration: underline;
 }
 .projects-section{
-    height: auto;
     padding: 6rem 2rem;
+    height: 100vh;
     scroll-snap-align: start;
     background-color: rgba(255, 235, 205, 0.800);
 }
 .project-grid{
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 6vh;
     display: grid;
-    grid-template-columns: repeat(2, minmax(28rem, 28rem));
-    grid-gap: 4rem;
-    width: 100%;
-    max-width: 1240px;
+    grid-template-columns: repeat(2, minmax(clamp( 200px, 40vw, 550px), 28vw));
+    grid-gap: clamp(2rem, 2vw, 4rem);
     text-align: center;
     justify-content: center;
 }
-@media (max-width: 66rem){
-    .project-grid{
-        grid-template-columns: repeat(1, minmax(28rem, 28rem));
-    }
-}
 .project-title{
     color: white;
-    padding: 0.3rem;
-    font-size: 1.4rem;
+    padding: 4px;
+    font-size: clamp(1.5rem, 1.5vw + 5px, 2rem);
     letter-spacing: 1px;
-    background-color: rgba(222, 184, 135, 0.700);
+    background-color: var(--main-clr);
 }
 .project-tile{
-    padding-top: 14rem;
+    aspect-ratio: 16/9;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 .project-tile:hover{
     transition: 0.2s;
     box-shadow: 0px 5px 15px firebrick;
 }
+@media (max-width: 60rem){
+    .projects-section{
+        height: auto;
+    }
+    .project-grid{
+        grid-template-columns: repeat(1, minmax(clamp( 400px, 50vw, 550px), 28vw));
+    }
+}
+/* TODO improve functionality */
+@media (max-width: 1919px){
+    .projects-section{
+        height: auto;
+    }
+}
+@media (min-width: 1921px){
+    .projects-section{
+        height: auto;
+    }
+}
+/* ================================================================= */
 .footer{
     color: aliceblue;
     padding-top: 2rem;
-    text-align: center;
     height: 30vh;
+    font-size: clamp(1rem, 2vw + 5px, 1.5rem);
+    text-align: center;
     scroll-snap-align: end;
     background-color: #000000d0;
 }
