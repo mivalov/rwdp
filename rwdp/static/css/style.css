@@ -114,7 +114,7 @@
 }
 .projects-section{
     padding: 6rem 2rem;
-    height: 100vh;
+    height: auto;
     scroll-snap-align: start;
     background-color: rgba(255, 235, 205, 0.800);
 }
@@ -143,27 +143,8 @@
     box-shadow: 0px 5px 15px firebrick;
 }
 @media (max-width: 60rem){
-    .projects-section{
-        height: auto;
-    }
     .project-grid{
         grid-template-columns: repeat(1, minmax(clamp( 400px, 50vw, 550px), 28vw));
-    }
-}
-/* TODO improve functionality */
-@media (max-width: 1919px){
-    .projects-section{
-        height: auto;
-    }
-}
-@media (min-width: 1921px){
-    .projects-section{
-        height: auto;
-    }
-}
-@media (min-height: 1px) and (max-width: 1920px){
-    .projects-section{
-        height: auto;
     }
 }
 /* ================================================================= */
