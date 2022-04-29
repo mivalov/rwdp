@@ -1,6 +1,7 @@
 :root{
     /* MAIN COLORS */
     --main-clr: burlywood;
+    --selected-clr: rgba(0, 0, 0, 0.850);
     --nav-text-clr: white;
     --nav-hover-clr: hsla(33, 100%, 88%, 0.550);
     --nav-hover-text-clr: rgba(0, 0, 0, 0.850);
@@ -56,7 +57,7 @@
     list-style: none;
 }
 .nav-list li .active{
-    color: var(--nav-hover-text-clr);
+    color: var(--selected-clr);
 }
 .nav-list a{
     transition: 0.3s;
