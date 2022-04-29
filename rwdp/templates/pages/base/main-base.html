@@ -13,42 +13,41 @@
     {% block head %}{% endblock %}
   </head>
 
-<header>
-  {% block nav %}
-  <nav id="navbar" class="nav">
-    <label class="logo">
-      <a href="{{ url_for('index') }}">rwdp</a>
-    </label>
-
-    <ul class="nav-list">
-      {% block nav_extra_buttons %}
-      <li class="nav-home">
-        <a href="#welcome-section">
-          Home</a>
-      </li>
-      <li class="nav-projects">
-        <a href="#projects">
-          Projects</a>
-      </li>
-      {% endblock %}
-      <li class="nav-about">
-        <a href="{{ url_for('about') }}"
-           {% block ABOUT %}{% endblock %}>
-          About</a>
-      </li>
-      <li class="nav-github">
-        <a id="profile-link"
-           href="https://github.com/mivalov/rwdp"
-           target="_blank">
-          Github &#x2750;</a>
-      </li>
-    </ul>
-  </nav>
-  {% endblock %}
-  {% block header %}{% endblock %}
-</header>
-
 <body>
+  <header>
+    {% block nav %}
+    <nav id="navbar" class="nav">
+      <label class="logo">
+        <a href="{{ url_for('index') }}">rwdp</a>
+      </label>
+
+      <ul class="nav-list">
+        {% block nav_extra_buttons %}
+        <li class="nav-home">
+          <a href="#welcome-section">
+            Home</a>
+        </li>
+        <li class="nav-projects">
+          <a href="#projects">
+            Projects</a>
+        </li>
+        {% endblock %}
+        <li class="nav-about">
+          <a href="{{ url_for('about') }}"
+             {% block ABOUT %}{% endblock %}>
+            About</a>
+        </li>
+        <li class="nav-github">
+          <a id="profile-link"
+             href="https://github.com/mivalov/rwdp"
+             target="_blank">
+            Github &#x2750;</a>
+        </li>
+      </ul>
+    </nav>
+    {% endblock %}
+    {% block header %}{% endblock %}
+  </header>
   {% block body %}{% endblock %}
 </body>
 
