@@ -28,11 +28,14 @@
       </li>
       {% endblock %}
       <li class="nav-about">
-        <a href="{{ url_for('about') }}" {% block ABOUT %}{% endblock %}>
+        <a href="{{ url_for('about') }}"
+           {% block ABOUT %}{% endblock %}>
           About</a>
       </li>
       <li class="nav-github">
-        <a href="https://github.com/mivalov/rwdp" target="_blank">
+        <a id="profile-link"
+           href="https://github.com/mivalov/rwdp"
+           target="_blank">
           Github &#x2750;</a>
       </li>
     </ul>
