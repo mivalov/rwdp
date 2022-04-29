@@ -2,7 +2,9 @@
     /* MAIN COLORS */
     --main-clr: burlywood;
     --nav-text-clr: white;
-    --nav-hover-clr: hsla(33, 100%, 88%, 0.555);
+    --nav-hover-clr: hsla(33, 100%, 88%, 0.550);
+    --nav-hover-text-clr: rgba(0, 0, 0, 0.850);
+    --nav-click-clr: rgba(255, 240, 220, 0.85);
 }
 *{
     margin: 0;
@@ -29,7 +31,7 @@
 }
 .logo a{
     color: var(--nav-text-clr);
-    margin-left: 3rem;
+    margin-left: 2.8rem;
     padding: 0px 8px;
     float: left;
     font-size: 32px;
@@ -39,7 +41,12 @@
 }
 .logo a:hover{
     transition: .5s;
+    color: var(--nav-hover-text-clr);
     background-color: var(--nav-hover-clr);
+}
+.logo a:active{
+    transition: .5s;
+    background-color: var(--nav-click-clr);
 }
 .nav-list{
     float: right;
@@ -49,19 +56,24 @@
     list-style: none;
 }
 .nav-list li .active{
-    color: rgba(0, 0, 0, 0.850);
+    color: var(--nav-hover-text-clr);
 }
 .nav-list a{
     transition: 0.3s;
     color: var(--nav-text-clr);
-    padding: 4px 12px;
+    padding: 4px 10px;
     font-size: 20px;
     border-radius: 5px;
     text-transform: uppercase;
 }
 .nav-list a:hover{
-    transition: .5s;
+    transition: 0.5s;
+    color: var(--nav-hover-text-clr);
     background-color: var(--nav-hover-clr);
+}
+.nav-list a:active{
+    transition: 0.2s;
+    background-color: var(--nav-click-clr);
 }
 .nav-projects + li:before{
     color: var(--nav-text-clr);
@@ -78,8 +90,8 @@
 @media (max-width: 42rem){
     .nav-list a{
         transition: 0.3s;
-        padding: 4px 6px;
-        font-size: 14px;
+        padding: 6px 4px;
+        font-size: 16px;
     }
 }
 /* ================================================================= */
