@@ -1,4 +1,4 @@
-{% extends "pages/base/base.html" %}
+{% extends "pages/base/main-base.html" %}
 
 {% block title %}
 About Page
@@ -15,17 +15,15 @@ class="active"
 {% block header %}
 {% endblock %}
 
-{% block navListSubBut %}
-<li class="return-to-index">
-  <a href="{{ url_for('index') }}">&#x21e6; Return</a>
-</li>
+{% block nav_extra_buttons %}
+{% include "pages/base/nav-return-btn-base.html" %}
 {% endblock %}
 
 {% block body %}
-<section id="welcome-section" class="welcome-section">
-  <h1 class="main-body-h1">About us</h1>
-  <p>FUCK YOU</p>
-</section>
+  <section id="welcome-section" class="welcome-section">
+    <h1 class="main-body-h1">About us</h1>
+    <p>FUCK YOU</p>
+  </section>
 {% endblock %}
 
 {% block footer %}

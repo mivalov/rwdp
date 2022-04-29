@@ -1,7 +1,47 @@
-{% extends "pages/base/base.html" %}
+{% extends "pages/base/main-base.html" %}
 
 {% block title %}
 Home Page
+{% endblock %}
+
+{% block body %}
+  <section id="welcome-section" class="welcome-section">
+    <h1 class="main-body-h1">Welcome</h1>
+    <p>PEASANT</p>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2 class="projects-section-header">
+      HERE ARE SOME OF MY PROJECTS
+    </h2>
+
+    <div class="project-grid">
+      <a class="project-tile"
+         href="{{ url_for('surveyForm') }}"
+         target="_self">
+        <img class="project-image"/>
+        <p class="project-title">Survey Form</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('tributePage') }}"
+         target="_parent">
+        <img class="project-image"/>
+        <p class="project-title">Tribute Page</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('productLandingPage') }}"
+         target="_self">
+        <img class="project-image"/>
+        <p class="project-title">Product Landing Page</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('technicalDocumentationPage') }}"
+         target="_self">
+        <img class="project-image"/>
+        <p class="project-title">Technical Documentation Page</p>
+      </a>
+    </div>
+  </section>
 {% endblock %}
 
 {% block footer %}
