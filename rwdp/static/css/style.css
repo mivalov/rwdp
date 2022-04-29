@@ -113,8 +113,10 @@
     text-decoration: underline;
 }
 .projects-section{
-    padding: 6rem 2rem;
-    height: auto;
+    padding: 6rem 2rem 4rem;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     scroll-snap-align: start;
     background-color: rgba(255, 235, 205, 0.800);
 }
