@@ -1,0 +1,80 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+    padding: 0px 10px;
+    line-height: 45px;
+    display: inline-block;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--main-clr);
+}
+.logo a {
+    color: var(--nav-text-clr);
+    margin-left: 2.8rem;
+    padding: 0px 8px;
+    outline: none;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+.logo a:hover, .logo a:focus {
+    transition: .5s;
+    color: var(--nav-hover-text-clr);
+    background-color: var(--nav-hover-clr);
+}
+.logo a:active {
+    transition: .5s;
+    background-color: var(--nav-click-clr);
+}
+.nav-list {
+    float: right;
+}
+.nav-list li {
+    list-style: none;
+    display: inline-block;
+}
+.nav-list li .active {
+    color: var(--selected-clr);
+}
+.nav-list a {
+    transition: 0.3s;
+    outline: none;
+    color: var(--nav-text-clr);
+    padding: 4px 10px;
+    font-size: clamp(15px, 2vw, 20px);
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.nav-list a:hover, .nav-list a:focus {
+    transition: 0.5s;
+    color: var(--nav-hover-text-clr);
+    background-color: var(--nav-hover-clr);
+}
+.nav-list a:active {
+    transition: 0.2s;
+    background-color: var(--nav-click-clr);
+}
+.nav-projects + li:before {
+    color: var(--nav-text-clr);
+    content: ' | ';
+    position: relative;
+    top: -2px;
+}
+.return-to-index + li:before {
+    color: var(--nav-text-clr);
+    content: ' | ';
+    position: relative;
+    top: -2px;
+}
+@media (max-width: 50rem) {
+    .nav-list a {
+        transition: 0.3s;
+        padding: 6px 4px;
+    }
+}

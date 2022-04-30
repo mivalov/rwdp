@@ -42,97 +42,7 @@
     transform: translateX(0);
 }
 /* ================================================================= */
-.nav {
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 45px;
-    width: 100%;
-    padding: 0px 10px;
-    line-height: 45px;
-    display: inline-block;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    background-color: var(--main-clr);
-}
-.logo a {
-    color: var(--nav-text-clr);
-    margin-left: 2.8rem;
-    padding: 0px 8px;
-    outline: none;
-    float: left;
-    font-size: 32px;
-    font-weight: bold;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-}
-.logo a:hover, .logo a:focus {
-    transition: .5s;
-    color: var(--nav-hover-text-clr);
-    background-color: var(--nav-hover-clr);
-}
-.logo a:active {
-    transition: .5s;
-    background-color: var(--nav-click-clr);
-}
-.nav-list {
-    float: right;
-}
-.nav-list li {
-    list-style: none;
-    display: inline-block;
-}
-.nav-list li .active {
-    color: var(--selected-clr);
-}
-.nav-list a {
-    transition: 0.3s;
-    outline: none;
-    color: var(--nav-text-clr);
-    padding: 4px 10px;
-    font-size: clamp(15px, 2vw, 20px);
-    border-radius: 5px;
-    text-transform: uppercase;
-}
-.nav-list a:hover, .nav-list a:focus {
-    transition: 0.5s;
-    color: var(--nav-hover-text-clr);
-    background-color: var(--nav-hover-clr);
-}
-.nav-list a:active {
-    transition: 0.2s;
-    background-color: var(--nav-click-clr);
-}
-.nav-projects + li:before {
-    color: var(--nav-text-clr);
-    content: ' | ';
-    position: relative;
-    top: -2px;
-}
-.return-to-index + li:before {
-    color: var(--nav-text-clr);
-    content: ' | ';
-    position: relative;
-    top: -2px;
-}
-@media (max-width: 50rem) {
-    .nav-list a {
-        transition: 0.3s;
-        padding: 6px 4px;
-    }
-}
-/* ================================================================= */
-.welcome-section {
-    padding: 12rem 2rem;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    background-color: rgb(255, 220, 178);
-}
-.main-body-h1 {
+.welcome-section-header {
     transition: 0.3s;
     color:cornsilk;
     margin-inline: auto;
@@ -143,16 +53,20 @@
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
     -webkit-text-stroke-width: clamp(1.4px, 0.1vw, 2.4px);
 }
+.welcome-section {
+    padding: 12rem 2rem;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background-color: rgb(255, 220, 178);
+}
 .welcome-section p {
     font-size: clamp(1rem, 1vw + 5px, 2vw);
 }
 /* ================================================================= */
-.projects-section-header {
-    font-size: clamp(1.5rem, 2vw + 5px, 3vw);
-    text-align: center;
-    text-decoration: underline;
-}
-.projects-section {
+.project-section {
     padding: 6rem 2rem 4rem;
     height: 100vh;
     overflow-x: hidden;
@@ -160,42 +74,7 @@
     scroll-snap-align: start;
     background-color: rgba(255, 235, 205, 0.800);
 }
-.project-grid {
-    margin: 0 auto;
-    margin-top: 6vh;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(clamp( 200px, 40vw, 550px), 28vw));
-    grid-gap: clamp(2rem, 2vw, 4rem);
-    text-align: center;
-    justify-content: center;
-}
-.project-title {
-    color: white;
-    padding: 4px;
-    font-size: clamp(1.5rem, 1.5vw + 5px, 2rem);
-    letter-spacing: 1px;
-    background-color: var(--main-clr);
-}
-.project-tile {
-    outline: none;
-    border-radius: 0.2rem;
-    aspect-ratio: 16/9;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-}
-.project-tile:hover {
-    transition: 0.2s;
-    box-shadow: 0px 5px 15px firebrick;
-}
-.project-tile:focus {
-    scroll-snap-align: center;
-    border: 3px solid black;
-    box-shadow: 0px 5px 15px firebrick;
-}
-@media (max-width: 60rem) {
-    .project-grid {
-        grid-template-columns: repeat(1, minmax(clamp( 400px, 50vw, 550px), 28vw));
-    }
-}
+
 /* ================================================================= */
 .footer {
     color: aliceblue;

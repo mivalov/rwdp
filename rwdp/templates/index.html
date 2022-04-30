@@ -1,17 +1,22 @@
 {% extends "pages/base/main-base.html" %}
 
+{% block extra_stylesheets %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"/>
+{% endblock %}
+
 {% block title %}
 Home Page
 {% endblock %}
 
 {% block body %}
   <section id="welcome-section" class="welcome-section">
-    <h1 class="main-body-h1">Welcome</h1>
+    <h1 class="welcome-section-header">Welcome</h1>
     <p>PEASANT</p>
   </section>
 
-  <section id="projects" class="projects-section">
-    <h2 class="projects-section-header">
+  <section id="projects" class="project-section">
+    <h2 class="project-section-header">
       HERE ARE SOME OF MY PROJECTS
     </h2>
 

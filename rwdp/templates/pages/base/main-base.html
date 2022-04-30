@@ -5,11 +5,16 @@
     <meta name="viewpoint"
           content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet"
-          {% block stylesheet %}
-          href="{{ url_for('static', filename='css/style.css') }}"
-          {% endblock %}/>
-    {% block stylesheet_2 %}{% endblock %}
+          href="{{ url_for('static', filename='css/nav.css') }}"/>
+    {% block main_stylesheet %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}"/>
+    {% endblock %}
+    {% block extra_stylesheets %}
+    {% endblock %}
+
     <title>{% block title %}{% endblock %}</title>
+
     {% block head %}{% endblock %}
   </head>
 
@@ -48,6 +53,7 @@
       </ul>
     </nav>
     {% endblock %}
+
     {% block header %}{% endblock %}
   </header>
   {% block body %}{% endblock %}
