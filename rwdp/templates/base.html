@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <title>{% block title %}{% endblock %}</title>
-        {% block head %}
-        {% endblock %}
-    </head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+</head>
 
-    <header>
-        <nav class="navbar">
-            <!--label class="open-slide">
-                <a href="">
-                    <svg width="30" height="30">
-                        <path d="M0,5 30,5" stroke="#fff"
-                        stroke-width="5"/>
-                        <path d="M0,14 30,14" stroke="#fff"
-                        stroke-width="5"/>
-                        <path d="M0,23 30,23" stroke="#fff"
-                        stroke-width="5"/>
-                    </svg>
-                </a>
-            </label-->
-            <label class="logo">
-                ☰ rwdp
-            </label>
-            <ul>
-                <li><a href="{{ url_for('home') }}" {% block HOME %}{% endblock %}>Home</a></li>
-                <li><a href="{{ url_for('about') }}" {% block ABOUT %}{% endblock %}>About</a></li>
-                <li><a href="https://github.com/mivalov/rwdp" target="_blank" >Github</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <!--label class="open-slide">
+            <a href="">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff"
+                    stroke-width="5"/>
+                    <path d="M0,14 30,14" stroke="#fff"
+                    stroke-width="5"/>
+                    <path d="M0,23 30,23" stroke="#fff"
+                    stroke-width="5"/>
+                </svg>
+            </a>
+        </label-->
+        <label class="logo">
+            ☰ rwdp
+        </label>
+        <ul>
+            <li>
+                <a href="{{ url_for('home') }}" {% block HOME %}{% endblock %}>Home</a>
+            </li>
+            <li>
+                <a href="{{ url_for('about') }}" {% block ABOUT %}{% endblock %}>About</a>
+            </li>
+            <li>
+                <a href="https://github.com/mivalov/rwdp" target="_blank">Github</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
-    <body>
-        <h1>Base Page Header</h1>
-        <h3>{% block body %}{% endblock %}</h3>
-    </body>
+<body>
+<h1>Base Page Header</h1>
+<h3>{% block body %}{% endblock %}</h3>
+</body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
