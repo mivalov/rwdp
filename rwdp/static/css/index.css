@@ -27,12 +27,12 @@
 }
 .project-tile:hover {
     transition: 0.2s;
-    box-shadow: 0px 5px 15px firebrick;
+    box-shadow: 0px 5px 15px var(--nav-hover-text-clr);
 }
 .project-tile:focus {
     scroll-snap-align: center;
     border: 3px solid black;
-    box-shadow: 0px 5px 15px firebrick;
+    box-shadow: 0px 5px 15px var(--nav-hover-text-clr);
 }
 @media (max-width: 60rem) {
     .project-grid {

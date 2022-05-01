@@ -2,10 +2,6 @@
     /* MAIN COLORS */
     --main-clr: burlywood;
     --selected-clr: rgba(0, 0, 0, 0.850);
-    --nav-text-clr: white;
-    --nav-hover-clr: hsla(33, 100%, 88%, 0.550);
-    --nav-hover-text-clr: rgba(0, 0, 0, 0.850);
-    --nav-click-clr: rgba(255, 240, 220, 0.85);
 }
 * {
     margin: 0;
@@ -14,32 +10,6 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-}
-/* ================================================================= */
-.skip-nav {
-    transition: 0.5s;
-    font-family: Arial;
-    position: fixed;
-    z-index: 99;
-    padding: 0.5rem;
-    top: 4rem;
-    left: 0.5rem;
-    font-size: clamp(0.6rem, 2vw, 1rem);
-    letter-spacing: 0.5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: transparent;
-    border: 2px solid transparent;
-    border-radius: 0.5rem;
-    transform: translateX(-120%);
-}
-.skip-nav:focus {
-    outline: none;
-    transition: 0.5s;
-    color: var(--nav-hover-text-clr);
-    border: 2px solid black;
-    background-color: white;
-    transform: translateX(0);
 }
 /* ================================================================= */
 .welcome-section-header {
