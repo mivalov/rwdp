@@ -18,49 +18,51 @@
   </head>
 
 <body>
-  <header>
+  <header id="header">
     <a class="skip-nav" href="#projects"> skip navigation</a>
 
     {% block nav %}
     <nav id="navbar" class="nav">
-      <label class="logo">
-        <a href="{{ url_for('index') }}">rwdp</a>
-      </label>
-
       <ul class="nav-list">
+        <li class="nav-item nav-logo">
+          <a href="{{ url_for('index') }}">
+            rwdp</a>
+        </li>
         {% block nav_extra_buttons %}
-        <li class="nav-home">
+        <li class="nav-item nav-home">
           <a href="#welcome-section">
             Home</a>
         </li>
-        <li class="nav-projects">
+        <li class="nav-item nav-projects">
           <a href="#projects">
             Projects</a>
         </li>
         {% endblock %}
-        <li class="nav-about">
+        <li class="nav-item nav-about">
           <a href="{{ url_for('about') }}"
-             {% block ABOUT %}{% endblock %}>
+            {% block ABOUT %}{% endblock %}>
             About</a>
         </li>
-        <li class="nav-github">
+        <li class="nav-item nav-github">
           <a id="profile-link"
-             href="https://github.com/mivalov/rwdp"
-             target="_blank">
-            Github &#x2750;</a>
+            href="https://github.com/mivalov/rwdp"
+            target="_blank">
+            Github</a>
         </li>
       </ul>
     </nav>
     {% endblock %}
-
     {% block header %}{% endblock %}
   </header>
-  {% block body %}{% endblock %}
-</body>
 
-<footer class="footer">
-  {% block footer %}{% endblock %}
-</footer>
+  <main id="main">
+  {% block body %}{% endblock %}
+  </main>
+
+  <footer id="footer">
+    {% block footer %}{% endblock %}
+  </footer>
+</body>
 
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
