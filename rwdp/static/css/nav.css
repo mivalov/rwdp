@@ -171,6 +171,14 @@
 #profile-link:hover, #profile-link:focus {
     color: var(--nav-text-clr);
 }
+.nav-projects {
+    border-right: 0.15rem solid white;
+    padding: 0 1rem 0 0;
+}
+.return-to-index {
+    border-right: 0.15rem solid white;
+    padding: 0 1rem 0 0;
+}
 @media screen and (max-width: 40rem) {
     .nav-item:not(.nav-logo) {
         margin: 0 0.2rem;
@@ -178,5 +186,11 @@
     .nav-item:not(.nav-logo) a {
         font-size: 1.4rem;
         padding: 0.5rem 0.5rem;
+    }
+    .nav-projects {
+        padding: 0 0.4rem 0 0;
+    }
+    .return-to-index {
+        padding: 0 0.4rem 0 0;
     }
 }
