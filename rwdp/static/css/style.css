@@ -1,112 +1,50 @@
-/* :root {
-    --main-clr: burlywood;
-    --selected-clr: rgba(0, 0, 0, 0.850);
-}
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-}
-
-.welcome-section-header {
-    color:cornsilk;
-    margin-inline: auto;
-    font-size: clamp(3rem, 4vw + 1rem, 6rem);
-    text-align: center;
-    justify-content: center;
-    text-transform: uppercase;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.850);
-    -webkit-text-stroke-width: clamp(1.4px, 0.1vw, 2.4px);
-}
-.welcome-section {
-    padding: 12rem 2rem;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    background-color: rgb(255, 220, 178);
-}
-.welcome-section p {
-    font-size: clamp(1rem, 1vw + 5px, 2vw);
-}
-
-.project-section {
-    padding: 6rem 2rem 4rem;
-    height: 100vh;
-    scroll-snap-align: start;
-    background-color: rgba(255, 235, 205, 0.800);
-}
-
-.footer {
-    color: aliceblue;
-    padding-top: 2rem;
-    height: 30vh;
-    font-size: clamp(1rem, 2vw + 5px, 1.5rem);
-    text-align: center;
-    scroll-snap-align: end;
-    background-color: #000000d0;
-}
-@media screen and (max-width: 60rem) {
-    .project-section {
-        height: auto;
-    }
-}
-@media screen and (max-height: 45rem) {
-    .project-section {
-        height: auto;
-    }
-} */
-
-
-
 :root {
-    --primary-clr: #4AD951;
-    --accent-clr: #CC465F;
+    --primary-clr: #2c2c2c;
+    --accent-clr: #31CC39;
+    --accent-clr-2: #CC465F;
 }
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
 .welcome-section-header {
     font-size: min(6vw, 8rem);
+    text-transform: uppercase;
 }
 .welcome-section p {
-    font-size: min(3vw, 2rem);
+    font-size: min(3vw, 4rem);
 }
 .welcome-section {
-    height: 100vh;
-    padding: 12rem 2rem;
-    text-align: center;
     scroll-snap-align: start;
+    padding: 20rem 2rem 10rem;
+    min-height: 100vh;
+    text-align: center;
+    background: rgb(44,44,44);
+    background: linear-gradient(0deg, rgba(44,44,44,1) 0%, rgba(84,84,84,1) 100%);
+
     /* background: rgb(255,72,72);
     background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
     /* background: rgb(255,191,0);
     background: linear-gradient(0deg, rgba(255,191,0,1) 0%, rgba(211,107,75,1) 40%, rgba(255,255,255,1) 100%); */
-    background: rgb(44,44,44);
-    background: linear-gradient(0deg, rgba(44,44,44,1) 0%, rgba(84,84,84,1) 100%);
 }
 .project-section {
-    min-height: 100vh;
-    padding: 8rem 2rem 6rem;
     scroll-snap-align: start;
-    background-color: var(--accent-clr);
+    padding: 8rem 2rem 6rem;
+    min-height: 100vh;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--accent-clr-2);
 }
 #footer {
-    height: 30vh;
-    padding: 2rem 5rem 5rem;
-    font-size: 2rem;
     scroll-snap-align: end;
+    padding: 2rem 5rem 5rem;
+    height: 30vh;
+    font-size: 2rem;
     text-align: center;
 }
