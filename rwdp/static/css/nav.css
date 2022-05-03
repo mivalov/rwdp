@@ -38,7 +38,7 @@
     0%   {border: 2px solid var(--nav-primary-clr);}
     50%  {border: 2px solid var(--nav-accent-clr);}
     100% {border: 2px solid var(--nav-primary-clr);}
-  }
+}
 .skip-nav:hover {
     transition: 0.1s ease-out;
     color: var(--nav-accent-clr);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8"/>
     <meta name="viewpoint"
           content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet"
@@ -18,7 +18,7 @@
   </head>
 
 <body>
-  <header id="header">
+  <header>
     <a class="skip-nav" href="#projects"> skip navigation</a>
 
     {% block nav %}
@@ -55,11 +55,11 @@
     {% block header %}{% endblock %}
   </header>
 
-  <main id="main">
+  <main>
   {% block body %}{% endblock %}
   </main>
 
-  <footer id="footer">
+  <footer>
     {% block footer %}{% endblock %}
   </footer>
 </body>
