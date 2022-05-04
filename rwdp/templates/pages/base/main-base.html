@@ -55,13 +55,17 @@
     {% block header %}{% endblock %}
   </header>
 
-  <main>
-  {% block body %}{% endblock %}
-  </main>
+  <div class="wrap-content">
+    <main>
+    {% block main %}{% endblock %}
+    </main>
 
-  <footer>
+    <footer>
     {% block footer %}{% endblock %}
-  </footer>
+    </footer>
+  </div>
+
+{% block body %}{% endblock %}
 </body>
 
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
