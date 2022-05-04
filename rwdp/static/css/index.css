@@ -5,7 +5,7 @@
     font-size: min(4vw, 4rem);
     text-align: center;
     text-transform: uppercase;
-    border-bottom: 0.2rem solid var(--main-clr);
+    /* border-bottom: 0.2rem solid var(--clr-primary); */
     background-color: white;
 }
 .project-grid {
@@ -28,7 +28,7 @@
 }
 .project-tile:is(:hover, :focus) {
     transition: 0.2s ease-out;
-    outline: 0.3rem solid var(--accent-clr);
+    outline: 0.3rem solid var(--clr-accent);
     transform: translateY(-5%);
 }
 .project-title {

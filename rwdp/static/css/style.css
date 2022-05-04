@@ -1,7 +1,7 @@
 :root {
-    --primary-clr: #2c2c2c;
-    --accent-clr: #31CC39;
-    --accent-clr-2: #CC465F;
+    --clr-primary: #2c2c2c;
+    --clr-accent: #31CC39;
+    --clr-accent-2: #CC465F;
 }
 * {
     margin: 0;
@@ -39,7 +39,7 @@ html {
     padding: 8rem 2rem 6rem;
     min-height: 100vh;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    background-color: var(--accent-clr-2);
+    background-color: var(--clr-accent-2);
 }
 footer {
     scroll-snap-align: end;
