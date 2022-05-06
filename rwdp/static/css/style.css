@@ -21,6 +21,7 @@ html {
 .welcome-section-header {
     font-size: min(6vw, 8rem);
     text-transform: uppercase;
+    color: white;
 }
 .welcome-section p {
     font-size: min(3vw, 4rem);
@@ -46,6 +47,8 @@ html {
     background-color: var(--clr-accent-2);
 }
 footer {
+    display: flex;
+    flex-direction: column;
     scroll-snap-align: end;
     padding: 2rem 5rem 5rem;
     height: 30vh;
