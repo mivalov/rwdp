@@ -9,6 +9,10 @@
     text-decoration: none;
     box-sizing: border-box;
 }
+::selection {
+    color: white;
+    background-color: var(--clr-accent);
+  }
 html {
     font-size: 10px;
     scroll-behavior: smooth;
