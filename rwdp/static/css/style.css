@@ -18,6 +18,9 @@ html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
+main {
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
 .welcome-section-header {
     font-size: min(6vw, 8rem);
     text-transform: uppercase;
@@ -41,17 +44,36 @@ html {
 }
 .project-section {
     scroll-snap-align: start;
-    padding: 8rem 2rem 6rem;
-    min-height: 100vh;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 8rem 2rem 12rem;
+    min-height: calc(100vh + 10rem);
+    clip-path: polygon(100% 0, 100% 100%, 50% 95%, 0 100%, 0 0);
     background-color: var(--clr-accent-2);
 }
 footer {
     display: flex;
+    gap: 1rem;
     flex-direction: column;
     scroll-snap-align: end;
-    padding: 2rem 5rem 5rem;
-    height: 30vh;
-    font-size: 2rem;
+    padding: 2rem 5rem 1rem;
+    min-height: 30vh;
     text-align: center;
+}
+.footer h1 {
+    padding-bottom: 6rem;
+}
+.fa {
+    margin-top: auto;
+    margin-inline: auto;
+    padding-top: 5rem;
+    width: fit-content;
+    font-size: 3rem;
+    color: black;
+}
+.fa:hover {
+    color: var(--clr-accent);
+}
+.footer-year {
+    font-size: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid black;
 }
