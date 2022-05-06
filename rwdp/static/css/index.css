@@ -11,7 +11,7 @@
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: min(6vw, 5rem);
+    margin-top: min(6vw, 6rem);
     text-align: center;
     justify-content: center;
     grid-template-columns: repeat(2, minmax(20rem, 48rem));
@@ -31,9 +31,10 @@
 }
 .project-tile:is(:hover, :focus) {
     transition: transform 0.2s ease-out;
-    outline: 0.2rem solid var(--clr-accent);
+    outline: 0.3rem solid var(--clr-accent);
+    outline-offset: 3px;
     transform: translateY(-5%);
-    box-shadow: 0px 5px 15px var(--clr-accent);
+    box-shadow: inset 0px 8px 20px var(--clr-accent), 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 .project-title {
     margin-top: auto;

@@ -45,9 +45,9 @@ main {
 }
 .project-section {
     scroll-snap-align: start;
-    padding: 8rem 2rem 12rem;
+    padding: 10rem 2rem 18rem;
     min-height: calc(100vh + 10rem);
-    clip-path: polygon(100% 0, 100% 100%, 50% 95%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 75% 99%, 50% 98%, 25% 99%, 0 100%, 0 0);
     background-color: var(--clr-accent-2);
 }
 footer {
