@@ -49,9 +49,6 @@
     }
 }
 @media screen and (max-width: 40rem) {
-    html {
-        scroll-snap-type: y mandatory;
-    }
     .project-grid {
     grid-template-columns: repeat(1, minmax(20rem, 42rem));
     }
