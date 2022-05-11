@@ -52,29 +52,29 @@ main {
 }
 footer {
     display: flex;
-    gap: 1rem;
     flex-direction: column;
+    gap: 1rem;
     scroll-snap-align: end;
     padding: 2rem 5rem 1rem;
     min-height: 30vh;
+    font-size: 10px;
     text-align: center;
 }
-.footer h1 {
-    padding-bottom: 6rem;
+footer h1 {
+    padding-bottom: 5rem;
 }
 .fa {
     margin-top: auto;
     margin-inline: auto;
-    padding-top: 5rem;
     width: fit-content;
-    font-size: 3rem;
+    font-size: 3em;
     color: black;
 }
-.fa:hover {
+.fa:is(:hover, :focus) {
     color: var(--clr-accent);
 }
 .footer-year {
-    font-size: 2rem;
+    font-size: 2em;
     padding-top: 1rem;
     border-top: 1px solid black;
 }

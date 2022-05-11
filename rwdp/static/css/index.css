@@ -22,7 +22,6 @@
     transition: 0.4s ease-out;
     display: flex;
     flex-direction: column;
-    outline: none;
     overflow: hidden;
     border-radius: 0.5rem;
     aspect-ratio: 16/9;
@@ -32,7 +31,7 @@
 .project-tile:is(:hover, :focus) {
     transition: transform 0.2s ease-out;
     outline: 0.3rem solid var(--clr-accent);
-    outline-offset: 3px;
+    outline-offset: 0;
     transform: translateY(-5%);
     box-shadow: inset 0px 8px 20px var(--clr-accent), 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -49,7 +48,7 @@
         scroll-snap-type: y proximity;
     }
 }
-@media screen and (max-width: 40rem) {
+@media screen and (max-width: 45rem) {
     .project-grid {
     grid-template-columns: repeat(1, minmax(20rem, 42rem));
     }
