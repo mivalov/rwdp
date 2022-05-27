@@ -78,3 +78,9 @@ footer h1 {
     padding-top: 1rem;
     border-top: 1px solid black;
 }
+/* For 500% zoom in */
+@media screen and (max-width: 30rem) {
+    footer {
+        font-size: 4px;
+    }
+}

@@ -2,7 +2,7 @@
     padding: 1rem;
     margin-inline: auto;
     width: fit-content;
-    font-size: min(4vw, 4rem);
+    font-size: min(4.6vw, 4rem);
     text-align: center;
     text-transform: uppercase;
     /* border-bottom: 0.2rem solid var(--clr-primary); */
@@ -11,7 +11,7 @@
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: min(6vw, 6rem);
+    margin-top: min(8vw, 8rem);
     text-align: center;
     justify-content: center;
     grid-template-columns: repeat(2, minmax(20rem, 48rem));
@@ -32,7 +32,7 @@
     transition: transform 0.2s ease-out;
     outline: 0.3rem solid var(--clr-accent);
     outline-offset: 0;
-    transform: translateY(-5%);
+    transform: translateY(-1rem);
     box-shadow: inset 0px 8px 20px var(--clr-accent), 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 .project-title {
@@ -51,5 +51,14 @@
 @media screen and (max-width: 45rem) {
     .project-grid {
     grid-template-columns: repeat(1, minmax(20rem, 42rem));
+    }
+}
+/* For 500% zoom in */
+@media screen and (max-width: 30rem) {
+    .project-grid {
+    grid-template-columns: repeat(1, minmax(8rem, 20rem));
+    }
+    .project-title {
+        font-size: min(3vw, 2rem);
     }
 }
