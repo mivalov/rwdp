@@ -73,7 +73,7 @@ footer h1 {
     font-size: 3em;
     color: black;
 }
-.fa:is(:hover, :focus) {
+.fa:is(:hover, :focus-visible) {
     color: var(--clr-accent);
 }
 .footer-year {

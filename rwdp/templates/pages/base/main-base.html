@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewpoint"
+    <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/nav.css') }}"/>
     <link rel="stylesheet"
@@ -52,22 +52,20 @@
     {% block header %}{% endblock %}
   </header>
 
-  <div class="wrap-content">
-    <main>
+  <main>
     {% block main %}{% endblock %}
-    </main>
+  </main>
 
-    <footer>
+  <footer>
     {% block footer %}{% endblock %}
     <a href="https://github.com/mivalov/rwdp"
-       target="_blank"
-       class="fa">
-       &#xf09b;</a>
+      target="_blank"
+      class="fa">
+      &#xf09b;</a>
     <p class="footer-year">2022</p>
-    </footer>
-  </div>
+  </footer>
 
-{% block body %}{% endblock %}
+  {% block body %}{% endblock %}
 </body>
 
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
