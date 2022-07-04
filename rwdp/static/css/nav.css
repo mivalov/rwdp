@@ -62,9 +62,6 @@
     margin-right: 0.5rem;
     width: 100%;
 }
-.nav-list li .active {
-    color: var(--clr-nav-accent) !important;
-}
 .nav-item {
     list-style: none;
 }
@@ -84,6 +81,9 @@
 }
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
+}
+.active {
+    color: var(--clr-nav-accent) !important;
 }
 .nav-item:not(.nav-logo) a:is(:hover, :focus-visible) {
     outline: 2px solid var(--clr-nav-accent);
@@ -120,8 +120,11 @@
     border-inline-end: 1px solid var(--clr-nav-text);
 }
 @media screen and (max-width: 45rem) {
+    .nav-item:not(.nav-logo) {
+        padding-inline: 0.6rem;
+    }
     .nav-item:not(.nav-logo) a {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 /* For 500% zoom in */
