@@ -79,7 +79,7 @@ footer h1 {
 .footer-year {
     font-size: 2em;
     padding-top: 1rem;
-    border-top: 1px solid black;
+    border-top: 0.05em solid lightgray;
 }
 /* For 500% zoom in */
 @media screen and (max-width: 30rem) {
