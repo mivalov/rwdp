@@ -29,13 +29,11 @@ main {
     padding: 20rem 2rem 10rem;
     min-height: 100vh;
     text-align: center;
-    background: rgb(44,44,44);
     background: linear-gradient(0deg, rgba(44,44,44,1) 10%, rgba(84,84,84,1) 60%);
 
-    /* background: rgb(255,72,72);
-    background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
-    /* background: rgb(255,191,0);
-    background: linear-gradient(0deg, rgba(255,191,0,1) 0%, rgba(211,107,75,1) 40%, rgba(255,255,255,1) 100%); */
+    /* background: rgb(255,72,72); */
+    /* background: rgb(255,191,0); */
+    /* background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
 }
 .welcome-section-header {
     margin-bottom: 2rem;
