@@ -1,9 +1,9 @@
 :root {
     --clr-primary: #2c2c2c;
     --clr-accent: #31CC39;
-    --clr-accent-2: #CC465F;
+    --clr-secondary: #CC465F;
 
-    --nav-hight: 4.4rem;
+    --scroll-padding: var(--nav-hight);
 }
 * {
     margin: 0;
@@ -19,7 +19,7 @@ html {
     font-size: 10px;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: var(--nav-hight);
+    scroll-padding-top: var(--scroll-padding);
 }
 main {
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
@@ -49,7 +49,7 @@ main {
     padding: min(6rem, 6vw) 2rem 12rem;
     min-height: calc(100vh + 10rem);
     clip-path: polygon(100% 0, 100% 100%, 75% 99%, 50% 98%, 25% 99%, 0 100%, 0 0);
-    background-color: var(--clr-accent-2);
+    background-color: var(--clr-secondary);
 }
 footer {
     display: flex;

@@ -4,6 +4,8 @@
     --clr-nav-light: #ffffff;
     --clr-nav-dark: #000000d9;
     --clr-nav-text: #ffffff;
+
+    --nav-hight: 4.4rem;
 }
 .skip-nav {
     position: fixed;
