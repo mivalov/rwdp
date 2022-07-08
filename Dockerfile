@@ -1,5 +1,7 @@
-FROM python:3.10.4-slim-bullseye
+FROM python:3.10.5-slim-bullseye
+
 WORKDIR /rwdp
+
 ENV FLASK_APP=/rwdp/main.py
 # remove for production
 ENV FLASK_ENV=development
