@@ -1,0 +1,20 @@
+# Byte-compiled files
+**/__pycache__
+
+# Flask:
+instance/
+.webassets-cache
+
+# Environments
+.env/
+.venv/
+env/
+venv/
+
+requirements.yml
+docker-compose.yml
+Dockerfile
+.git/
+
+**/.vscode
+**/.idea
