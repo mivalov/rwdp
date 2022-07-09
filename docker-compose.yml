@@ -3,11 +3,14 @@
 # This docker-compose file starts the following services:
 #   - Flask container
 
-version: '3.9'
+#version: '3.8'
 services:
 
   flask:
-    image: flask-py:3.10.4
+    image: mivalov/flask-py:3.10.5
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: flask-py
     hostname: flask-py
     environment:

@@ -1,0 +1,54 @@
+{% extends "pages/base/base-main.html" %}
+
+{% block extra_stylesheets %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/index.css') }}"/>
+{% endblock %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block main %}
+  <section id="welcome-section" class="welcome-section">
+    <h1 class="welcome-section-header">Welcome</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </section>
+
+  <section id="projects" class="project-section">
+    <h2 class="project-section-header">
+      Here are some of my projects
+    </h2>
+
+    <div class="project-grid">
+      <a class="project-tile"
+         href="{{ url_for('surveyForm') }}"
+         target="_self">
+        <img loading="lazy" class="project-image"/>
+        <p class="project-title">Survey Form</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('tributePage') }}"
+         target="_parent">
+        <img loading="lazy" class="project-image"/>
+        <p class="project-title">Tribute Page</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('productLandingPage') }}"
+         target="_self">
+        <img loading="lazy" class="project-image"/>
+        <p class="project-title">Product Landing Page</p>
+      </a>
+      <a class="project-tile"
+         href="{{ url_for('technicalDocumentationPage') }}"
+         target="_self">
+        <img loading="lazy" class="project-image"/>
+        <p class="project-title">Technical Documentation Page</p>
+      </a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block footer %}
+<h1>Home Page</h1>
+{% endblock %}
