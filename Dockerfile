@@ -2,7 +2,8 @@ FROM python:3.10.5-slim-bullseye
 
 WORKDIR /rwdp
 
-ENV FLASK_APP=/rwdp/main.py
+# important when 'flask run' is called
+# ENV FLASK_APP=/rwdp/main.py
 # remove for production
 ENV FLASK_ENV=development
 
@@ -20,4 +21,5 @@ COPY rwdp/ .
 
 EXPOSE 5000
 
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+#CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "main:app"]
