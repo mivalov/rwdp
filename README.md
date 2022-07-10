@@ -7,7 +7,7 @@ The project gathers 5 distinct webpages into a single Python web application:
 - Product Landing Page
 - Technical Documentation Page
 
-## Setting up
+## Setup
 The project offers 3 ways to run the application locally, with a potential for a deployment in the cloud.
 
 ### 1. Docker
@@ -25,7 +25,7 @@ docker-compose up --build --detach
 This will build the necessary image, and run a container in a detached mode. 
 The running container already includes the application and its dependencies, so you will not need to install anything else for this project.
 
-Once the execution process is complete, you can open `localhost:5000` in your favourite browser.
+When the execution process is complete, you can open `localhost:5000` in your favourite browser.
 
 ### 2. Python Venv
 [Venv](https://docs.python.org/3/library/venv.html) is a Python built-in module, which can be used for creating lightweight virtual environments.
@@ -54,3 +54,25 @@ waitress-serve --host=0.0.0.0 --port=5000 rwdp.main:app
 Once the application is running, you can open `localhost:5000` in your browser of choice.
 
 ### 3. Conda
+[Conda](https://docs.conda.io/en/latest/) is an open-source package and environment management system for maOS, Windows and Linux.
+
+#### 3.1 Prerequisites
+There are two options for installation:
+- [Miniconda](https://docs.conda.io/en/latest/miniconda.html) - a minimal distribution, which includes `conda`, Python, their dependencies and a few other useful packages.
+- [Anaconda](https://docs.continuum.io/anaconda/) - a Python/R distribution, containing `conda` and a collection of 250 packages related to data science.
+
+You can never go wrong with either of them. In case of a missing package, a simple `conda install <package>` can do the trick.
+
+#### 3.2 Running the application
+In the terminal of choice, navigate to the project folder and execute the following:
+```bash
+# create a virtual environment
+conda env create -f requirements.yml
+
+# activate the virtual environment
+conda activate rwdp
+
+# start the application (Ctrl+C stops it)
+waitress-serve --host=0.0.0.0 --port=5000 rwdp.main:app
+```
+After the application is running, you can open `localhost:5000` in your preferred browser.
