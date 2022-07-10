@@ -11,7 +11,7 @@ The project gathers 5 distinct webpages into a single Python web application:
 The project offers 3 ways to run the application locally, with a potential for a deployment in the cloud.
 
 ### 1. Docker
-The project already includes the necessary files to build and run the application locally with Docker.
+The project already includes the necessary files to build and run the application locally with [Docker](https://docs.docker.com/get-started/overview/).
 
 #### 1.1 Prerequisites
 You need to have at least [Docker Engine](https://docs.docker.com/engine/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine.
