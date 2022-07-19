@@ -12,10 +12,10 @@ RUN apt-get update  \
     && apt-get -y autoremove \
     && apt-get clean  \
     && rm -rf /var/lib/apt/lists/*
-RUN python -m pip install --upgrade pip setuptools wheel
+RUN python -m pip install --upgrade --no-cache-dir pip setuptools wheel
 
 COPY requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY rwdp/ .
 
