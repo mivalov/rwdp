@@ -67,7 +67,7 @@ You can never go wrong with either of them. In case of a missing package, a simp
 In the terminal of choice, navigate to the project folder and execute the following:
 ```bash
 # create a virtual environment
-conda env create -f requirements.yml
+conda env create -f requirements.yaml
 
 # activate the virtual environment
 conda activate rwdp
