@@ -61,8 +61,13 @@ footer {
     font-size: 10px;
     text-align: center;
 }
-footer h1 {
+footer h1, h2, h3, h4, h5, h6 {
     padding-bottom: 5rem;
+}
+footer p {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
 }
 .fa {
     margin-top: auto;
@@ -75,6 +80,7 @@ footer h1 {
     color: var(--clr-accent);
 }
 .footer-year {
+    font-weight: unset;
     font-size: 2em;
     padding-top: 1rem;
     border-top: 0.05em solid lightgray;
