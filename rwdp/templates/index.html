@@ -1,12 +1,11 @@
 {% extends "pages/base/base-main.html" %}
 
 {% block extra_stylesheets %}
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/index.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
 {% endblock %}
 
 {% block title %}
-Home Page
+  Home Page
 {% endblock %}
 
 {% block main %}
@@ -49,6 +48,6 @@ Home Page
   </section>
 {% endblock %}
 
-{% block footer %}
-<p>Home Page</p>
+{% block footer_p %}
+  Home Page
 {% endblock %}

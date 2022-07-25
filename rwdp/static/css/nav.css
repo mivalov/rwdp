@@ -84,6 +84,7 @@
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
 }
+/* Navbar highlight */
 .active {
     color: var(--clr-nav-accent) !important;
 }

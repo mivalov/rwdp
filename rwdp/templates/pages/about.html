@@ -1,16 +1,16 @@
 {% extends "pages/base/base-main.html" %}
 
 {% block title %}
-About Page
+  About Page
 {% endblock %}
 
-<!-- Nav bar highlight -->
-{% block ABOUT %}
-class="active"
+<!-- Navbar highlight -->
+{% block nav_active %}
+  class="active"
 {% endblock %}
 
 {% block nav_extra_buttons %}
-{% include "pages/base/base-nav-home-btn.html" %}
+  {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
 
 {% block main %}
@@ -23,6 +23,6 @@ class="active"
   </section>
 {% endblock %}
 
-{% block footer %}
-<p>About Page</p>
+{% block footer_p %}
+  About Page
 {% endblock %}
