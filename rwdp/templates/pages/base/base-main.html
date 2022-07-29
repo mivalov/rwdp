@@ -11,12 +11,14 @@
           href="{{ url_for('static', filename='css/style.css') }}"/>
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/nav.css') }}"/>
-    {% block extra_stylesheets %}{% endblock %}
+    {% block stylesheets_extra %}{% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
   </head>
 
+  {% block body %}
   <body>
+    {% block header %}
     <header>
       <a class="skip-nav" href="#projects"> skip navigation</a>
 
@@ -52,15 +54,17 @@
       </nav>
       {% endblock %}
 
-      {% block header %}{% endblock %}
+      {% block header_extra %}{% endblock %}
     </header>
+    {% endblock %}
 
     <main>
-      {% block main %}{% endblock %}
+      {% block main_extra %}{% endblock %}
     </main>
 
+    {% block footer %}
     <footer>
-      <p>{% block footer_p %}{% endblock %}</p>
+      <p>{% block footer_title %}{% endblock %}</p>
 
       {% block footer_extra %}{% endblock %}
       <a href="https://github.com/mivalov/rwdp"
@@ -69,9 +73,11 @@
         &#xf09b;</a>
       <p class="footer-year">2022</p>
     </footer>
+    {% endblock %}
 
-    {% block body %}{% endblock %}
+    {% block body_extra %}{% endblock %}
   </body>
+  {% endblock %}
 
   <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
   <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>

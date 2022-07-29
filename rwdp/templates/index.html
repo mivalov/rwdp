@@ -1,6 +1,6 @@
 {% extends "pages/base/base-main.html" %}
 
-{% block extra_stylesheets %}
+{% block stylesheets_extra %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
 {% endblock %}
 
@@ -8,7 +8,7 @@
   Home Page
 {% endblock %}
 
-{% block main %}
+{% block main_extra %}
   <section id="welcome-section" class="welcome-section">
     <h1 class="welcome-section-header">Welcome</h1>
     <p>Lorem ipsum dolor sit amet.</p>
@@ -48,6 +48,6 @@
   </section>
 {% endblock %}
 
-{% block footer_p %}
+{% block footer_title %}
   {{ self.title() }}
 {% endblock %}
