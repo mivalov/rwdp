@@ -20,6 +20,7 @@
     <header>
       <a class="skip-nav" href="#projects"> skip navigation</a>
 
+      {% block navbar %}
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
@@ -49,6 +50,8 @@
           </li>
         </ul>
       </nav>
+      {% endblock %}
+
       {% block header %}{% endblock %}
     </header>
 
