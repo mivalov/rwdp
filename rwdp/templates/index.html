@@ -10,8 +10,12 @@
 
 {% block main_extra %}
   <section id="welcome-section" class="welcome-section">
-    <h1 class="welcome-section-header">Welcome</h1>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <h1 class="welcome-section-header">
+      Welcome
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet.
+    </p>
   </section>
 
   <section id="projects" class="project-section">
@@ -20,29 +24,33 @@
     </h2>
 
     <div class="project-grid">
-      <a class="project-tile"
-         href="{{ url_for('survey_form') }}"
-         target="_self">
-        <img loading="lazy" class="project-image"/>
-        <p class="project-title">Survey Form</p>
+      <a class="project-tile" href="{{ url_for('survey_form') }}"
+      target="_self">
+        <img loading="lazy" class="project-image" alt=""/>
+        <p class="project-title">
+          Survey Form
+        </p>
       </a>
-      <a class="project-tile"
-         href="{{ url_for('tribute_page') }}"
-         target="_parent">
-        <img loading="lazy" class="project-image"/>
-        <p class="project-title">Tribute Page</p>
+      <a class="project-tile" href="{{ url_for('tribute_page') }}"
+      target="_parent">
+        <img loading="lazy" class="project-image" alt=""/>
+        <p class="project-title">
+          Tribute Page
+        </p>
       </a>
-      <a class="project-tile"
-         href="{{ url_for('product_landing_page') }}"
-         target="_self">
-        <img loading="lazy" class="project-image"/>
-        <p class="project-title">Product Landing Page</p>
+      <a class="project-tile" href="{{ url_for('product_landing_page') }}"
+      target="_self">
+        <img loading="lazy" class="project-image" alt=""/>
+        <p class="project-title">
+          Product Landing Page
+        </p>
       </a>
-      <a class="project-tile"
-         href="{{ url_for('technical_documentation_page') }}"
-         target="_self">
-        <img loading="lazy" class="project-image"/>
-        <p class="project-title">Technical Documentation Page</p>
+      <a class="project-tile" href="{{ url_for('technical_documentation_page') }}"
+      target="_self">
+        <img loading="lazy" class="project-image" alt=""/>
+        <p class="project-title">
+          Technical Documentation Page
+        </p>
       </a>
     </div>
   </section>

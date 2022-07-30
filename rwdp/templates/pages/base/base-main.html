@@ -20,34 +20,41 @@
   <body>
     {% block header %}
     <header>
-      <a class="skip-nav" href="#projects"> skip navigation</a>
+      <a class="skip-nav" href="#projects">
+        skip navigation
+      </a>
 
       {% block navbar %}
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
             <a href="{{ url_for('index') }}">
-              rwdp</a>
+              rwdp
+            </a>
           </li>
           {% block nav_extra_buttons %}
           <li class="nav-item nav-home">
             <a href="#welcome-section">
-              Home</a>
+              Home
+            </a>
           </li>
           <li class="nav-item nav-projects">
             <a href="#projects">
-              Projects</a>
+              Projects
+            </a>
           </li>
           {% endblock %}
           <li class="nav-item nav-about">
             <a href="{{ url_for('about') }}"
             {% block nav_active %}{% endblock %}> <!-- Navbar highlight -->
-              About</a>
+              About
+            </a>
           </li>
           <li class="nav-item nav-github">
             <a id="profile-link" href="https://github.com/mivalov/rwdp"
             target="_blank">
-              Github</a>
+              Github
+            </a>
           </li>
         </ul>
       </nav>
@@ -66,10 +73,11 @@
       <p>{% block footer_title %}{% endblock %}</p>
 
       {% block footer_extra %}{% endblock %}
-      <a class="fa" href="https://github.com/mivalov/rwdp"
-      target="_blank">
-        &#xf09b;</a>
-      <p class="footer-year">2022</p>
+      <a class="fa fa-github" href="https://github.com/mivalov/rwdp"
+      target="_blank"></a>
+      <p class="footer-year">
+        2022
+      </p>
     </footer>
     {% endblock %}
 
