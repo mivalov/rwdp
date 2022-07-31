@@ -1,11 +1,11 @@
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
     --clr-nav-accent: var(--clr-accent, #31CC39);
-    --clr-nav-light: #ffffff;
+    --clr-nav-light: #ffffffee;
     --clr-nav-dark: #000000d9;
-    --clr-nav-text: #ffffff;
+    --clr-nav-text: #ffffffee;
 
-    --nav-hight: 4.4rem;
+    --nav-hight: 4.3rem;
 }
 .skip-nav {
     position: fixed;
