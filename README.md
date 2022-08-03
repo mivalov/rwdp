@@ -22,7 +22,7 @@ In the terminal, navigate to the project directory and execute the following com
 ```bash
 docker-compose up --build --detach
  ```
-This will build the necessary image, and run a container in a detached mode. 
+This will build the necessary image, and run a container in a detached mode.
 The running container already includes the application and its dependencies, so you will not need to install anything else for this project.
 
 When the execution process is complete, you can open `localhost:5000` in your favourite browser.
@@ -31,7 +31,7 @@ When the execution process is complete, you can open `localhost:5000` in your fa
 [Venv](https://docs.python.org/3/library/venv.html) is a Python built-in module, which can be used for creating lightweight virtual environments.
 
 #### 2.1 Prerequisites
-Currently, the project uses [Python 3.10.5](https://www.python.org/downloads/release/python-3105/). Therefore, it is recommended to install the same version of Python on your local machine.
+Currently, the project uses [Python 3.10.6](https://www.python.org/downloads/release/python-3105/). Therefore, it is recommended to install the same version of Python on your local machine.
 
 #### 2.2 Running the application
 In the terminal, navigate to the project directory and execute the following commands:
