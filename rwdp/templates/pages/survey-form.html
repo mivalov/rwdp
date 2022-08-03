@@ -1,23 +1,27 @@
 {% extends "pages/base/base-main.html" %}
 
 {% block title %}
-Survey Form
+  Survey Form
 {% endblock %}
 
 {% block nav_extra_buttons %}
-{% include "pages/base/base-nav-home-btn.html" %}
+  {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
 
-{% block main %}
+{% block main_extra %}
   <section id="welcome-section" class="welcome-section">
-    <h1 class="welcome-section-header">Survey Form</h1>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <h1 class="welcome-section-header">
+      Survey Form
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet.
+    </p>
   </section>
 
   <section id="projects" class="project-section">
   </section>
 {% endblock %}
 
-{% block footer %}
-<p>Survey Form</p>
+{% block footer_title %}
+  {{ self.title() }}
 {% endblock %}

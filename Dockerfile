@@ -1,11 +1,6 @@
-FROM python:3.10.5-slim-bullseye
+FROM python:3.10.6-slim-bullseye
 
 WORKDIR /rwdp
-
-# important when 'flask run' is called
-# ENV FLASK_APP=/rwdp/main.py
-# remove for production
-ENV FLASK_ENV=development
 
 RUN apt-get update  \
     && apt-get -y upgrade  \
@@ -21,5 +16,8 @@ COPY rwdp/ .
 
 EXPOSE 5000
 
-#CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
-CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "main:app"]
+# used for development
+CMD ["flask", "--debug", "--app", "main", "run", "--host=0.0.0.0"]
+
+# used for production
+#CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "main:app"]

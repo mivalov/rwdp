@@ -13,14 +13,14 @@ def about():
     return render_template('pages/about.html')
 
 
-@app.route('/tribute-page')
-def tribute_page():
-    return render_template('pages/tribute-page.html')
-
-
 @app.route('/survey-form')
 def survey_form():
     return render_template('pages/survey-form.html')
+
+
+@app.route('/tribute-page')
+def tribute_page():
+    return render_template('pages/tribute-page.html')
 
 
 @app.route('/product-landing-page')

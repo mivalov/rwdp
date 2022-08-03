@@ -1,23 +1,27 @@
 {% extends "pages/base/base-main.html" %}
 
 {% block title %}
-Tribute Page
+  Tribute Page
 {% endblock %}
 
 {% block nav_extra_buttons %}
-{% include "pages/base/base-nav-home-btn.html" %}
+  {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
 
-{% block main %}
+{% block main_extra %}
   <section id="welcome-section" class="welcome-section">
-    <h1 class="welcome-section-header">Tribute Page</h1>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <h1 class="welcome-section-header">
+      Tribute Page
+    </h1>
+    <p>
+      Lorem ipsum dolor sit amet.
+    </p>
   </section>
 
   <section id="projects" class="project-section">
   </section>
 {% endblock %}
 
-{% block footer %}
-<p>Tribute Page</p>
+{% block footer_title %}
+  {{ self.title() }}
 {% endblock %}

@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% block page_description %}{% endblock %}
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
     <link rel="stylesheet"
@@ -12,64 +12,82 @@
           href="{{ url_for('static', filename='css/style.css') }}"/>
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/nav.css') }}"/>
-    {% block extra_stylesheets %}
-    {% endblock %}
+    {% block stylesheets_extra %}{% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
   </head>
 
+  {% block body %}
   <body>
-    <header>
-      <a class="skip-nav" href="#projects"> skip navigation</a>
+    {% block header %}
+    <header {% block header_attr %}{% endblock %}>
+      <a class="skip-nav" href="#projects">
+        skip navigation
+      </a>
 
-      <nav id="navbar" class="nav">
+      {% block navbar %}
+      <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
             <a href="{{ url_for('index') }}">
-              rwdp</a>
+              rwdp
+            </a>
           </li>
           {% block nav_extra_buttons %}
           <li class="nav-item nav-home">
             <a href="#welcome-section">
-              Home</a>
+              Home
+            </a>
           </li>
           <li class="nav-item nav-projects">
             <a href="#projects">
-              Projects</a>
+              Projects
+            </a>
           </li>
           {% endblock %}
           <li class="nav-item nav-about">
             <a href="{{ url_for('about') }}"
-            {% block ABOUT %}{% endblock %}> <!-- Nav bar highlight -->
-              About</a>
+            {% block nav_active %}{% endblock %}> <!-- Navbar highlight -->
+              About
+            </a>
           </li>
           <li class="nav-item nav-github">
-            <a id="profile-link"
-              href="https://github.com/mivalov/rwdp"
-              target="_blank">
-              Github</a>
+            <a id="profile-link" rel="external" href="https://github.com/mivalov/rwdp"
+            target="_blank">
+              GitHub
+            </a>
           </li>
         </ul>
       </nav>
-      {% block header %}{% endblock %}
+      {% endblock %}
+
+      {% block header_extra %}{% endblock %}
     </header>
+    {% endblock %}
 
-    <main>
-      {% block main %}{% endblock %}
+    {% block main %}
+    <main {% block main_attr %}{% endblock %}>
+      {% block main_extra %}{% endblock %}
     </main>
+    {% endblock %}
 
-    <footer>
-      {% block footer %}{% endblock %}
-      <a href="https://github.com/mivalov/rwdp"
-        target="_blank"
-        class="fa">
-        &#xf09b;</a>
-      <p class="footer-year">2022</p>
+    {% block footer %}
+    <footer {% block footer_attr %}{% endblock %}>
+      <p>{% block footer_title %}{% endblock %}</p>
+
+      {% block footer_extra %}{% endblock %}
+      <a class="fa fa-github" rel="external" href="https://github.com/mivalov/rwdp"
+      aria-label="GitHub" target="_blank"></a>
+      <p class="footer-year">
+        2022
+      </p>
     </footer>
+    {% endblock %}
 
-    {% block body %}{% endblock %}
+    {% block body_extra %}{% endblock %}
   </body>
+  {% endblock %}
 
-<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
-<script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+  <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
 </html>
