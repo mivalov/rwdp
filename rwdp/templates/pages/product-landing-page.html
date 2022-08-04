@@ -1,7 +1,8 @@
 {% extends "pages/base/base-main.html" %}
 
 {% block stylesheets_extra %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/product-landing-page.css') }}"/>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/product-landing-page.css') }}"/>
 {% endblock %}
 
 {% block title %}
@@ -44,14 +45,21 @@
 {% block main_extra %}
   <section id="one" class="section">
     <form id="form" action="https://www.freecodecamp.com/email-submit">
-      <input id="email" name="email" type="email" placeholder="Enter email" required><br><br>
-      <input id="submit" type="submit" value="Submit">
+      <input id="email" type="email" name="email" required
+             placeholder="Enter email">
+      <br><br>
+      <input id="submit" type="submit"
+             value="Submit">
     </form>
   </section>
 
   <section id="two" class="section">
-    <iframe id="video" width="854" height="480" frameborder="0" allowfullscreen
-      src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+    <iframe id="video"
+            width="854"
+            height="480"
+            frameborder="0"
+            allowfullscreen
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ">
     </iframe>
   </section>
 
