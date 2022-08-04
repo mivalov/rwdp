@@ -24,7 +24,152 @@
 {% endblock %}
 
 {% block main %}
-  <main></main>
+  <main>
+    <form action="" id="survey-form">
+      <div class="form-group">
+        <!-- Name -->
+        <label for="name"
+               id="name-label">
+          Name
+        </label>
+        <input type="text"
+               name="name"
+               id="name"
+               class="form-control"
+               placeholder="Enter your name"
+               required>
+      </div>
+      <div class="form-group">
+        <!-- E-Mail -->
+        <label for="email"
+               id="email-label">
+          E-Mail
+        </label>
+        <input type="email"
+               name="email"
+               id="email"
+               class="form-control"
+               placeholder="Enter your email"
+               required>
+      </div>
+      <div class="form-group">
+        <!-- Age -->
+        <label for="number"
+               id="number-label">
+          Age (optional)
+        </label>
+        <input type="number"
+               name="age"
+               id="number"
+               class="form-control"
+               min="16"
+               max="99"
+               placeholder="Age"
+               required>
+      </div>
+      <div class="form-group" id="gender-selection">
+        <!-- Gender -->
+        <p>Gender</p>
+        <label for="male">
+        <input type="radio"
+               name="gender"
+               id="male"
+               class="gender-radio-btn"
+               value="male">
+          Male
+        </label>
+
+        <label for="female">
+        <input type="radio"
+               name="gender"
+               id="female"
+               class="gender-radio-btn"
+               value="female">
+          Female
+        </label>
+
+        <label for="other">
+        <input type="radio"
+               name="gender"
+               id="other"
+               class="gender-radio-btn"
+               value="other">
+          Other
+          <!-- <input type="text" name="gender-text-box" id="gender-text-box" disabled> -->
+        </label>
+      </div>
+      <div class="form-group">
+        <!-- Music genre -->
+        <label for="dropdown"
+               id="dropdown-label">
+          What kind of music do you listen to?
+        </label>
+        <select name="music-genre" id="dropdown" class="form-control">
+          <option disabled selected value="">Select a music genre</option>
+          <option value="pop">Pop</option>
+          <option value="rock">Rock</option>
+          <option value="hip-hop">Hip-Hop</option>
+          <option value="jazz">Jazz</option>
+          <option value="techno">Techno</option>
+          <option value="heavy-metal">Heavy Metal</option>
+          <option value="country">Country</option>
+          <option value="folk">Folk</option>
+          <option value="another">Another one...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <!-- Preferred music apps -->
+        <p>Which apps do you use for music?</p>
+        <label>
+          <input type="checkbox"
+                 name="apps"
+                 value="youtube"
+                 class="input-checkbox">
+          YouTube
+        </label>
+        <label>
+          <input type="checkbox"
+                 name="apps"
+                 value="spotify"
+                 class="input-checkbox">
+          Spotify
+        </label>
+        <label>
+          <input type="checkbox"
+                 name="apps"
+                 value="amz-music"
+                 class="input-checkbox">
+          Amazon Music
+        </label>
+        <label>
+          <input type="checkbox"
+                 name="apps"
+                 value="soundcloud"
+                 class="input-checkbox">
+          SoundCloud
+        </label>
+      </div>
+      <div class="form-group">
+        <!-- Additional comments -->
+        <label for="comments">Do you have any comments?</label><br>
+        <textarea name="comment"
+                  id="comments"
+                  cols="50"
+                  rows="5"
+                  class="input-comment"
+                  placeholder="Enter your comment here ..."
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <!-- Submit button -->
+        <button type="submit"
+                id="submit"
+                class="submit-btn">
+          Submit
+        </button>
+      </div>
+    </form>
+  </main>
 {% endblock %}
 
 {% block footer_title %}
