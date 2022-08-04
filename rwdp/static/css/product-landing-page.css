@@ -16,30 +16,30 @@ html {
 .nav-img {
     margin-right: auto;
 }
-.nav-option {
+.nav-element {
     list-style: none;
 }
-.nav-option a {
+.nav-element a {
     display: inherit;
     align-items: center;
     outline-offset: 0;
     border-radius: 0.4rem;
 }
-.nav-option:not(.nav-logo) {
+.nav-element:not(.nav-logo) {
     padding-inline: 1rem;
 }
-.nav-option:not(.nav-logo) a {
+.nav-element:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
     font-size: 18px;
 }
-.nav-option:not(.nav-github) a {
+.nav-element:not(.nav-github) a {
     color: black;
 }
-.nav-option a:is(:hover, :focus-visible) {
+.nav-element a:is(:hover, :focus-visible) {
     outline: 2px solid var(--clr-nav-accent);
 }
-.nav-option a:active {
+.nav-element a:active {
     transition: 0.1s ease-out;
     box-shadow: inset 0 0 10px var(--clr-nav-accent);
 }
