@@ -9,6 +9,9 @@
   Survey Form
 {% endblock %}
 
+<!-- Temporarily remove the navbar -->
+{% block navbar %}{% endblock %}
+
 {% block nav_extra_buttons %}
   {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
@@ -23,8 +26,8 @@
     </p>
   </section>
 
-  <section id="projects" class="project-section">
-  </section>
+{% block main %}
+  <main></main>
 {% endblock %}
 
 {% block footer_title %}
