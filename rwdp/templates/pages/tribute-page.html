@@ -1,5 +1,10 @@
 {% extends "pages/base/base-main.html" %}
 
+{% block stylesheets_extra %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/tribute_page.css') }}"/>
+{% endblock %}
+
 {% block title %}
   Tribute Page
 {% endblock %}
