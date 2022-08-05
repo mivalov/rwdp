@@ -21,7 +21,8 @@
   <body>
     {% block header %}
     <header {% block header_attr %}{% endblock %}>
-      <a class="skip-nav" href="#projects">
+      {% set skip_nav_href = skip_nav_href|default('') %}
+      <a class="skip-nav" href="{{skip_nav_href}}">
         skip navigation
       </a>
 
