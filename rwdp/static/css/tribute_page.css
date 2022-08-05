@@ -3,6 +3,10 @@
     --clr-lightgray: #e4e4e4;
 }
 
+html {
+    scroll-snap-type: unset;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1rem;
@@ -14,4 +18,30 @@ body {
     border-radius: 10px;
     margin: 3rem 1rem;
     padding: 1.5rem;
+}
+
+#img-div {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 6px;
+    margin: 1.6rem auto;
+}
+
+img {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#img-caption {
+    margin-top: 1.5rem;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 25px;
+    text-align: left;
+    margin: 3rem 2rem 3rem 2rem;
 }
