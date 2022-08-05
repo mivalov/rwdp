@@ -3,7 +3,7 @@
     --clr-accent: #31CC39;
     --clr-secondary: #CC465F;
 
-    --scroll-padding: var(--nav-hight);
+    --scroll-padding: var(--nav-hight, 0);
 }
 * {
     margin: 0;
