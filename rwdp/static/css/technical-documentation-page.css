@@ -1,0 +1,46 @@
+:root {
+    --nav-width: 40rem;
+    --text-padding: 5rem;
+    --margin-inline: 5rem;
+}
+html {
+    scroll-snap-type: none;
+    scroll-padding: 0;
+}
+#navbar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: var(--text-padding);
+    min-width: var(--nav-width);
+    height: 100vh;
+    font-size: 2rem;
+    background-color: aqua;
+}
+.nav-element {
+    list-style: none;
+}
+.nav-element a {
+    color: black;
+}
+main {
+    display: block;
+    margin-left: calc(var(--margin-inline) + var(--nav-width));
+    margin-right: var(--margin-inline);
+}
+.main-section {
+    height: 70vh;
+    padding: var(--text-padding);
+    background-color: bisque;
+    border-top: 2px solid green;
+}
+.main-section header {
+    font-size: 4rem;
+}
+.main-section p {
+    font-size: 2rem;
+}
+footer {
+    margin-left: var(--nav-width);
+}
