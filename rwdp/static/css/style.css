@@ -2,6 +2,9 @@
     --clr-primary: #2c2c2c;
     --clr-accent: #31CC39;
     --clr-secondary: #CC465F;
+    --clr-light: #ffffffee;
+    --clr-dark: #000000d9;
+    --clr-text: #ffffffee;
 
     --scroll-padding: var(--nav-hight, 0);
 }
@@ -16,6 +19,44 @@ html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     scroll-padding-top: var(--scroll-padding);
+}
+.skip-nav {
+    position: fixed;
+    z-index: 99;
+    top: 6rem;
+    left: 0.8rem;
+    padding: 0.5em;
+    padding-left: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    transform: translateX(-200%);
+}
+.skip-nav:focus {
+    transition: 0.5s ease-out;
+    outline: none;
+    color: var(--clr-dark);
+    border: 2px solid var(--clr-light);
+    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    background-color: var(--clr-light);
+    transform: translateX(-10%);
+
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes blink {
+    0%   {border: 2px solid var(--clr-primary);}
+    50%  {border: 2px solid var(--clr-accent);}
+    100% {border: 2px solid var(--clr-primary);}
+}
+.skip-nav:hover {
+    transition: 0.1s ease-out;
+    color: var(--clr-accent);
 }
 main {
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
