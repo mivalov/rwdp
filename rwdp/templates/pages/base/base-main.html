@@ -83,6 +83,9 @@
       <p>{% block footer_title %}{% endblock %}</p>
 
       {% block footer_extra %}{% endblock %}
+      <a class="fa fa-home"
+      aria-label="Link to Index"
+      href="{{ url_for('index') }}"></a>
       <a class="fa fa-github" rel="external" target="_blank"
       aria-label="Link to GitHub"
       href="https://github.com/mivalov/rwdp"></a>

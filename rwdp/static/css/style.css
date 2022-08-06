@@ -56,18 +56,18 @@ footer {
     flex-direction: column;
     gap: 1rem;
     scroll-snap-align: end;
-    padding: 2rem 5rem 1rem;
+    padding: 1rem 5rem;
     min-height: 30vh;
     font-size: 10px;
     text-align: center;
 }
 footer p {
+    margin-bottom: auto;
     font-size: 3em;
     font-weight: bold;
     padding-bottom: 2rem;
 }
 .fa {
-    margin-top: auto;
     margin-inline: auto;
     width: fit-content;
     font-size: 3em;
