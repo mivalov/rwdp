@@ -80,7 +80,7 @@
 .nav-item:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
-    font-size: 20px;
+    font-size: 18px;
 }
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
