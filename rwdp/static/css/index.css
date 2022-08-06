@@ -1,3 +1,6 @@
+html {
+    --scroll-snap-type: y mandatory;
+}
 ::selection {
     color: white;
     background-color: var(--clr-accent);

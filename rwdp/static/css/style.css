@@ -6,6 +6,7 @@
     --clr-dark: #000000d9;
     --clr-text: #ffffffee;
 
+    --snap-type: var(--scroll-snap-type, none);
     --scroll-padding: var(--nav-hight, 0);
 }
 * {
@@ -17,7 +18,7 @@
 html {
     font-size: 10px;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: var(--snap-type);
     scroll-padding-top: var(--scroll-padding);
 }
 main {
