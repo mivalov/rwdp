@@ -67,20 +67,17 @@
 }
 .nav-item {
     list-style: none;
+    padding-inline: 1em;
 }
 .nav-item a {
-    display: inherit;
     align-items: center;
     outline-offset: 0;
-    border-radius: 0.4rem;
-}
-.nav-item:not(.nav-logo) {
-    padding-inline: 1rem;
+    border-radius: 0.2em;
 }
 .nav-item:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
@@ -90,19 +87,20 @@
     color: var(--clr-nav-accent) !important;
 }
 .nav-item:not(.nav-logo) a:is(:hover, :focus-visible) {
-    outline: 2px solid var(--clr-nav-accent);
+    outline: 0.14em solid var(--clr-nav-accent);
 }
 .nav-item:not(.nav-logo, .nav-github) a:active {
     transition: 0.1s ease-out;
     box-shadow: inset 0 0 10px var(--clr-nav-accent);
 }
 .nav-logo {
-    margin-left: 5.9rem;
+    padding-left: 0;
+    margin-left: 55px;
     margin-right: auto;
 }
 .nav-logo a {
-    padding: 0.05em 0.2em;
-    font-size: 32px;
+    padding-block: 0.06em;
+    font-size: 3.2rem;
 }
 .nav-logo a:is(:hover, :focus-visible) {
     color: var(--clr-nav-accent);
@@ -118,32 +116,32 @@
     box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.8);
 }
 .nav-about {
-    border-inline-start: 1px solid var(--clr-nav-text);
+    border-inline-start: 0.01em solid var(--clr-nav-text);
 }
 :is(.nav-projects, .return-to-index) {
-    border-inline-end: 1px solid var(--clr-nav-text);
+    border-inline-end: 0.01em solid var(--clr-nav-text);
 }
 @media screen and (max-width: 45rem) {
     .nav-item:not(.nav-logo) {
-        padding-inline: 0.6rem;
+        padding-inline: 0.6em;
     }
     .nav-item:not(.nav-logo) a {
-        font-size: 15px;
+        font-size: 1.5rem;
     }
     .nav-logo a {
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 }
 /* For 500% zoom in */
 @media screen and (max-width: 30rem) {
     .nav-item:not(.nav-logo) {
-        padding-inline: 0.6rem;
+        padding-inline: 0.6em;
     }
     .nav-item:not(.nav-logo) a {
-        padding: 0.6em 0.8em;
-        font-size: 8px;
+        padding: 0.4em 0.6em;
+        font-size: 0.8rem;
     }
     .nav-logo a {
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 }
