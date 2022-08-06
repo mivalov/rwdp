@@ -1,5 +1,13 @@
 {% extends "pages/base/base-main.html" %}
 
+{# Disable the default navigation bar #}
+{% set nav_disabled = true %}
+
+{% block stylesheets_extra %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/tribute_page.css') }}"/>
+{% endblock %}
+
 {% block title %}
   Tribute Page
 {% endblock %}
@@ -8,18 +16,42 @@
   {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
 
-{% block main_extra %}
-  <section id="welcome-section" class="welcome-section">
-    <h1 class="welcome-section-header">
-      Tribute Page
-    </h1>
-    <p>
-      Lorem ipsum dolor sit amet.
-    </p>
-  </section>
-
-  <section id="projects" class="project-section">
-  </section>
+{% block main %}
+  <main id="main">
+    <h1 id="title">Lorem ipsum dolor</h1>
+    <figure id="img-div">
+      <img src=""
+           alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+           id="image">
+      <figcaption id="img-caption">Lorem ipsum dolor sit amet,</figcaption>
+    </figure>
+    <section id="tribute-info">
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Cupiditate dicta id laborum quas quia rem, totam ullam vitae! Aliquid
+          hic itaque minus possimus quae qui quos ratione repudiandae sunt
+          totam!
+        </li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Dignissimos libero nostrum quidem? A autem cumque eveniet in incidunt
+          iste mollitia natus quam, repellendus sit. Architecto beatae
+          excepturi harum nihil non!
+        </li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+          aut beatae ipsam neque nihil officia reprehenderit rerum temporibus?
+          Accusamus, amet assumenda dolor eos et porro quisquam quos sed
+          veritatis vitae?
+        </li>
+      </ul>
+      <h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        <a href=""
+           id="tribute-link"
+           target="_blank"
+        >Wikipedia</a>
+      </h3>
+    </section>
+  </main>
 {% endblock %}
 
 {% block footer_title %}

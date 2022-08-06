@@ -1,7 +1,9 @@
 {% extends "pages/base/base-main.html" %}
+{% set skip_nav_href = '#projects' %}
 
 {% block stylesheets_extra %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/index.css') }}"/>
 {% endblock %}
 
 {% block title %}
@@ -9,7 +11,8 @@
 {% endblock %}
 
 {% block page_description %}
-  <meta name="description" content="Responsive Web Design with Python (RWDP)">
+  <meta name="description"
+        content="Responsive Web Design with Python (RWDP)">
 {% endblock %}
 
 {% block main_extra %}
@@ -28,30 +31,38 @@
     </h2>
 
     <div class="project-grid">
-      <a class="project-tile" href="{{ url_for('survey_form') }}"
-      target="_self">
-        <img loading="lazy" class="project-image" alt=""/>
+      <a class="project-tile" target="_self"
+      href="{{ url_for('survey_form') }}">
+        <img loading="lazy" class="project-image"
+        alt=""
+        src=""/>
         <p class="project-title">
           Survey Form
         </p>
       </a>
-      <a class="project-tile" href="{{ url_for('tribute_page') }}"
-      target="_parent">
-        <img loading="lazy" class="project-image" alt=""/>
+      <a class="project-tile" target="_parent"
+      href="{{ url_for('tribute_page') }}">
+        <img loading="lazy" class="project-image"
+        alt=""
+        src=""/>
         <p class="project-title">
           Tribute Page
         </p>
       </a>
-      <a class="project-tile" href="{{ url_for('product_landing_page') }}"
-      target="_self">
-        <img loading="lazy" class="project-image" alt=""/>
+      <a class="project-tile" target="_self"
+      href="{{ url_for('product_landing_page') }}">
+        <img loading="lazy" class="project-image"
+        alt=""
+        src=""/>
         <p class="project-title">
           Product Landing Page
         </p>
       </a>
-      <a class="project-tile" href="{{ url_for('technical_documentation_page') }}"
-      target="_self">
-        <img loading="lazy" class="project-image" alt=""/>
+      <a class="project-tile" target="_self"
+      href="{{ url_for('technical_documentation_page') }}">
+        <img loading="lazy" class="project-image"
+        alt=""
+        src=""/>
         <p class="project-title">
           Technical Documentation Page
         </p>
