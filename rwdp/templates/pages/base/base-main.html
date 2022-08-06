@@ -80,7 +80,9 @@
 
     {% block footer %}
     <footer {% block footer_attr %}{% endblock %}>
-      <p>{% block footer_title %}{% endblock %}</p>
+      <p class="footer-title">
+        {% block footer_title %}{% endblock %}
+      </p>
 
       {% block footer_extra %}{% endblock %}
       <a class="fa fa-home"

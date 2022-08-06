@@ -54,18 +54,17 @@ main {
 footer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1em;
     scroll-snap-align: end;
-    padding: 1rem 5rem;
+    padding-top: 30px;
+    padding-inline: 5rem;
     min-height: 30vh;
-    font-size: 10px;
     text-align: center;
 }
-footer p {
+.footer-title {
     margin-bottom: auto;
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: bold;
-    padding-bottom: 2rem;
 }
 .fa {
     margin-inline: auto;
@@ -79,12 +78,12 @@ footer p {
 .footer-year {
     font-weight: unset;
     font-size: 2em;
-    padding-top: 1rem;
+    padding-block: 0.5em;
     border-top: 0.05em solid lightgray;
 }
 /* For 500% zoom in */
 @media screen and (max-width: 30rem) {
     footer {
-        font-size: 4px;
+        font-size: 0.4rem;
     }
 }
