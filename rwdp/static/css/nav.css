@@ -5,7 +5,7 @@
     --clr-nav-dark: var(--clr-dark, #000000d9);
     --clr-nav-text: var(--clr-text, #ffffffee);
 
-    --nav-hight: 4.5rem;
+    --nav-hight: 4.3rem;
 }
 .nav {
     display: flex;
