@@ -11,8 +11,9 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}"/>
 
-    {# Add {% set nav_disabled = false %} in the pages were you want the navigation & its styling removed #}
-    {# Stage 1: Disables navigation stylesheet if set to 'true' #}
+    {# Add {% set nav_disabled = false %} in the pages were you want  #}
+    {# the defaul navigation & its styling removed.                   #}
+    {# STAGE [1]: Disables default navigation CSS if set to 'true'.   #}
     {% if nav_disabled == true %}
     {% else %}
     <link rel="stylesheet"
@@ -26,7 +27,7 @@
 
   {% block body %}
   <body>
-    {# Stage 2: Disables navigation html if set to 'true' #}
+    {# STAGE [2]: Disables default navigation HTML if set to 'true'.  #}
     {% if nav_disabled == true %}
     {% block header %}
     {% endblock header %}
@@ -58,7 +59,7 @@
           {% endblock nav_extra_buttons %}
           <li class="nav-item nav-about">
             <a href="{{ url_for('about') }}"
-            {% block nav_active %}{% endblock %}> <!-- Navbar highlight -->
+            {% block nav_active %}{% endblock %}> {# Navbar highlight #}
               About
             </a>
           </li>
