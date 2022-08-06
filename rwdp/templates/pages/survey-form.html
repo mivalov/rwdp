@@ -1,5 +1,8 @@
 {% extends "pages/base/base-main.html" %}
 
+{# Disable the default navigation bar #}
+{% set nav_disabled = true %}
+
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/survey_form.css') }}"/>
@@ -8,9 +11,6 @@
 {% block title %}
   Survey Form
 {% endblock %}
-
-<!-- Temporarily remove the navbar -->
-{% block navbar %}{% endblock %}
 
 {% block nav_extra_buttons %}
   {% include "pages/base/base-nav-home-btn.html" %}
