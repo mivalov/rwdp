@@ -16,12 +16,8 @@
   {% include "pages/base/base-nav-home-btn.html" %}
 {% endblock %}
 
-{% block header_attr %}
-  id="header"
-{% endblock %}
-
 {% block header %}
-  <header>
+  <header id="header" >
     <nav id="nav-bar">
       <ul class="nav-list">
         <li class="nav-element nav-img">
@@ -47,29 +43,31 @@
   </header>
 {% endblock %}
 
-{% block main_extra %}
-  <section id="one" class="section">
-    <form id="form" action="https://www.freecodecamp.com/email-submit">
-      <input id="email" type="email" name="email" required
-             placeholder="Enter email">
-      <br><br>
-      <input id="submit" type="submit"
-             value="Submit">
-    </form>
-  </section>
+{% block main %}
+  <main>
+    <section id="one" class="section">
+      <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <input id="email" type="email" name="email" required
+              placeholder="Enter email">
+        <br><br>
+        <input id="submit" type="submit"
+              value="Submit">
+      </form>
+    </section>
 
-  <section id="two" class="section">
-    <iframe id="video"
-            width="854"
-            height="480"
-            frameborder="0"
-            allowfullscreen
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-    </iframe>
-  </section>
+    <section id="two" class="section">
+      <iframe id="video"
+              width="854"
+              height="480"
+              frameborder="0"
+              allowfullscreen
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      </iframe>
+    </section>
 
-  <section id="three" class="section">
-  </section>
+    <section id="three" class="section">
+    </section>
+  </main>
 {% endblock %}
 
 {% block footer_title %}
