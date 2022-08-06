@@ -26,16 +26,17 @@
 
   {% block body %}
   <body>
+    {# Stage 2: Disables navigation html if set to 'true' #}
+    {% if nav_disabled == true %}
     {% block header %}
+    {% endblock header %}
+    {% else %}
     <header {% block header_attr %}{% endblock %}>
       {% set skip_nav_href = skip_nav_href|default('') %}
-      <a class="skip-nav" href="{{skip_nav_href}}">
+      <a class="skip-nav" href="{{ skip_nav_href}} ">
         skip navigation
       </a>
 
-      {# Stage 2: Disables navigation html if set to 'true' #}
-      {% if nav_disabled == true %}
-      {% else %}
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
@@ -69,11 +70,9 @@
           </li>
         </ul>
       </nav>
-      {% endif %}
-
       {% block header_extra %}{% endblock %}
     </header>
-    {% endblock header %}
+    {% endif %}
 
     {% block main %}
     <main {% block main_attr %}{% endblock %}>
