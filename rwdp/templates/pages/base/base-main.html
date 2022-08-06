@@ -10,11 +10,18 @@
           href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}"/>
+
+    {# Add {% set nav_disabled = false %} in the pages were you want the navigation & its styling removed #}
+    {# Stage 1: Disables navigation stylesheet if set to 'true' #}
+    {% if nav_disabled == true %}
+    {% else %}
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/nav.css') }}"/>
+    {% endif %}
+
     {% block stylesheets_extra %}{% endblock %}
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title required %}{% endblock %}</title>
   </head>
 
   {% block body %}
@@ -26,7 +33,9 @@
         skip navigation
       </a>
 
-      {% block navbar %}
+      {# Stage 2: Disables navigation html if set to 'true' #}
+      {% if nav_disabled == true %}
+      {% else %}
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
@@ -45,7 +54,7 @@
               Projects
             </a>
           </li>
-          {% endblock %}
+          {% endblock nav_extra_buttons %}
           <li class="nav-item nav-about">
             <a href="{{ url_for('about') }}"
             {% block nav_active %}{% endblock %}> <!-- Navbar highlight -->
@@ -60,17 +69,17 @@
           </li>
         </ul>
       </nav>
-      {% endblock %}
+      {% endif %}
 
       {% block header_extra %}{% endblock %}
     </header>
-    {% endblock %}
+    {% endblock header %}
 
     {% block main %}
     <main {% block main_attr %}{% endblock %}>
       {% block main_extra %}{% endblock %}
     </main>
-    {% endblock %}
+    {% endblock main %}
 
     {% block footer %}
     <footer {% block footer_attr %}{% endblock %}>
@@ -84,11 +93,11 @@
         2022
       </p>
     </footer>
-    {% endblock %}
+    {% endblock footer %}
 
     {% block body_extra %}{% endblock %}
   </body>
-  {% endblock %}
+  {% endblock body %}
 
   <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
   <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
