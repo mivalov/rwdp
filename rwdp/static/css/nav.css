@@ -1,25 +1,45 @@
-/* Custom variables ================================================= */
+/* [CUSTOM VARIABLES] =============================================== */
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
     --clr-nav-accent: var(--clr-accent, #31CC39);
-    --clr-nav-light: var(--clr-light, #ffffffee);
-    --clr-nav-dark: var(--clr-dark, #000000d9);
+    --clr-nav-100: var(--clr-100, #ffffffee);
+    --clr-nav-500: var(--clr-500, #444444);
+    --clr-nav-700: var(--clr-700, #242424);
+    --clr-nav-900: var(--clr-900, #000000d9);
     --clr-nav-text: var(--clr-text, #ffffffee);
 
-    /* Font size */
-    --fs-nav: 2vw;
-    --fs-nav-options: calc(1.3 * var(--fs-nav));
-
     --nav-hight: 43px;
-    --nav-width: calc(var(--fs-nav) * 11);
+
+    /* [CUSTOM VARIABLES] For high zoom in levels ------------------- */
+    /* Navigation size is calculated based on the nav logo font size  */
+
+    /* Nav logo font size ------------------------------------------- */
+    --fs-nav-logo: 6vw;
+
+    /* Ratio between nav logo & nav options font size --------------- */
+    --fs-nav-options: calc(0.5 * var(--fs-nav-logo));
+
+    /* Spacing between nav items */
+    --nav-item-spacing: 2vw;
+
+    /* Navigation width calculated based on logo font size ---------- */
+    --nav-margin-inline: 2vw;
+    --nav-width: calc((4 * var(--fs-nav-logo)) + var(--nav-margin-inline));
+
+    /* How much the nav is poking from the left when closed --------- */
+    /* Cannot be poking more than its own width                       */
     --nav-poking: min(4vw, var(--nav-width));
     --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
 
+    /* [CUSTOM VARIABLES] For high zoom in levels ------------------- */
+    /* Adjust inline margin for <main>                                */
     --margin-inline: max(1.4vw, var(--margin-inline-min));
     --margin-inline-min: 0.6vw;
 }
 
-/* Button to skip navigation options ================================ */
+/* [MAIN CSS] ======================================================= */
+
+/* [DEFAULT NAV] Button to skip navigation options ------------------ */
 .skip-nav {
     position: fixed;
     z-index: 99;
@@ -41,9 +61,9 @@
     transition: 0.5s ease-out;
     outline: none;
     color: var(--clr-dark);
-    border: 2px solid var(--clr-nav-light);
+    border: 2px solid var(--clr-nav-100);
     box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.5);
-    background-color: var(--clr-nav-light);
+    background-color: var(--clr-nav-100);
     transform: translateX(-10%);
 
     animation-name: blink;
@@ -62,7 +82,7 @@
     color: var(--clr-nav-accent);
 }
 
-/* [Main] navigation css ============================================ */
+/* [DEFAULT NAV] Main Content --------------------------------------- */
 .nav {
     display: flex;
     position: fixed;
@@ -80,19 +100,20 @@
     display: inherit;
     position: relative;
     align-items: center;
-    margin-block: 0;
     margin-inline: auto 0.5rem;
+    margin-block: 0;
     width: 100%;
 }
 
 .nav-item {
     list-style: none;
-    padding-inline: 0.4em;
+    padding-inline: 0.6em;
 }
 
 .nav-item a {
     outline-offset: 0;
     border-radius: 0.2em;
+    font-size: 1rem;
 }
 
 .nav-item:not(.nav-logo) a {
@@ -106,6 +127,7 @@
 }
 
 /* Navbar highlight ------------------------------------------------- */
+/* Highlight the navigation option with a class of "active"           */
 .active {
     color: var(--clr-nav-accent) !important;
 }
@@ -114,9 +136,14 @@
     color: var(--clr-nav-accent);
 }
 
+.nav-item:not(.nav-logo, .nav-github) a:is(:focus-visible) {
+    outline: 0.14em solid var(--clr-nav-accent);
+}
+
 .nav-item:not(.nav-logo, .nav-github) a:active {
     transition: 0.1s ease-out;
-    box-shadow: inset 0 0 0.1em var(--clr-nav-accent);
+    outline: 0.14em solid var(--clr-nav-accent);
+    box-shadow: inset 0 0 0.4em var(--clr-nav-accent);
 }
 
 .nav-logo {
@@ -128,10 +155,11 @@
 .nav-logo a {
     padding-block: 0.06em;
     font-size: 3.2em;
+    border-radius: 0;
 }
 
 .nav-github a {
-    color: var(--clr-nav-dark);
+    color: var(--clr-nav-900);
     box-shadow: inset 0 0 0.8em rgba(0, 0, 0, 0.5);
     background-color: var(--clr-nav-accent);
 }
@@ -151,29 +179,30 @@
     border-inline-end: 0.01em solid var(--clr-nav-text);
 }
 
-/* Media queries ==================================================== */
+/* [MEDIA QUERIES] ================================================== */
 @media screen and (max-width: 30em) {
 
     /* Custom nav scrollbar ----------------------------------------- */
-    :root {
-        --bgclr-nav-scrollbar: rgb(36, 36, 36);
-    }
-
     .nav::-webkit-scrollbar {
-        width: 1vw;
+        width: max(2px, 1vw);
     }
 
     .nav::-webkit-scrollbar-track {
-        background-color: var(--bgclr-nav-scrollbar);
+        background-color: var(--clr-nav-700);
     }
 
     .nav::-webkit-scrollbar-thumb {
-        background: var(--clr-nav-accent);
         border-radius: 10px;
-        border: min(1px, 0.3vw) solid var(--bgclr-nav-scrollbar);
+        border: 0.3vw solid var(--clr-nav-700);
+        background: var(--clr-nav-accent);
+    }
+
+    .nav::-webkit-scrollbar-thumb:hover {
+        border: 0.2vw solid var(--clr-nav-700);
     }
 
     /* For high zoom in levels -------------------------------------- */
+    /* Navigation switches from TOP to LEFT side                      */
     main {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
@@ -184,28 +213,23 @@
         position: fixed;
         overflow-y: auto;
         overflow-x: hidden;
-        height: 100vh;
+        height: 100%;
         width: var(--nav-width);
         transform: translateX(var(--nav-transform));
         box-shadow: none;
     }
 
-    .nav:hover {
-        transition: 0.1s ease-out;
-        transform: translateX(0);
-    }
-
     .nav-list {
         display: none;
         height: auto;
-        margin-left: 1vw;
-        margin-bottom: 20px;
+        width: auto;
+        margin-inline: 2vw;
         margin-top: var(--nav-hight);
-        font-size: var(--fs-nav);
     }
 
-    .nav-item:not(.nav-logo) a {
-        font-size: var(--fs-nav-options);
+    .nav:hover {
+        transition: 0.1s ease-out;
+        transform: translateX(0);
     }
 
     .nav:hover > .nav-list {
@@ -214,8 +238,24 @@
 
     .nav-item {
         display: flex;
-        margin-top: 1em;
-        margin-left: 0;
+        margin: 0;
+        padding-bottom: var(--nav-item-spacing);
+        padding-inline: 0;
+    }
+
+    .nav-item a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-logo a {
+        padding-bottom: var(--nav-item-spacing);
+        font-size: var(--fs-nav-logo);
+        border-bottom: 0.4vw solid var(--clr-nav-700);
+    }
+
+    .nav-item:not(.nav-logo) a {
+        font-size: var(--fs-nav-options);
     }
 
     :is(.nav-projects, .return-to-index, .nav-about) {

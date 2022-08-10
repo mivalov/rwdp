@@ -1,32 +1,21 @@
-/* Custom variables ================================================= */
+/* [CUSTOM VARIABLES] =============================================== */
 :root {
-    --clr-primary: #2c2c2c;
     --clr-accent: #31CC39;
+    --clr-primary: #2c2c2c;
     --clr-secondary: #CC465F;
-    --clr-light: #ffffffee;
-    --clr-dark: #000000d9;
+    --clr-100: #ffffffee;
+    --clr-500: #444444;
+    --clr-700: #242424;
+    --clr-900: #000000d9;
     --clr-text: #ffffffee;
 
     --snap-type: var(--scroll-snap-type, none);
     --scroll-padding: var(--nav-hight, 0);
 }
 
-/* Custom scrollbar ================================================= */
-html::-webkit-scrollbar {
-    width: max(12px, 0.6vw);
-}
+/* [MAIN CSS] ======================================================= */
 
-html::-webkit-scrollbar-track {
-    background-color: white;
-}
-
-html::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    border: 2px solid white;
-    background: var(--clr-primary, #2c2c2c);
-}
-
-/* [Main] base page template css ==================================== */
+/* [GLOBAL SETTINGS] ------------------------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -34,14 +23,14 @@ html::-webkit-scrollbar-thumb {
     text-decoration: none;
 }
 
-/* Box sizing rules ------------------------------------------------- */
+/* [GLOBAL SETTINGS] Box sizing rules ------------------------------- */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Make images easier to work with ---------------------------------- */
+/* [GLOBAL SETTINGS] Make images easier to work with ---------------- */
 img,
 picture,
 svg {
@@ -49,6 +38,26 @@ svg {
     display: block;
 }
 
+/* [GLOBAL SETTINGS] Custom scrollbar ------------------------------- */
+html::-webkit-scrollbar {
+    width: 2vw;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 1vw;
+    border: 0.4vw solid white;
+    background-color: var(--clr-primary, #2c2c2c);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    border: 0.2vw solid white;
+}
+
+/* [GLOBAL SETTINGS] Main Content ----------------------------------- */
 html {
     font-size: 10px;
     overflow-x: hidden;
@@ -62,7 +71,7 @@ body {
 }
 
 main {
-    margin-bottom: 20px;
+    margin-bottom: 10vw;
     filter: drop-shadow(0 min(1em, 2vw) min(1em, 2vw) rgba(0, 0, 0, 0.4));
 }
 
@@ -70,7 +79,7 @@ footer {
     scroll-snap-align: end;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4vw;
     padding-inline: min(4em, 4vw);
     min-height: 30vh;
     font-size: 1rem;
@@ -104,20 +113,24 @@ footer {
     color: inherit;
 }
 
-/* Media queries ==================================================== */
-@media screen and (max-width: 30em) {
+/* [MEDIA QUERIES] ================================================== */
+@media screen and (min-height: 58em), (min-width: 115em) {
 
-    /* Adjust custom scrollbar ------------------------------------- */
+    /* Adjust custom scrollbar -------------------------------------- */
     html::-webkit-scrollbar {
-        width: 3vw;
+        width: 1vw;
     }
 
     html::-webkit-scrollbar-thumb {
-        border: min(2px, 0.7vw) solid white;
+        border: 0.2vw solid white;
+    }
+
+    html::-webkit-scrollbar-thumb:hover {
+        border: 0.1vw solid white;
     }
 }
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 30em) {
 
     /* For high zoom in levels -------------------------------------- */
     footer {
