@@ -36,6 +36,7 @@
     border-radius: 0.5rem;
     transform: translateX(-200%);
 }
+
 .skip-nav:focus {
     transition: 0.5s ease-out;
     outline: none;
@@ -49,11 +50,13 @@
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
+
 @keyframes blink {
     0%   {border: 2px solid var(--clr-nav-primary);}
     50%  {border: 2px solid var(--clr-nav-accent);}
     100% {border: 2px solid var(--clr-nav-primary);}
 }
+
 .skip-nav:hover {
     transition: 0.1s ease-out;
     color: var(--clr-nav-accent);
@@ -72,6 +75,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     background-color: var(--clr-nav-primary);
 }
+
 .nav-list {
     display: inherit;
     position: relative;
@@ -80,56 +84,69 @@
     margin-inline: auto 0.5rem;
     width: 100%;
 }
+
 .nav-item {
     list-style: none;
     padding-inline: 0.4em;
 }
+
 .nav-item a {
     outline-offset: 0;
     border-radius: 0.2em;
 }
+
 .nav-item:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
     font-size: min(3vw, 1.8em);
 }
+
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
 }
+
 /* Navbar highlight ------------------------------------------------- */
 .active {
     color: var(--clr-nav-accent) !important;
 }
+
 .nav-item:not(.nav-github) a:is(:hover, :focus-visible) {
     color: var(--clr-nav-accent);
 }
+
 .nav-item:not(.nav-logo, .nav-github) a:active {
     transition: 0.1s ease-out;
     box-shadow: inset 0 0 0.1em var(--clr-nav-accent);
 }
+
 .nav-logo {
     padding-left: 0;
     margin-left: 55px;
     margin-right: auto;
 }
+
 .nav-logo a {
     padding-block: 0.06em;
     font-size: 3.2em;
 }
+
 .nav-github a {
     color: var(--clr-nav-dark);
     box-shadow: inset 0 0 0.8em rgba(0, 0, 0, 0.5);
     background-color: var(--clr-nav-accent);
 }
+
 .nav-github a:is(:hover, :focus-visible) {
     transition: 0.1s ease-out;
     color: var(--clr-nav-text);
     outline: 0.14em solid var(--clr-nav-accent);
     box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.8);
 }
+
 .nav-about {
     border-inline-start: 0.01em solid var(--clr-nav-text);
 }
+
 :is(.nav-projects, .return-to-index) {
     border-inline-end: 0.01em solid var(--clr-nav-text);
 }
@@ -137,18 +154,23 @@
 /* Media queries ==================================================== */
 @media screen and (max-width: 30em) {
 
-    /* Adjust custom scrollbar ------------------------------------- */
+    /* Custom nav scrollbar ----------------------------------------- */
+    :root {
+        --bgclr-nav-scrollbar: rgb(36, 36, 36);
+    }
+
     .nav::-webkit-scrollbar {
         width: 1vw;
     }
+
     .nav::-webkit-scrollbar-track {
-        background-color: rgb(36, 36, 36);
-        /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); */
+        background-color: var(--bgclr-nav-scrollbar);
     }
+
     .nav::-webkit-scrollbar-thumb {
         background: var(--clr-nav-accent);
         border-radius: 10px;
-        border: min(1px, 0.3vw) solid rgb(36, 36, 36);
+        border: min(1px, 0.3vw) solid var(--bgclr-nav-scrollbar);
     }
 
     /* For high zoom in levels -------------------------------------- */
@@ -156,6 +178,7 @@
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
     }
+
     .nav {
         display: block;
         position: fixed;
@@ -166,10 +189,12 @@
         transform: translateX(var(--nav-transform));
         box-shadow: none;
     }
+
     .nav:hover {
         transition: 0.1s ease-out;
         transform: translateX(0);
     }
+
     .nav-list {
         display: none;
         height: auto;
@@ -178,17 +203,21 @@
         margin-top: var(--nav-hight);
         font-size: var(--fs-nav);
     }
+
     .nav-item:not(.nav-logo) a {
         font-size: var(--fs-nav-options);
     }
+
     .nav:hover > .nav-list {
         display: block;
     }
+
     .nav-item {
         display: flex;
         margin-top: 1em;
         margin-left: 0;
     }
+
     :is(.nav-projects, .return-to-index, .nav-about) {
         border-inline: none;
     }
