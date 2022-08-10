@@ -1,3 +1,4 @@
+/* Custom variables ================================================= */
 :root {
     --clr-primary: #2c2c2c;
     --clr-accent: #31CC39;
@@ -9,6 +10,21 @@
     --snap-type: var(--scroll-snap-type, none);
     --scroll-padding: var(--nav-hight, 0);
 }
+
+/* Custom scrollbar ================================================= */
+html::-webkit-scrollbar {
+    width: max(12px, 0.6vw);
+}
+html::-webkit-scrollbar-track {
+    background-color: white;
+}
+html::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid white;
+    background: var(--clr-primary, #2c2c2c);
+}
+
+/* [Main] base page template css ==================================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,59 +33,33 @@
 }
 html {
     font-size: 10px;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: var(--snap-type);
     scroll-padding-top: var(--scroll-padding);
 }
 main {
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-}
-.welcome-section {
-    scroll-snap-align: start;
-    padding: 20rem 2rem 10rem;
-    min-height: 100vh;
-    text-align: center;
-    background: linear-gradient(0deg, rgba(44,44,44,1) 10%, rgba(84,84,84,1) 60%);
-
-    /* background: rgb(255,72,72); */
-    /* background: rgb(255,191,0); */
-    /* background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
-}
-.welcome-section-header {
-    margin-bottom: 2rem;
-    font-size: min(6vw, 8rem);
-    text-transform: uppercase;
-    color: white;
-}
-.welcome-section p {
-    font-size: min(3vw, 4rem);
-}
-.project-section {
-    scroll-snap-align: start;
-    padding: min(6rem, 6vw) 2rem 12rem;
-    min-height: calc(100vh + 10rem);
-    clip-path: polygon(100% 0, 100% 100%, 75% 99%, 50% 98%, 25% 99%, 0 100%, 0 0);
-    background-color: var(--clr-secondary);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 min(1em, 2vw) min(1em, 2vw) rgba(0, 0, 0, 0.4));
 }
 footer {
+    scroll-snap-align: end;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    scroll-snap-align: end;
-    padding-top: 30px;
-    padding-inline: 5rem;
+    gap: 5px;
+    padding-inline: min(4em, 4vw);
     min-height: 30vh;
     text-align: center;
 }
 .footer-title {
     margin-bottom: auto;
-    font-size: 3rem;
+    font-size: min(3em, 4vw);
     font-weight: bold;
 }
 .fa {
     margin-inline: auto;
     width: fit-content;
-    font-size: 3em;
+    font-size: min(3em, 4vw);
     color: black;
 }
 .fa:is(:hover, :focus-visible) {
@@ -77,13 +67,27 @@ footer {
 }
 .footer-year {
     font-weight: unset;
-    font-size: 2em;
-    padding-block: 0.5em;
+    font-size: min(2em, 3vw);
+    padding-block: min(0.5em, 2vw);
     border-top: 0.05em solid lightgray;
 }
-/* For 500% zoom in */
-@media screen and (max-width: 30rem) {
+
+/* Media queries ==================================================== */
+@media screen and (max-width: 30em) {
+
+    /* Adjust custom scrollbar ------------------------------------- */
+    html::-webkit-scrollbar {
+        width: 3vw;
+    }
+    html::-webkit-scrollbar-thumb {
+        border: min(2px, 0.7vw) solid white;
+    }
+}
+@media screen and (max-width: 45em) {
+
+    /* For high zoom in levels -------------------------------------- */
     footer {
-        font-size: 0.4rem;
+        margin-left: var(--nav-poking, 0);
+        font-size: 1rem;
     }
 }

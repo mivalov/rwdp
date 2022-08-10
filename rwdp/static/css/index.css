@@ -1,3 +1,4 @@
+/* [Main] index css ================================================= */
 html {
     --scroll-snap-type: y mandatory;
 }
@@ -5,24 +6,52 @@ html {
     color: white;
     background-color: var(--clr-accent);
 }
+.welcome-section {
+    scroll-snap-align: start;
+    padding-block: min(20rem, 14vw) min(4rem, 10vw);
+    padding-inline: min(2rem, 2vw);
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(44,44,44,1) 10%, rgba(84,84,84,1) 60%);
+
+    /* background: rgb(255,72,72); */
+    /* background: rgb(255,191,0); */
+    /* background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
+}
+.welcome-section-header {
+    margin-bottom: 4vw;
+    font-size: min(8rem, 6vw);
+    text-transform: uppercase;
+    color: white;
+}
+.welcome-section p {
+    font-size: min(3vw, 4rem);
+}
+.project-section {
+    scroll-snap-align: start;
+    padding-block: min(5rem, 6vh) min(12rem, 20vh);
+    padding-inline: min(2rem, 3vw);
+    min-height: 100vh;
+    clip-path: polygon(100% 0, 100% 100%, 75% 99%, 50% 98%, 25% 99%, 0 100%, 0 0);
+    background-color: var(--clr-secondary);
+}
 .project-section-header {
-    padding: 1rem;
+    padding: 0.5em;
     margin-inline: auto;
     width: fit-content;
-    font-size: min(4.6vw, 4rem);
+    font-size: min(4.5vw, 4rem);
     text-align: center;
     text-transform: uppercase;
-    /* border-bottom: 0.2rem solid var(--clr-primary); */
     background-color: white;
 }
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: min(8vw, 8rem);
+    margin-top: min(8vw, 8em);
     text-align: center;
     justify-content: center;
-    grid-template-columns: repeat(2, minmax(20rem, 48rem));
-    grid-gap: 4rem;
+    grid-template-columns: repeat(2, minmax(28rem, 50rem));
+    grid-gap: min(4em, 5vw);
     background-color: azure;
 }
 .project-tile {
@@ -30,42 +59,48 @@ html {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: min(0.2em, 1vw);
     aspect-ratio: 16/9;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     background-color:blueviolet;
 }
 .project-tile:is(:hover, :focus) {
     transition: transform 0.2s ease-out;
-    outline: 0.3rem solid var(--clr-accent);
+    outline: min(0.3em, 0.5vw) solid var(--clr-accent);
     outline-offset: 0;
-    transform: translateY(-1rem);
-    box-shadow: inset 0px 8px 20px var(--clr-accent), 0px 5px 15px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+    box-shadow: inset 0px min(0.8em, 1vw) min(2em, 3vw) var(--clr-accent),
+                      0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 .project-title {
     margin-top: auto;
-    padding-block: 0.5rem;
+    padding-block: 0.4em;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: min(4vw, 2rem);
+    font-size: min(3vw, 2rem);
     color: white;
     background-color: var(--clr-accent);
 }
-@media screen and (max-height: 35rem), (max-width: 80rem) {
+
+/* Media queries ==================================================== */
+@media screen and (max-height: 35em), (max-width: 115em) {
     html {
-        scroll-snap-type: y proximity;
+        --scroll-snap-type: none;
     }
 }
-@media screen and (max-width: 45rem) {
+@media screen and (max-width: 45em) {
     .project-grid {
-    grid-template-columns: repeat(1, minmax(20rem, 42rem));
+        grid-template-columns: repeat(1, minmax(20rem, 40rem));
+    }
+    .project-tile:is(:hover, :focus) {
+        transition: none;
+        transform: none;
+        outline-offset: 0;
     }
 }
-/* For 500% zoom in */
-@media screen and (max-width: 30rem) {
+
+/* For high zoom in levels -------------------------------------- */
+@media screen and (max-width: 30em) {
     .project-grid {
-    grid-template-columns: repeat(1, minmax(8rem, 20rem));
-    }
-    .project-title {
-        font-size: min(3vw, 2rem);
+        grid-template-columns: repeat(1, minmax(8rem, 30rem));
     }
 }

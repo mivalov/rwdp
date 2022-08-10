@@ -1,3 +1,4 @@
+/* Custom variables ================================================= */
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
     --clr-nav-accent: var(--clr-accent, #31CC39);
@@ -5,8 +6,20 @@
     --clr-nav-dark: var(--clr-dark, #000000d9);
     --clr-nav-text: var(--clr-text, #ffffffee);
 
-    --nav-hight: 4.3rem;
+    /* Font size */
+    --fs-nav: 2vw;
+    --fs-nav-options: calc(1.3 * var(--fs-nav));
+
+    --nav-hight: 43px;
+    --nav-width: calc(var(--fs-nav) * 11);
+    --nav-poking: min(4vw, var(--nav-width));
+    --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
+
+    --margin-inline: max(1.4vw, var(--margin-inline-min));
+    --margin-inline-min: 0.6vw;
 }
+
+/* Button to skip navigation options ================================ */
 .skip-nav {
     position: fixed;
     z-index: 99;
@@ -45,6 +58,8 @@
     transition: 0.1s ease-out;
     color: var(--clr-nav-accent);
 }
+
+/* [Main] navigation css ============================================ */
 .nav {
     display: flex;
     position: fixed;
@@ -67,31 +82,30 @@
 }
 .nav-item {
     list-style: none;
-    padding-inline: 1em;
+    padding-inline: 0.4em;
 }
 .nav-item a {
-    align-items: center;
     outline-offset: 0;
     border-radius: 0.2em;
 }
 .nav-item:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
-    font-size: 1.8rem;
+    font-size: min(3vw, 1.8em);
 }
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
 }
-/* Navbar highlight */
+/* Navbar highlight ------------------------------------------------- */
 .active {
     color: var(--clr-nav-accent) !important;
 }
-.nav-item:not(.nav-logo) a:is(:hover, :focus-visible) {
-    outline: 0.14em solid var(--clr-nav-accent);
+.nav-item:not(.nav-github) a:is(:hover, :focus-visible) {
+    color: var(--clr-nav-accent);
 }
 .nav-item:not(.nav-logo, .nav-github) a:active {
     transition: 0.1s ease-out;
-    box-shadow: inset 0 0 10px var(--clr-nav-accent);
+    box-shadow: inset 0 0 0.1em var(--clr-nav-accent);
 }
 .nav-logo {
     padding-left: 0;
@@ -100,20 +114,18 @@
 }
 .nav-logo a {
     padding-block: 0.06em;
-    font-size: 3.2rem;
-}
-.nav-logo a:is(:hover, :focus-visible) {
-    color: var(--clr-nav-accent);
+    font-size: 3.2em;
 }
 .nav-github a {
     color: var(--clr-nav-dark);
-    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 0.8em rgba(0, 0, 0, 0.5);
     background-color: var(--clr-nav-accent);
 }
-.nav-github a:is(:hover, :focus) {
+.nav-github a:is(:hover, :focus-visible) {
     transition: 0.1s ease-out;
     color: var(--clr-nav-text);
-    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.8);
+    outline: 0.14em solid var(--clr-nav-accent);
+    box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.8);
 }
 .nav-about {
     border-inline-start: 0.01em solid var(--clr-nav-text);
@@ -121,27 +133,63 @@
 :is(.nav-projects, .return-to-index) {
     border-inline-end: 0.01em solid var(--clr-nav-text);
 }
-@media screen and (max-width: 45rem) {
-    .nav-item:not(.nav-logo) {
-        padding-inline: 0.6em;
+
+/* Media queries ==================================================== */
+@media screen and (max-width: 30em) {
+
+    /* Adjust custom scrollbar ------------------------------------- */
+    .nav::-webkit-scrollbar {
+        width: 1vw;
+    }
+    .nav::-webkit-scrollbar-track {
+        background-color: rgb(36, 36, 36);
+        /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); */
+    }
+    .nav::-webkit-scrollbar-thumb {
+        background: var(--clr-nav-accent);
+        border-radius: 10px;
+        border: min(1px, 0.3vw) solid rgb(36, 36, 36);
+    }
+
+    /* For high zoom in levels -------------------------------------- */
+    main {
+        margin-left: calc(var(--margin-inline) + var(--nav-poking));
+        margin-right: var(--margin-inline);
+    }
+    .nav {
+        display: block;
+        position: fixed;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100vh;
+        width: var(--nav-width);
+        transform: translateX(var(--nav-transform));
+        box-shadow: none;
+    }
+    .nav:hover {
+        transition: 0.1s ease-out;
+        transform: translateX(0);
+    }
+    .nav-list {
+        display: none;
+        height: auto;
+        margin-left: 1vw;
+        margin-bottom: 20px;
+        margin-top: var(--nav-hight);
+        font-size: var(--fs-nav);
     }
     .nav-item:not(.nav-logo) a {
-        font-size: 1.5rem;
+        font-size: var(--fs-nav-options);
     }
-    .nav-logo a {
-        font-size: 2.4rem;
+    .nav:hover > .nav-list {
+        display: block;
     }
-}
-/* For 500% zoom in */
-@media screen and (max-width: 30rem) {
-    .nav-item:not(.nav-logo) {
-        padding-inline: 0.6em;
+    .nav-item {
+        display: flex;
+        margin-top: 1em;
+        margin-left: 0;
     }
-    .nav-item:not(.nav-logo) a {
-        padding: 0.4em 0.6em;
-        font-size: 0.8rem;
-    }
-    .nav-logo a {
-        font-size: 2.4rem;
+    :is(.nav-projects, .return-to-index, .nav-about) {
+        border-inline: none;
     }
 }
