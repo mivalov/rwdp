@@ -71,7 +71,7 @@ body {
 }
 
 main {
-    margin-bottom: 10vw;
+    margin-bottom: min(5rem, 10vw);
     filter: drop-shadow(0 min(1em, 2vw) min(1em, 2vw) rgba(0, 0, 0, 0.4));
 }
 
@@ -79,7 +79,7 @@ footer {
     scroll-snap-align: end;
     display: flex;
     flex-direction: column;
-    gap: 4vw;
+    gap: min(1em, 1vw);
     padding-inline: min(4em, 4vw);
     min-height: 30vh;
     font-size: 1rem;
@@ -89,6 +89,7 @@ footer {
 
 .footer-title {
     margin-bottom: auto;
+    padding-bottom: min(4em, 4vw);
     font-size: min(3em, 4vw);
     font-weight: bold;
     color: inherit;
