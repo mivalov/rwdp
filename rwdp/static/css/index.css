@@ -114,9 +114,9 @@ html {
     }
 }
 
-/* For high zoom in levels -------------------------------------- */
 @media screen and (max-width: 30em) {
 
+    /* For high zoom in levels -------------------------------------- */
     .project-grid {
         grid-template-columns: repeat(1, minmax(8rem, 30rem));
     }

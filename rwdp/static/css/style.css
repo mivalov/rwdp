@@ -73,20 +73,23 @@ footer {
     gap: 5px;
     padding-inline: min(4em, 4vw);
     min-height: 30vh;
+    font-size: 1rem;
     text-align: center;
+    color: black;
 }
 
 .footer-title {
     margin-bottom: auto;
     font-size: min(3em, 4vw);
     font-weight: bold;
+    color: inherit;
 }
 
 .fa {
     margin-inline: auto;
     width: fit-content;
     font-size: min(3em, 4vw);
-    color: black;
+    color: inherit;
 }
 
 .fa:is(:hover, :focus-visible) {
@@ -98,6 +101,7 @@ footer {
     font-size: min(2em, 3vw);
     padding-block: min(0.5em, 2vw);
     border-top: 0.05em solid lightgray;
+    color: inherit;
 }
 
 /* Media queries ==================================================== */
@@ -118,6 +122,5 @@ footer {
     /* For high zoom in levels -------------------------------------- */
     footer {
         margin-left: var(--nav-poking, 0);
-        font-size: 1rem;
     }
 }
