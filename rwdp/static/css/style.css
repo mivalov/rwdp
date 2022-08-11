@@ -4,6 +4,7 @@
     --clr-primary: #2c2c2c;
     --clr-secondary: #CC465F;
     --clr-100: #ffffffee;
+    --clr-300: #808080;
     --clr-500: #444444;
     --clr-700: #242424;
     --clr-900: #000000d9;
@@ -39,22 +40,27 @@ svg {
 }
 
 /* [GLOBAL SETTINGS] Custom scrollbar ------------------------------- */
-html::-webkit-scrollbar {
-    width: 2vw;
+body::-webkit-scrollbar {
+    width: min(1.4em, 1.6vmax);
 }
 
-html::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background-color: white;
 }
 
-html::-webkit-scrollbar-thumb {
-    border-radius: 1vw;
-    border: 0.4vw solid white;
-    background-color: var(--clr-primary, #2c2c2c);
+body::-webkit-scrollbar-thumb {
+    border-radius: 100vw;
+    border: 0.25vw solid white;
+    background-color: var(--clr-300);
 }
 
-html::-webkit-scrollbar-thumb:hover {
-    border: 0.2vw solid white;
+body::-webkit-scrollbar-thumb:hover {
+    border: 0.15vw solid white;
+    background-color: var(--clr-500);
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background-color: var(--clr-700);
 }
 
 /* [GLOBAL SETTINGS] Main Content ----------------------------------- */
@@ -118,16 +124,8 @@ footer {
 @media screen and (min-height: 58em), (min-width: 115em) {
 
     /* Adjust custom scrollbar -------------------------------------- */
-    html::-webkit-scrollbar {
-        width: 1vw;
-    }
-
-    html::-webkit-scrollbar-thumb {
-        border: 0.2vw solid white;
-    }
-
-    html::-webkit-scrollbar-thumb:hover {
-        border: 0.1vw solid white;
+    body::-webkit-scrollbar {
+        width: 0.8vw;
     }
 }
 
