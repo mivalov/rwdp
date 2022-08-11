@@ -20,7 +20,7 @@
     --fs-nav-options: calc(0.5 * var(--fs-nav-logo));
 
     /* Spacing between nav items */
-    --nav-item-spacing: 2vw;
+    --nav-item-spacing: 1.8vw;
 
     /* Navigation width calculated based on logo font size ---------- */
     --nav-margin-inline: 2vw;
@@ -206,6 +206,10 @@
     main {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
+    }
+
+    .skip-nav {
+        display: none;
     }
 
     .nav {

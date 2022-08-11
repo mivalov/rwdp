@@ -68,6 +68,7 @@ html {
 
 .project-tile {
     transition: 0.4s ease-out;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -96,6 +97,13 @@ html {
 }
 
 /* [MEDIA QUERIES] ================================================== */
+@media screen and (min-height: 58em), (min-width: 115em) {
+
+    .project-tile {
+        scroll-snap-align: none;
+    }
+}
+
 @media screen and (max-height: 58em), (max-width: 115em) {
 
     html {
@@ -121,6 +129,14 @@ html {
     /* For high zoom in levels -------------------------------------- */
     :root {
         --scroll-padding: 0;
+    }
+
+    html {
+        --scroll-snap-type: y proximity;
+    }
+
+    .welcome-section {
+        scroll-snap-align: none;
     }
 
     .project-grid {
