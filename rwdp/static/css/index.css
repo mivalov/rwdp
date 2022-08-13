@@ -40,7 +40,7 @@ html {
     padding-block: min(5rem, 6vh) min(12rem, 20vh);
     padding-inline: min(2rem, 3vw);
     min-height: 100%;
-    clip-path: polygon(100% 0, 100% 100%, 75% 99%, 50% 98%, 25% 99%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 50% 98%, 0 100%, 0 0);
     background-color: var(--clr-secondary);
 }
 
