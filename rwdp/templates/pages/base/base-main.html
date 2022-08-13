@@ -99,9 +99,19 @@
     {% endblock footer %}
 
     {% block body_extra %}{% endblock %}
+
+    <!-- [SCRIPTS] ================================================= -->
+
+    <!-- [PROJECT] Reload page on window resize -------------------- -->
+    <script>
+      window.onresize = () => {
+        location.reload();
+      }
+    </script>
+
+    <!-- [EXTERNAL] freeCodeCamp's test ---------------------------- -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
   </body>
   {% endblock body %}
-
-  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
-  <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
 </html>
