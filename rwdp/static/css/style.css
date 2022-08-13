@@ -1,17 +1,25 @@
 /* [CUSTOM VARIABLES] =============================================== */
 :root {
-    --clr-accent: #31CC39;
     --clr-primary: #2c2c2c;
-    --clr-secondary: #CC465F;
-    --clr-100: #ffffffee;
+    --clr-accent: #31cc39;
+    --clr-accent-100: #3aee43;
+    --clr-secondary: #cc465f;
+    --clr-100: #ffffffe6;
     --clr-300: #808080;
     --clr-500: #444444;
     --clr-700: #242424;
-    --clr-900: #000000d9;
-    --clr-text: #ffffffee;
+    --clr-900: #0f0f0f;
+    --clr-text: #ffffffe6;
 
     --snap-type: var(--scroll-snap-type, none);
     --scroll-padding: var(--nav-hight, 0);
+
+    /* Body scrollbar width ----------------------------------------- */
+    --body-scrollbar: min(14px, 2.6vmin);
+
+    /* Ratio between body scrollbar and scrollbar thumb ------------- */
+    --body-scrollbar-thumb: calc(0.3 * var(--body-scrollbar));
+    --body-scrollbar-thumb-hover: calc(0.2 * var(--body-scrollbar));
 }
 
 /* [MAIN CSS] ======================================================= */
@@ -41,21 +49,18 @@ svg {
 
 /* [GLOBAL SETTINGS] Custom scrollbar ------------------------------- */
 body::-webkit-scrollbar {
-    width: min(1.4em, 1.6vmax);
-}
-
-body::-webkit-scrollbar-track {
-    background-color: white;
+    width: var(--body-scrollbar);
 }
 
 body::-webkit-scrollbar-thumb {
     border-radius: 100vw;
-    border: 0.25vw solid white;
+    border: var(--body-scrollbar-thumb) solid transparent;
+    background-clip: content-box;
     background-color: var(--clr-300);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    border: 0.15vw solid white;
+    border: var(--body-scrollbar-thumb-hover) solid transparent;
     background-color: var(--clr-500);
 }
 
@@ -78,7 +83,7 @@ body {
 
 main {
     margin-bottom: min(5rem, 10vw);
-    filter: drop-shadow(0 min(1em, 2vw) min(1em, 2vw) rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 min(0.4em, 2vw) min(0.4em, 2vw) rgba(0, 0, 0, 0.4));
 }
 
 footer {
@@ -118,21 +123,4 @@ footer {
     padding-block: min(0.5em, 2vw);
     border-top: 0.05em solid lightgray;
     color: inherit;
-}
-
-/* [MEDIA QUERIES] ================================================== */
-@media screen and (min-height: 58em), (min-width: 115em) {
-
-    /* Adjust custom scrollbar -------------------------------------- */
-    body::-webkit-scrollbar {
-        width: 0.8vw;
-    }
-}
-
-@media screen and (max-width: 30em) {
-
-    /* For high zoom in levels -------------------------------------- */
-    footer {
-        margin-left: var(--nav-poking, 0);
-    }
 }

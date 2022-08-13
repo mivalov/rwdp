@@ -114,7 +114,7 @@ html {
 @media screen and (max-width: 45em) {
 
     .project-grid {
-        grid-template-columns: repeat(1, minmax(20rem, 40rem));
+        grid-template-columns: repeat(1, minmax(1rem, 40rem));
     }
 
     .project-tile:is(:hover, :focus-visible) {
@@ -126,7 +126,7 @@ html {
 
 @media screen and (max-width: 30em) {
 
-    /* For high zoom in levels -------------------------------------- */
+    /* For high zoom / Small screen width --------------------------- */
     :root {
         --scroll-padding: 0;
     }
@@ -140,6 +140,6 @@ html {
     }
 
     .project-grid {
-        grid-template-columns: repeat(1, minmax(8rem, 30rem));
+        grid-template-columns: repeat(1, minmax(1rem, 30rem));
     }
 }

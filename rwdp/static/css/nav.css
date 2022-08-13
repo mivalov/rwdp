@@ -1,16 +1,17 @@
 /* [CUSTOM VARIABLES] =============================================== */
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
-    --clr-nav-accent: var(--clr-accent, #31CC39);
-    --clr-nav-100: var(--clr-100, #ffffffee);
+    --clr-nav-accent: var(--clr-accent, #31cc39);
+    --clr-nav-accent-100: var(--clr-accent-100, #3aee43);
+    --clr-nav-100: var(--clr-100, #ffffffe6);
     --clr-nav-500: var(--clr-500, #444444);
     --clr-nav-700: var(--clr-700, #242424);
-    --clr-nav-900: var(--clr-900, #000000d9);
-    --clr-nav-text: var(--clr-text, #ffffffee);
+    --clr-nav-900: var(--clr-900, #0f0f0f);
+    --clr-nav-text: var(--clr-text, #ffffffe6);
 
     --nav-hight: 43px;
 
-    /* [CUSTOM VARIABLES] For high zoom in levels ------------------- */
+    /* [CUSTOM VARIABLES] For high zoom / Small screen width ======== */
     /* Navigation size is calculated based on the nav logo font size  */
 
     /* Nav logo font size ------------------------------------------- */
@@ -19,20 +20,20 @@
     /* Ratio between nav logo & nav options font size --------------- */
     --fs-nav-options: calc(0.5 * var(--fs-nav-logo));
 
-    /* Spacing between nav items */
+    /* Vertical spacing between nav items --------------------------- */
     --nav-item-spacing: 1.8vw;
 
     /* Navigation width calculated based on logo font size ---------- */
-    --nav-margin-inline: 2vw;
+    --nav-margin-inline: 4vw;
     --nav-width: calc((4 * var(--fs-nav-logo)) + var(--nav-margin-inline));
 
     /* How much the nav is poking from the left when closed --------- */
-    /* Cannot be poking more than its own width                       */
+    /* Cannot be poking more than the width of the nav                */
     --nav-poking: min(4vw, var(--nav-width));
     --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
 
-    /* [CUSTOM VARIABLES] For high zoom in levels ------------------- */
-    /* Adjust inline margin for <main>                                */
+    /* Adjust inline margin for <main> ------------------------------ */
+    /* Cannot be lower than the minimal value "--margin-inline-min"   */
     --margin-inline: max(1.4vw, var(--margin-inline-min));
     --margin-inline-min: 0.6vw;
 }
@@ -126,7 +127,7 @@
     color: var(--clr-nav-text);
 }
 
-/* Navbar highlight ------------------------------------------------- */
+/* [DEFAULT NAV] Navbar highlight ----------------------------------- */
 /* Highlight the navigation option with a class of "active"           */
 .active {
     color: var(--clr-nav-accent) !important;
@@ -182,9 +183,21 @@
 /* [MEDIA QUERIES] ================================================== */
 @media screen and (max-width: 30em) {
 
+    /* For high zoom / Small screen width =========================== */
+
     /* Custom nav scrollbar ----------------------------------------- */
+    :root {
+
+        /* Nav scrollbar width -------------------------------------- */
+        --nav-scrollbar: 4px;
+
+        /* Ratio between nav scrollbar and scrollbar thumb ---------- */
+        --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
+        --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
+    }
+
     .nav::-webkit-scrollbar {
-        width: max(2px, 1vw);
+        width: var(--nav-scrollbar);
     }
 
     .nav::-webkit-scrollbar-track {
@@ -192,17 +205,17 @@
     }
 
     .nav::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        border: 0.3vw solid var(--clr-nav-700);
-        background: var(--clr-nav-accent);
+        border-radius: 100vw;
+        border: var(--nav-scrollbar-thumb) solid var(--clr-nav-700);
+        background-color: var(--clr-nav-accent);
     }
 
     .nav::-webkit-scrollbar-thumb:hover {
-        border: 0.2vw solid var(--clr-nav-700);
+        border: var(--nav-scrollbar-thumb-hover) solid var(--clr-nav-700);
+        background-color: var(--clr-nav-accent-100);
     }
 
-    /* For high zoom in levels -------------------------------------- */
-    /* Navigation switches from TOP to LEFT side                      */
+    /* Default navigation switches from TOP to LEFT side ------------ */
     main {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
@@ -264,5 +277,9 @@
 
     :is(.nav-projects, .return-to-index, .nav-about) {
         border-inline: none;
+    }
+
+    footer {
+        margin-left: var(--nav-poking);
     }
 }
