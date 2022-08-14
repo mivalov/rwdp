@@ -2,7 +2,7 @@
 :root {
 
     /* Set block margin for the project section header -------------- */
-    --section-header-margin: min(8vh, 5em);
+    --section-header-margin: min(5em, 8vh);
 }
 
 /* [PAGE SPECIFIC] ================================================== */
@@ -43,8 +43,7 @@
 .project-section {
     scroll-snap-align: start;
     padding-inline: min(2rem, 3vw);
-    padding-block: var(--section-header-margin) min(16rem, 20vh);
-    min-height: 100%;
+    padding-block: var(--section-header-margin) min(12rem, 20vh);
     clip-path: polygon(100% 0, 100% 100%, 50% 98%, 0 100%, 0 0);
     background-color: var(--clr-secondary);
 }
@@ -63,10 +62,10 @@
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: var(--section-header-margin);
+    margin-block: var(--section-header-margin);
     text-align: center;
     justify-content: center;
-    grid-template-columns: repeat(2, minmax(28rem, 50rem));
+    grid-template-columns: repeat(2, minmax(30rem, 50rem));
     grid-gap: min(4em, 5vw);
     background-color: azure;
 }
