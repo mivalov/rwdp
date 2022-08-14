@@ -12,19 +12,17 @@
     --clr-text: #ffffffe6;
 
     --snap-type: var(--scroll-snap-type, none);
-    --scroll-padding: var(--nav-hight, 0);
+    --scroll-padding-top: var(--nav-hight, 0);
 
-    /* Body scrollbar width ----------------------------------------- */
+    /* Body custom scrollbar ---------------------------------------- */
     --body-scrollbar: min(14px, 2.6vmin);
-
-    /* Ratio between body scrollbar and scrollbar thumb ------------- */
     --body-scrollbar-thumb: calc(0.3 * var(--body-scrollbar));
     --body-scrollbar-thumb-hover: calc(0.2 * var(--body-scrollbar));
 }
 
-/* [MAIN CSS] ======================================================= */
+/* [GLOBAL] ========================================================= */
 
-/* [GLOBAL SETTINGS] ------------------------------------------------ */
+/* ------------------------------------------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -32,14 +30,14 @@
     text-decoration: none;
 }
 
-/* [GLOBAL SETTINGS] Box sizing rules ------------------------------- */
+/* Box sizing rules ------------------------------------------------- */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* [GLOBAL SETTINGS] Make images easier to work with ---------------- */
+/* Make images easier to work with ---------------------------------- */
 img,
 picture,
 svg {
@@ -47,7 +45,7 @@ svg {
     display: block;
 }
 
-/* [GLOBAL SETTINGS] Custom scrollbar ------------------------------- */
+/* Body custom scrollbar -------------------------------------------- */
 body::-webkit-scrollbar {
     width: var(--body-scrollbar);
 }
@@ -68,13 +66,13 @@ body::-webkit-scrollbar-thumb:active {
     background-color: var(--clr-700);
 }
 
-/* [GLOBAL SETTINGS] Main Content ----------------------------------- */
+/* Main Content ----------------------------------------------------- */
 html {
     font-size: 10px;
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: var(--snap-type);
-    scroll-padding-top: var(--scroll-padding);
+    scroll-padding-top: var(--scroll-padding-top);
 }
 
 body {

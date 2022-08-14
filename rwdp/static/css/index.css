@@ -1,15 +1,24 @@
-/* [MAIN CSS] ======================================================= */
+/* [CUSTOM VARIABLES] =============================================== */
+:root {
 
-/* Main Content ----------------------------------------------------- */
+    /* Set block margin for the project section header -------------- */
+    --section-header-margin: min(8vh, 5em);
+}
+
+/* [PAGE SPECIFIC] ================================================== */
+
+/* Custom selection ------------------------------------------------- */
 ::selection {
     color: var(--clr-text);
     background-color: var(--clr-accent);
 }
 
-html {
-    --scroll-snap-type: y mandatory;
+.project-title::selection {
+    color: var(--clr-accent);
+    background-color: var(--clr-text);
 }
 
+/* Main Content ----------------------------------------------------- */
 .welcome-section {
     scroll-snap-align: start;
     padding-block: min(20rem, 14vw) min(4rem, 10vw);
@@ -17,10 +26,6 @@ html {
     min-height: 100vh;
     text-align: center;
     background: linear-gradient(0deg, rgba(44,44,44,1) 10%, rgba(84,84,84,1) 60%);
-
-    /* background: rgb(255,72,72); */
-    /* background: rgb(255,191,0); */
-    /* background: linear-gradient(155deg, rgba(255,72,72,1) 0%, rgba(255,198,72,1) 50%, rgba(207,76,197,1) 100%); */
 }
 
 .welcome-section-header {
@@ -37,8 +42,8 @@ html {
 
 .project-section {
     scroll-snap-align: start;
-    padding-block: min(5rem, 6vh) min(12rem, 20vh);
     padding-inline: min(2rem, 3vw);
+    padding-block: var(--section-header-margin) min(16rem, 20vh);
     min-height: 100%;
     clip-path: polygon(100% 0, 100% 100%, 50% 98%, 0 100%, 0 0);
     background-color: var(--clr-secondary);
@@ -58,7 +63,7 @@ html {
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: min(8vw, 8em);
+    margin-top: var(--section-header-margin);
     text-align: center;
     justify-content: center;
     grid-template-columns: repeat(2, minmax(28rem, 50rem));
@@ -68,7 +73,6 @@ html {
 
 .project-tile {
     transition: 0.4s ease-out;
-    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -97,17 +101,12 @@ html {
 }
 
 /* [MEDIA QUERIES] ================================================== */
-@media screen and (min-height: 58em), (min-width: 115em) {
-
-    .project-tile {
-        scroll-snap-align: none;
-    }
-}
-
-@media screen and (max-height: 58em), (max-width: 115em) {
+@media screen
+and ((min-height: 55em) and (max-height: 60em))
+and ((min-width: 70em) and (max-width: 120em)) {
 
     html {
-        --scroll-snap-type: none;
+        --scroll-snap-type: y mandatory;
     }
 }
 
@@ -126,18 +125,7 @@ html {
 
 @media screen and (max-width: 30em) {
 
-    /* For high zoom / Small screen width --------------------------- */
-    :root {
-        --scroll-padding: 0;
-    }
-
-    html {
-        --scroll-snap-type: y proximity;
-    }
-
-    .welcome-section {
-        scroll-snap-align: none;
-    }
+    /* [FOR]: High zoom / Small screen width ======================== */
 
     .project-grid {
         grid-template-columns: repeat(1, minmax(1rem, 30rem));

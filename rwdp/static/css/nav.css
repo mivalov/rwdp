@@ -11,36 +11,33 @@
 
     --nav-hight: 43px;
 
-    /* [CUSTOM VARIABLES] For high zoom / Small screen width ======== */
-    /* Navigation size is calculated based on the nav logo font size  */
+    /* [FOR]: High zoom / Small screen width ======================== */
 
-    /* Nav logo font size ------------------------------------------- */
+    /* Nav size is calculated based on the nav logo font size ------- */
     --fs-nav-logo: 6vw;
+    --fs-nav-menu: calc(0.5 * var(--fs-nav-logo));
+    --nav-margin-inline: calc(var(--fs-nav-logo) / 3);
+    --nav-width: calc(3 * (var(--fs-nav-logo) + var(--nav-margin-inline)));
 
-    /* Ratio between nav logo & nav options font size --------------- */
-    --fs-nav-options: calc(0.5 * var(--fs-nav-logo));
+    /* How much the nav is poking from the left when hidden --------- */
+    --nav-poking: min(4vw, var(--nav-width));
+    --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
 
     /* Vertical spacing between nav items --------------------------- */
     --nav-item-spacing: 1.8vw;
 
-    /* Navigation width calculated based on logo font size ---------- */
-    --nav-margin-inline: 4vw;
-    --nav-width: calc((4 * var(--fs-nav-logo)) + var(--nav-margin-inline));
+    /* Nav custom scrollbar size ------------------------------------ */
+    --nav-scrollbar: 4px;
+    --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
+    --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
 
-    /* How much the nav is poking from the left when closed --------- */
-    /* Cannot be poking more than the width of the nav                */
-    --nav-poking: min(4vw, var(--nav-width));
-    --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
-
-    /* Adjust inline margin for <main> ------------------------------ */
-    /* Cannot be lower than the minimal value "--margin-inline-min"   */
-    --margin-inline: max(1.4vw, var(--margin-inline-min));
-    --margin-inline-min: 0.6vw;
+    /* Set inline margin for <main> --------------------------------- */
+    --margin-inline: 1.4vw;
 }
 
-/* [MAIN CSS] ======================================================= */
+/* [DEFAULT NAV] ==================================================== */
 
-/* [DEFAULT NAV] Button to skip navigation options ------------------ */
+/* Button to skip navigation options -------------------------------- */
 .skip-nav {
     position: fixed;
     z-index: 99;
@@ -83,7 +80,7 @@
     color: var(--clr-nav-accent);
 }
 
-/* [DEFAULT NAV] Main Content --------------------------------------- */
+/* Main Content ----------------------------------------------------- */
 .nav {
     display: flex;
     position: fixed;
@@ -127,7 +124,7 @@
     color: var(--clr-nav-text);
 }
 
-/* [DEFAULT NAV] Navbar highlight ----------------------------------- */
+/* Navbar highlight ------------------------------------------------- */
 /* Highlight the navigation option with a class of "active"           */
 .active {
     color: var(--clr-nav-accent) !important;
@@ -183,19 +180,13 @@
 /* [MEDIA QUERIES] ================================================== */
 @media screen and (max-width: 30em) {
 
-    /* For high zoom / Small screen width =========================== */
+    /* [FOR]: High zoom / Small screen width ======================== */
 
-    /* Custom nav scrollbar ----------------------------------------- */
     :root {
-
-        /* Nav scrollbar width -------------------------------------- */
-        --nav-scrollbar: 4px;
-
-        /* Ratio between nav scrollbar and scrollbar thumb ---------- */
-        --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
-        --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
+        --scroll-padding-top: 0;
     }
 
+    /* Nav custom scrollbar ----------------------------------------- */
     .nav::-webkit-scrollbar {
         width: var(--nav-scrollbar);
     }
@@ -215,19 +206,14 @@
         background-color: var(--clr-nav-accent-100);
     }
 
-    /* Default navigation switches from TOP to LEFT side ------------ */
-    main {
-        margin-left: calc(var(--margin-inline) + var(--nav-poking));
-        margin-right: var(--margin-inline);
-    }
-
+    /* Disable skip navigation button ------------------------------- */
     .skip-nav {
         display: none;
     }
 
+    /* Default navigation switches from TOP to LEFT side ------------ */
     .nav {
         display: block;
-        position: fixed;
         overflow-y: auto;
         overflow-x: hidden;
         height: 100%;
@@ -238,9 +224,10 @@
 
     .nav-list {
         display: none;
-        height: auto;
         width: auto;
-        margin-inline: 2vw;
+        margin-inline: var(--nav-margin-inline);
+
+        /* freeCodeCapm's test is in the way of the nav ------------- */
         margin-top: var(--nav-hight);
     }
 
@@ -256,8 +243,8 @@
     .nav-item {
         display: flex;
         margin: 0;
-        padding-bottom: var(--nav-item-spacing);
         padding-inline: 0;
+        padding-bottom: var(--nav-item-spacing);
     }
 
     .nav-item a {
@@ -272,11 +259,17 @@
     }
 
     .nav-item:not(.nav-logo) a {
-        font-size: var(--fs-nav-options);
+        font-size: var(--fs-nav-menu);
     }
 
     :is(.nav-projects, .return-to-index, .nav-about) {
         border-inline: none;
+    }
+
+    /* [GLOBAL] Adjusment ------------------------------------------- */
+    main {
+        margin-left: calc(var(--margin-inline) + var(--nav-poking));
+        margin-right: var(--margin-inline);
     }
 
     footer {
