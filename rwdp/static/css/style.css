@@ -68,6 +68,7 @@ body::-webkit-scrollbar-thumb:active {
 
 /* Main Content ----------------------------------------------------- */
 html {
+    height: 100%;
     font-size: 10px;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -76,11 +77,13 @@ html {
 }
 
 body {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
     text-rendering: optimizeSpeed;
 }
 
 main {
-    margin-bottom: min(5rem, 10vw);
     filter: drop-shadow(0 min(0.4em, 2vw) min(0.4em, 2vw) rgba(0, 0, 0, 0.4));
 }
 
@@ -90,15 +93,16 @@ footer {
     flex-direction: column;
     gap: min(1em, 1vw);
     padding-inline: min(4em, 4vw);
-    min-height: 30vh;
+    margin-top: auto;
+    max-height: 30vh;
     font-size: 1rem;
     text-align: center;
     color: black;
 }
 
 .footer-title {
-    margin-bottom: auto;
-    padding-bottom: min(4em, 4vw);
+    margin-bottom: max(2rem, 5vh);
+    padding-block: min(1rem, 2vw);
     font-size: min(3em, 4vw);
     font-weight: bold;
     color: inherit;
