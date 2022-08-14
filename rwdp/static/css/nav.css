@@ -223,7 +223,7 @@
     }
 
     .nav-list {
-        display: none;
+        opacity: 0;
         width: auto;
         margin-inline: var(--nav-margin-inline);
 
@@ -232,12 +232,13 @@
     }
 
     .nav:hover {
-        transition: 0.1s ease-out;
+        transition: 0.2s ease-out;
         transform: translateX(0);
     }
 
     .nav:hover > .nav-list {
-        display: block;
+        opacity: 1;
+        transition: 1s ease-in;
     }
 
     .nav-item {
