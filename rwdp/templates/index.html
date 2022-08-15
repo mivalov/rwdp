@@ -17,6 +17,19 @@
   Home Page
 {%- endblock %}
 
+{% block nav_extra_buttons %}
+  <li class="nav-item nav-home">
+    <a href="#welcome-section">
+      Home
+    </a>
+  </li>
+  <li class="nav-item nav-projects nav-most-right">
+    <a href="#projects">
+      Projects
+    </a>
+  </li>
+{% endblock %}
+
 {% block main %}
   <main>
     <section id="welcome-section" class="welcome-section">

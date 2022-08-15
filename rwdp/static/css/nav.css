@@ -86,6 +86,7 @@
     position: fixed;
     z-index: 99;
     top: 0;
+    font-family: none;
     width: 100%;
     height: var(--nav-hight);
     align-items: center;
@@ -101,6 +102,7 @@
     margin-inline: auto 0.5rem;
     margin-block: 0;
     width: 100%;
+    gap: 0;
 }
 
 .nav-item {
@@ -172,7 +174,7 @@
     border-inline-start: 0.01em solid var(--clr-nav-text);
 }
 
-:is(.nav-projects, .return-to-index) {
+:is(.nav-most-right) {
     border-inline-end: 0.01em solid var(--clr-nav-text);
 }
 
@@ -262,7 +264,7 @@
         font-size: var(--fs-nav-menu);
     }
 
-    :is(.nav-projects, .return-to-index, .nav-about) {
+    :is(.nav-projects, .return-to-index, .nav-about, .nav-most-right) {
         border-inline: none;
     }
 

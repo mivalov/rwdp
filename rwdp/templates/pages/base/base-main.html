@@ -56,14 +56,9 @@
             </a>
           </li>
           {%- block nav_extra_buttons %}
-          <li class="nav-item nav-home">
-            <a href="#welcome-section">
+          <li class="nav-item nav-home nav-most-right">
+            <a href="{{ url_for('index') }}">
               Home
-            </a>
-          </li>
-          <li class="nav-item nav-projects">
-            <a href="#projects">
-              Projects
             </a>
           </li>
           {%- endblock nav_extra_buttons %}
