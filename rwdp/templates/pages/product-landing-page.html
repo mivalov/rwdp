@@ -6,11 +6,11 @@
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/product-landing-page.css') }}"/>
-{% endblock %}
+{%- endblock %}
 
-{% block title %}
+{% block title -%}
   Product Landing Page
-{% endblock %}
+{%- endblock %}
 
 {% block nav_extra_buttons %}
   {% include "pages/base/base-nav-home-btn.html" %}
@@ -68,8 +68,8 @@
     <section id="three" class="section">
     </section>
   </main>
-{% endblock %}
+{%- endblock main %}
 
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}

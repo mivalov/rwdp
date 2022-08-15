@@ -6,11 +6,11 @@
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/technical-documentation-page.css') }}"/>
-{% endblock %}
+{%- endblock %}
 
-{% block title %}
+{% block title -%}
   Technical Documentation Page
-{% endblock %}
+{%- endblock %}
 
 {% block nav_extra_buttons %}
   {% include "pages/base/base-nav-home-btn.html" %}
@@ -53,7 +53,7 @@
       </ul>
     </nav>
   </header>
-{% endblock %}
+{% endblock header %}
 
 {% block main %}
   <main id="main-doc">
@@ -167,8 +167,8 @@
       </article>
     </section>
   </main>
-{% endblock %}
+{%- endblock main %}
 
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}
