@@ -105,7 +105,7 @@
 
 .nav-item {
     list-style: none;
-    padding-inline: 0.6em;
+    padding-inline: 0.55em;
 }
 
 .nav-item a {
@@ -151,7 +151,6 @@
 }
 
 .nav-logo a {
-    padding-block: 0.06em;
     font-size: 3.2em;
     border-radius: 0;
 }
