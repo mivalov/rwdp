@@ -41,7 +41,7 @@
     {%- endblock header %}
     {%- endfilter -%}
     {% else %}
-    <header {% block header_attr %}{% endblock %}>
+    <header {%- block header_attr %}{% endblock %}>
       {%- set skip_nav_href = skip_nav_href|default('') %}
       <a class="skip-nav" href="{{- skip_nav_href -}} ">
         skip navigation
