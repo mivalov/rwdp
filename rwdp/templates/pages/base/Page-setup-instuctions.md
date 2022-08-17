@@ -226,9 +226,9 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   **If you decide to KEEP the navigation bar you musn't forget to set up the buttons, as it will only have a HOME ("return to index") button and the always present ABOUT and GITHUB buttons!**
 
   **RECOMMENDED:**  
-  Add no more than 2 buttons with not so many characters in them as it will cause overflow!
+  Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom & small screen widths!
 
-  *Of course you can add as many as you like, but you will have to adjust the the CSS of the navigation ("**nav.css**") so everything looks nice and in place!*
+  *Of course you can add as many buttons as you like, but you will have to adjust the CSS of the navigation ("**nav.css**") so that everything looks nice and in place!*
 
   **IMPORTANT:**
   Alway add **class="nav-most-right"** to the last/most right button. It sets part of the separating line line between the rest of the buttons on the right.
