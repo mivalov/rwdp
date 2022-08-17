@@ -3,14 +3,14 @@
 {# Set the href link for the "skip navigation" button #}
 {% set skip_nav_href = '#projects' %}
 
-{% block stylesheets_extra %}
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/index.css') }}"/>
-{%- endblock %}
-
 {% block page_description %}
   <meta name="description"
         content="Responsive Web Design with Python (RWDP)">
+{%- endblock %}
+
+{% block stylesheets_extra %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/index.css') }}"/>
 {%- endblock %}
 
 {% block title -%}
