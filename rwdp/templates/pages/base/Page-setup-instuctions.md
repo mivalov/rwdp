@@ -78,21 +78,19 @@ def example_page():
 
 Earlier we mentioned that pages are an "extention" of the [base template](https://jinja.palletsprojects.com/en/3.1.x/templates/#base-template) HTML file. We refer to these pages as [child templates](https://jinja.palletsprojects.com/en/3.1.x/templates/#child-template).
 
-#### **2.1 Extending from the base template**
+#### **2.1 Extend template**
 
 ---
 
 "Extending" or in other words copying the content from the *base template* to our new *child template* is done with the `{% extends %}` Jinja tag.
 
-**IMPORTANT:**
-*This MUST be the first tag in your child template*
+**IMPORTANT:**  
+\- *This MUST be the first tag in your child template*  
+\- *Your BASE TEMPLATE **needs to be in the same folder or in a subfolder** from where your CHILD TEMPLATE is located.*
 
 ```Jinja
 {% extends "pages/base/base-main.html" %}
 ```
-
-**IMPORTANT:**
-*Your BASE TEMPLATE **needs to be in the same folder or in a subfolder** from where your CHILD TEMPLATE is located.*
 
 #### **2.2 Custom variables**
 
@@ -135,28 +133,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
 **To keep things organized, blocks should be called in the same order in your child template as they are listed here!**
 
-- ##### Block "stylesheet_extra"
-
-  ---
-
-  **It is intended that every page that "extends" the base template page has its own seperate CSS file, so that we keep things organized.**
-
-  The base template page is build in a way that the stylesheet link for the child template is called LAST after all other stylesheet links!
-
-  This is so that if you want to overwrite the default styling for your new page, you can easily do it!
-
-  ```Jinja
-  {# Sets the link for the stylesheet for your new page #}
-  {# Is the last stylesheet link in the <head> #}
-  {# Align atrributes underneath eachother like in the example #}
-
-  {% block stylesheets_extra %}
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/example.css') }}"/>
-  {%- endblock %}
-  ```
-
-- ##### Block "page_description" <br> (OPTIONAL)
+- ##### Block "page_description"
 
   ---
 
@@ -174,13 +151,38 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock %}
   ```
 
-- ##### Block "title" <br> (REQUIRED)
+- ##### Block "stylesheet_extra" (REQUIRED)
+
+  ---
+
+  **It is intended that every page that "extends" the base template page has its own seperate CSS file, so that we keep things organized.**
+
+  The base template page is build in a way that the stylesheet link for the child template is called LAST after all other stylesheet links!
+
+  This is so that if you want to overwrite the default styling for your new page, you can easily do it!
+
+  The "stylesheets_extra" block in the base template page is defined as [required](https://jinja.palletsprojects.com/en/3.1.x/templates/#required-blocks).
+
+  **Meaning you MUST include this block and set up a stylesheet link!**
+
+  ```Jinja
+  {# Sets the link for the stylesheet for your new page #}
+  {# Is the last stylesheet link in the <head> #}
+  {# Align atrributes underneath eachother like in the example #}
+
+  {% block stylesheets_extra %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/example.css') }}"/>
+  {%- endblock %}
+  ```
+
+- ##### Block "title" (REQUIRED)
 
   ---
 
   The "title" block in the base template page is defined as [required](https://jinja.palletsprojects.com/en/3.1.x/templates/#required-blocks).
 
-  **Meaning you MUST set up a page title!**
+  **Meaning you MUST include this block and set up a page title!**
 
   ```Jinja
   {# [DEFINED AS REQUIRED] Sets the page title #}
