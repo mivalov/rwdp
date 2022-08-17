@@ -156,7 +156,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock %}
   ```
 
-- ##### Block "page_description" (OPTIONAL)
+- ##### Block "page_description" <br> (OPTIONAL)
 
   ---
 
@@ -174,7 +174,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock %}
   ```
 
-- ##### Block "title" (REQUIRED)
+- ##### Block "title" <br> (REQUIRED)
 
   ---
 
@@ -191,11 +191,11 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock %}
   ```
 
-- ##### Attribute blocks for `<header>` and `<footer>`
+- ##### Attribute blocks
 
   ---
 
-  The "attribute" blocks are used ONLY to add attributes to the tag.
+  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags.
 
   **IMPORTANT:**  
   \- Always add **1 space** ("&nbsp;") before the first attribute  
