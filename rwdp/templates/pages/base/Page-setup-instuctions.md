@@ -97,18 +97,6 @@ Earlier we mentioned that pages are an "extention" of the [base template](https:
 
 Custom Jinja variables each controlling specific page behaviours making them easier to manipulate and manage.
 
-- ##### **Variable to set the href link for the "skip navigation" button**
-
-  If you decide to **KEEP** the default navigation bar you musn't forget to:  
-  \- set up your nav buttons (Check ["nav_extra_buttons"](#block-navextrabuttons) block)  
-  \- set a href link for your hidden "skip navigation" button
-
-  ```Jinja
-  {# Sets the href link for the "skip navigation" button #}
-
-  {% set skip_nav_href = '#example' %}
-  ```
-
 - ##### **Variable to disable the default navigation completely**
 
   If needed you can completely remove the default navigation by setting this variable to `true`.
@@ -122,6 +110,18 @@ Custom Jinja variables each controlling specific page behaviours making them eas
   {# Removes both its HTML and CSS #}
 
   {% set nav_disabled = true %}
+  ```
+
+- ##### **Variable to set the href link for the "skip navigation" button**
+
+  If you decide to **KEEP** the default navigation bar you musn't forget to:  
+  \- set up your nav buttons (Check the ["nav_extra_buttons"](#block-nav_extra_buttons) block)  
+  \- set a href link for your hidden "skip navigation" button
+
+  ```Jinja
+  {# Sets the href link for the "skip navigation" button #}
+
+  {% set skip_nav_href = '#example' %}
   ```
 
 #### **2.3 List of all the EMPTY blocks**
