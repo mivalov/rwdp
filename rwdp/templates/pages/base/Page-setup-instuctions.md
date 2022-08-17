@@ -1,4 +1,3 @@
-
 # **HOW TO MAKE AND SETUP A NEW HTML PAGE**
 
 The whole page structure for the project is made with the help of [Jinja's](https://jinja.palletsprojects.com/en/3.1.x/templates/) template system!  
