@@ -230,7 +230,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   *Of course you can add as many buttons as you like, but you will have to adjust the CSS of the navigation ("**nav.css**") so that everything looks nice and in place!*
 
   **IMPORTANT:**
-  Alway add **class="nav-most-right"** to the last/most right button. It sets part of the separating line line between the rest of the buttons on the right.
+  Always add **class="nav-most-right"** to the last/most right button. It sets part of the separating line between the left buttons and the static right buttons.
 
   ```Jinja
   {# Set up additional navigation buttons if needed #}
