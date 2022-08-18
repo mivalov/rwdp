@@ -466,7 +466,7 @@ This can essentially make the block act as a more powerfull ["footer_extra"](#bl
 
 ## EXAMPLE PAGE
 
-**IMPORTANT:** *Blocks should be used in the same order & written as shown in the example for consistency and whitespace control.*
+**IMPORTANT:** *Blocks should be called/used in the same order & written as shown in the example for consistency and whitespace control across all the pages.*
 
 ```jinja
 {% extends "pages/base/base-main.html" %}
@@ -474,13 +474,13 @@ This can essentially make the block act as a more powerfull ["footer_extra"](#bl
 {# Remove this if you want to keep the default navigation ENABLED #}
 {% set nav_disabled = true %}
 
-{# If you decide to keep the default navigation enabled #}
+{# If you decide to keep the default navigation ENABLED #}
 {# Set a href link for the "skip navigation" button #}
 {% set skip_nav_href = '#anchor' %}
 
 {# ALWAYS INDENT CONTENT IN THE JINJA BLOCK BY 2 SPACES "  " #}
 
-{# [OPTIONAL] Set a description for your page if needed #}
+{# [OPTIONAL] Set a description for your page if NEEDED #}
 {# Align atrributes underneath eachother like in the example #}
 {% block page_description %}
   <meta name="description"
