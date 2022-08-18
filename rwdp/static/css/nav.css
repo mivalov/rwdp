@@ -264,7 +264,7 @@
         font-size: var(--fs-nav-menu);
     }
 
-    :is(.nav-projects, .return-to-index, .nav-about, .nav-most-right) {
+    :is(.nav-about, .nav-most-right) {
         border-inline: none;
     }
 
