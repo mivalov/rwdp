@@ -121,7 +121,7 @@ Custom Jinja variables each controlling specific page behaviours making them eas
   ```Jinja
   {# Sets the href link for the "skip navigation" button #}
 
-  {% set skip_nav_href = '#example' %}
+  {% set skip_nav_href = '#anchor' %}
   ```
 
 #### **2.3 List of all the EMPTY blocks**
@@ -156,8 +156,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   **It is intended that every page that "extends" the base template page has its own seperate CSS file, so that we keep things organized.**
 
-  The base template page is build in a way that the stylesheet link for the child template is called LAST after all other stylesheet links!
-
+  The base template page is build in a way that the stylesheet link for the child template is called **LAST** after all other stylesheet links!
   This is so that if you want to overwrite the default styling for your new page, you can easily do it!
 
   The "stylesheets_extra" block in the base template page is defined as [required](https://jinja.palletsprojects.com/en/3.1.x/templates/#required-blocks).
@@ -166,7 +165,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ```Jinja
   {# Sets the link for the stylesheet for your new page #}
-  {# Is the last stylesheet link in the <head> #}
+  {# It is the last stylesheet link in the <head> #}
   {# Align atrributes underneath eachother like in the example #}
 
   {% block stylesheets_extra %}
@@ -196,7 +195,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags.
+  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags. Usefull if you want to apply different styling on them for the specific page using a different "id" and "classes" for every page.
 
   **IMPORTANT:**  
   \- Always add **1 space** ("&nbsp;") before the first attribute  
@@ -222,31 +221,59 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  **If you decide to KEEP the navigation bar you musn't forget to set up the buttons, as it will only have a HOME ("return to index") button and the always present ABOUT and GITHUB buttons!**
+  **If you decide to KEEP the navigation bar you musn't forget to set up extra buttons if needed, as it will only have a HOME ("return to index") button and the always present ABOUT and GITHUB buttons!**
 
   **RECOMMENDED:**  
   Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom & small screen widths!
 
   *Of course you can add as many buttons as you like, but you will have to adjust the CSS of the navigation ("**nav.css**") so that everything looks nice and in place!*
 
-  **IMPORTANT:**
-  Always add **class="nav-most-right"** to the last/most right button. It sets part of the separating line between the left buttons and the static right buttons.
+  **IMPORTANT:**  
+  \- Always add the `class="nav-item"` to all the button `<li>` tags.  
+  \- Always add `class="nav-most-right` to the `<li>` tag on the last/most right button. It sets part of the separating line between the left buttons and the static right buttons (ABOUT & GITHUB).
+
+  **NOTE:** *Only available if the default navigation is **ENABLED**.*
 
   ```Jinja
-  {# Set up additional navigation buttons if needed #}
+  {# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
+  {# Always add the class "nav-item" to all the buttons #}
+  {# Always add the class "nav-most-right" to the last/most right button #}
+  {# Available ONLY if default navigation is ENABLED #}
 
   {% block nav_extra_buttons %}
   {%- filter indent(width=8) %}
-    <li class="nav-item nav-home">
-      <a href="#welcome-section">
-        Home
+    <li class="nav-item">
+      <a href="#anchor-one">
+        Button1
       </a>
     </li>
-    <li class="nav-item nav-projects nav-most-right">
-      <a href="#projects">
-        Projects
+    <li class="nav-item nav-most-right">
+      <a href="#anchor-two">
+        Button2
       </a>
     </li>
+  {%- endfilter %}
+  {%- endblock %}
+  ```
+
+- ##### Block "header_extra"
+
+  ---
+
+  The "header_extra" block is for building on top of the existing content, so **DO NOT** include the `<header>` tag as it is already in it.
+
+  **NOTE:** *Only available if the default navigation is **ENABLED**.*
+
+  ```Jinja
+  {# Write your ADITIONAL <header> html here #}
+  {# DO NOT add the <header> tag #}
+  {# Available ONLY if default navigation is ENABLED #}
+
+  {% block header_extra %}
+  {% filter indent(width=4) %}
+    <p>
+      Extra header content
+    </p>
   {%- endfilter %}
   {%- endblock %}
   ```
@@ -260,32 +287,18 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   In the base template page this block is completely EMPTY!
   It's only in the correct place, meaning you **MUST** add the `<header>` tag.
 
+  **NOTE:** *Only available if the default navigation is **DISABLED**.*
+
   ```Jinja
-  {# Write your header html here #}
+  {# Write your <header> html here #}
+  {# ALWAYS add the <header> tag #}
+  {# Available ONLY if default navigation is DISABLED #}
 
   {% block header %}
     <header>
       Example header content
     </header>
   {% endblock header %}
-  ```
-
-- ##### Block "header_extra"
-
-  ---
-
-  The "header_extra" block is for building on top of the existing content, so **DO NOT** include the `<header>` tag as it is already in it.
-
-  ```Jinja
-  {# Write your ADITIONAL header html here #}
-
-  {% block header_extra %}
-  {% filter indent(width=4) %}
-    <p>
-      Extra header content
-    </p>
-  {%- endfilter %}
-  {%- endblock %}
   ```
 
 - ##### Block "main"
@@ -299,18 +312,19 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ```Jinja
   {# Write your <main> html here #}
+  {# Always add the <main> tag #}
 
   {% block main %}
     <main>
       <section>
         <p>
-          Example 1
+          Example main content one
         </p>
       </section>
 
       <section>
         <p>
-          Example 2
+          Example main content two
         </p>
       </section>
     </main>
@@ -328,6 +342,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ```Jinja
   {# Write your footer title here #}
+  {# By default it is the same as the text in the "title" block #}
 
   {% block footer_title -%}
     {{ self.title() }}
@@ -341,7 +356,8 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   The "footer_extra" block is for building on top of the existing content, so **DO NOT** include the `<footer>` tag as it is already in it.
 
   ```Jinja
-  {# Write your ADITIONAL footer html here #}
+  {# Write your ADITIONAL <footer> html here #}
+  {# DO NOT add the <footer> tag #}
 
   {% block footer_extra %}
   {% filter indent(width=4) %}
@@ -361,7 +377,8 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   **This Jinja block is placed BETWEEN the `<footer>` and the `<scrip>` tags**
 
   ```Jinja
-  {# Write your ADITIONAL body html here #}
+  {# Write your ADITIONAL <body> html here #}
+  {# DO NOT add the <body> tag #}
 
   {%- block body_extra %}
   {% filter indent(width=4) %}
@@ -390,11 +407,29 @@ But if you desire to completely rework them the option is there.
   > *Do not call this block EMPTY unless you want to COMPLETELY **overwrite and rework** all of the content in it. (`<body>`, `<header>`, `<main>`, `<footer>`)*
 
   ```Jinja
-  {# Add if you want to completely rework the default body content #}
+  {# ONLY add if you want to completely rework the default body content #}
 
   {%- block body %}
   {% endblock %}
   ```
+
+  ```Jinja
+  {# Add additional content with the super block #}
+
+  {%- block body %}
+    {# Copy old content #}
+    {{ super() }}
+
+    {# Add new content #}
+    <p>
+      Additional body content
+    </p>
+  {% endblock %}
+  ```
+
+**NOTE:** *With the Jinja `{{ super() }}` block you can copy the original content of the block. So you can add additional content while preserving the original. [Read more about the Jinja super blocks.](https://jinja.palletsprojects.com/en/3.1.x/templates/#super-blocks)*
+
+This can essentially make the block act as a more powerfull ["body_extra"](#block-body_extra) block.
 
 - ##### Block "footer"
 
@@ -405,8 +440,164 @@ But if you desire to completely rework them the option is there.
   > *Do not call this block EMPTY unless you want to **disable** the default footer or COMPLETELY **overwrite and rework** all of the content in it. (`<footer>`)*
 
   ```Jinja
-  {# Add if you want to disable/rework the default footer #}
+  {# ONLY add if you want to disable/rework the default footer #}
 
   {%- block footer %}
   {% endblock %}
   ```
+
+  ```Jinja
+  {# Add additional content with the super block #}
+
+  {%- block footer %}
+    {# Copy old content #}
+    {{ super() }}
+
+    {# Add new content #}
+    <p>
+      Additional footer content
+    </p>
+  {% endblock %}
+  ```
+
+**NOTE:** *With the Jinja `{{ super() }}` block you can copy the original content of the block. So you can add additional content while preserving the original. [Read more about the Jinja super blocks.](https://jinja.palletsprojects.com/en/3.1.x/templates/#super-blocks)*
+
+This can essentially make the block act as a more powerfull ["footer_extra"](#block-footer_extra) block.
+
+## EXAMPLE PAGE
+
+**IMPORTANT:** *Blocks should be used in the same order & written as shown in the example for consistency and whitespace control.*
+
+```jinja
+{% extends "pages/base/base-main.html" %}
+
+{# Remove this if you want to keep the default navigation ENABLED #}
+{% set nav_disabled = true %}
+
+{# If you decide to keep the default navigation enabled #}
+{# Set a href link for the "skip navigation" button #}
+{% set skip_nav_href = '#anchor' %}
+
+{# ALWAYS INDENT CONTENT IN THE JINJA BLOCK BY 2 SPACES "  " #}
+
+{# [OPTIONAL] Set a description for your page if needed #}
+{# Align atrributes underneath eachother like in the example #}
+{% block page_description %}
+  <meta name="description"
+        content="Your page decription goes here!">
+{%- endblock %}
+
+{# [REQUIRED] Set a link for the stylesheet for your new page #}
+{# It is the last stylesheet link in the <head> #}
+{# Align atrributes underneath eachother like in the example #}
+{% block stylesheets_extra %}
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/example.css') }}"/>
+{%- endblock %}
+
+{# [REQUIRED] Set a page title #}
+{# Title text is used in the footer by default #}
+{% block title -%}
+  Example page title
+{%- endblock %}
+
+{# Write your attributes on the same line as the opening block #}
+{# ALWAYS LEAVE 1 SPACE " " BETWEEN THE OPENING BLOCK AND FIRST ATTRIBUTE #}
+{# DO NOT LEAVE ANY WHITESPACE BEFORE THE CLOSING BLOCK #}
+{# [IMPORTANT] Check information on how to linewrap ONLY the closing block if needed #}
+{% block header_attr %} class="example"{% endblock %}
+{%- block footer_attr %} id="example"{% endblock %}
+
+{# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
+{# Always add the class "nav-item" to all the buttons #}
+{# Always add the class "nav-most-right" to the last/most right button #}
+{# Available ONLY if default navigation is ENABLED #}
+{% block nav_extra_buttons %}
+{%- filter indent(width=8) %}
+  <li class="nav-item">
+    <a href="#anchor-one">
+      Button1
+    </a>
+  </li>
+  <li class="nav-item nav-most-right">
+    <a href="#anchor-two">
+      Button2
+    </a>
+  </li>
+{%- endfilter %}
+{%- endblock %}
+
+{# Write your ADITIONAL <header> html here #}
+{# DO NOT add the <header> tag #}
+{# Available ONLY if default navigation is ENABLED #}
+{% block header_extra %}
+{% filter indent(width=4) %}
+  <p>
+    Extra header content
+  </p>
+{%- endfilter %}
+{%- endblock %}
+
+{# Write your <header> html here #}
+{# ALWAYS add the <header> tag #}
+{# Available ONLY if default navigation is DISABLED#}
+{% block header %}
+  <header>
+    Example header content
+  </header>
+{% endblock header %}
+
+{# Write your <main> html here #}
+{# ALWAYS add the <main> tag #}
+{% block main %}
+  <main>
+    <section>
+      <p>
+        Example main content one
+      </p>
+    </section>
+
+    <section>
+      <p>
+        Example main content two
+      </p>
+    </section>
+  </main>
+{%- endblock main %}
+
+{# Write your footer title here #}
+{# By default it is the same as the text in the "title" block #}
+{% block footer_title -%}
+  {{ self.title() }}
+{%- endblock %}
+
+{# Write your ADITIONAL <footer> html here #}
+{# DO NOT add the <footer> tag #}
+{% block footer_extra %}
+{% filter indent(width=4) %}
+  <p>
+    Extra footer content
+  </p>
+{%- endfilter %}
+{%- endblock %}
+
+{# Write your ADITIONAL <body> html here #}
+{# DO NOT add the <body> tag #}
+{%- block body_extra %}
+{% filter indent(width=4) %}
+  <p>
+    Extra body content
+  </p>
+{%- endfilter %}
+{% endblock %}
+
+{# !!! REMOVE THIS BLOCK UNLESS !!! #}
+{# You want to completely rework the default body content #}
+{%- block body %}
+{% endblock %}
+
+{# !!! REMOVE THIS BLOCK UNLESS !!! #}
+{# You want to disable/rework the default footer #}
+{%- block footer %}
+{% endblock %}
+```
