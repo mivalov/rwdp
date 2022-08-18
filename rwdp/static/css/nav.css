@@ -31,6 +31,11 @@
     --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
     --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
 
+    /* Nav custom scrollbar colors ---------------------------------- */
+    --clr-nav-scrollbar: var(--clr-700);
+    --clr-nav-scrollbar-thumb: var(--clr-nav-accent);
+    --clr-nav-scrollbar-thumb-hover: var(--clr-nav-accent-100);
+
     /* Set inline margin for <main> --------------------------------- */
     --margin-inline: 1.4vw;
 }
@@ -183,6 +188,7 @@
 
     /* [FOR]: High zoom / Small screen width ======================== */
 
+    /* [CUSTOM VARIABLES] ------------------------------------------- */
     :root {
         --scroll-padding-top: 0;
     }
@@ -190,21 +196,18 @@
     /* Nav custom scrollbar ----------------------------------------- */
     .nav::-webkit-scrollbar {
         width: var(--nav-scrollbar);
-    }
-
-    .nav::-webkit-scrollbar-track {
-        background-color: var(--clr-nav-700);
+        background-color: var(--clr-nav-scrollbar);
     }
 
     .nav::-webkit-scrollbar-thumb {
         border-radius: 100vw;
         border: var(--nav-scrollbar-thumb) solid var(--clr-nav-700);
-        background-color: var(--clr-nav-accent);
+        background-color: var(--clr-nav-scrollbar-thumb);
     }
 
     .nav::-webkit-scrollbar-thumb:hover {
         border: var(--nav-scrollbar-thumb-hover) solid var(--clr-nav-700);
-        background-color: var(--clr-nav-accent-100);
+        background-color: var(--clr-nav-scrollbar-thumb-hover);
     }
 
     /* Disable skip navigation button ------------------------------- */
@@ -215,8 +218,7 @@
     /* Default navigation switches from TOP to LEFT side ------------ */
     .nav {
         display: block;
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow: hidden;
         height: 100%;
         width: var(--nav-width);
         transform: translateX(var(--nav-transform));
@@ -233,6 +235,7 @@
     }
 
     .nav:hover {
+        overflow-y: auto;
         transition: 0.2s ease-out;
         transform: translateX(0);
     }

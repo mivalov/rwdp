@@ -18,6 +18,12 @@
     --body-scrollbar: clamp(0.8vw, 14px, 1.8vw);
     --body-scrollbar-thumb: calc(0.35 * var(--body-scrollbar));
     --body-scrollbar-thumb-hover: calc(0.15 * var(--body-scrollbar));
+
+    /* Body custom scrollbar colors --------------------------------- */
+    --clr-body-scrollbar: white;
+    --clr-body-scrollbar-thumb: var(--clr-300);
+    --clr-body-scrollbar-thumb-hover: var(--clr-500);
+    --clr-body-scrollbar-thumb-active: var(--clr-700);
 }
 
 /* [GLOBAL] ========================================================= */
@@ -48,22 +54,23 @@ svg {
 /* Body custom scrollbar -------------------------------------------- */
 body::-webkit-scrollbar {
     width: var(--body-scrollbar);
+    background-color: var(--clr-body-scrollbar);
 }
 
 body::-webkit-scrollbar-thumb {
     border-radius: 100vw;
     border: var(--body-scrollbar-thumb) solid transparent;
     background-clip: content-box;
-    background-color: var(--clr-300);
+    background-color: var(--clr-body-scrollbar-thumb);
 }
 
 body::-webkit-scrollbar-thumb:hover {
     border: var(--body-scrollbar-thumb-hover) solid transparent;
-    background-color: var(--clr-500);
+    background-color: var(--clr-body-scrollbar-thumb-hover);
 }
 
 body::-webkit-scrollbar-thumb:active {
-    background-color: var(--clr-700);
+    background-color: var(--clr-body-scrollbar-thumb-active);
 }
 
 /* Main Content ----------------------------------------------------- */
@@ -81,6 +88,7 @@ body {
     min-height: 100%;
     flex-direction: column;
     text-rendering: optimizeSpeed;
+    background-color: goldenrod;
 }
 
 main {
