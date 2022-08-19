@@ -645,6 +645,8 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 {% endblock %}
 ```
 
+**NOTE:** *When a **parent** is called/used its **children/grandchildren** should not be called/used as they will not do/change anything.*
+
 ## **FINAL NOTES:**
 
 These instructions are for the features of Flask & Jinja that were used for the creation of the pages for this project! Giving you a better understanding of how the project is structured and meant to work.
