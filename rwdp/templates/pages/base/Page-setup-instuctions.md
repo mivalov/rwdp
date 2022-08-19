@@ -1,13 +1,11 @@
 # **HOW TO MAKE AND SETUP A NEW HTML PAGE**
 
 The whole page structure for the project is made with the help of [Jinja's](https://jinja.palletsprojects.com/en/3.1.x/templates/) template system!  
-Every page in the project is an "extention" of the base template html file ("**base-main.html**").
+Every page in the project is an "extension" of the base template HTML file ("**base-main.html**").
 
 *Located in:*
 
-```directory
-rwdp\templates\pages\base\base-main.html
-```
+`rwdp\templates\pages\base\base-main.html`
 
 The idea behind this is that we don't waste time rewriting code that will be reused in other files.
 
@@ -27,12 +25,12 @@ The idea behind this is that we don't waste time rewriting code that will be reu
 **IMPORTANT:**
 *Pay attention to the minus symbol ("-") in the Jinja blocks!*
 
-|Symbol|Affect|
+|Symbol|Effect|
 |:---:|:---|
 |**-**|strips whitespace|
 |**+**|preserves whitespace|
 
-|Jinja block|Outcome|
+|Jinja block with whitespace control|Outcome|
 |:---:|:---|
 |`{%- block example ... %}`|strips before|
 |`{%+ block example ... %}`|preserves before|
@@ -41,9 +39,9 @@ The idea behind this is that we don't waste time rewriting code that will be reu
 
 > *Although the code will work perfectly fine without **whitespace control** in mind, we should always strive to keep things clean and organized as much as we can.*
 
-### 3. Usefull tips
+### 3. Useful tips
 
-- If you are uncertain were a specific block "inserts" their content  just by reading the examples, open up ("**base-main.html**") and look for that block with the same name and see where it is placed!
+- If you are uncertain were a specific block "inserts" their content just by reading the examples, open up ("**base-main.html**") and look for that block with the same name and see where it is placed!
 
    **There cannot be 2 blocks with the same name!**
 
@@ -57,17 +55,16 @@ Basic layout of the Jinja blocks, what they do and things to be aware of when se
 
 ### **1. Rendering the page**
 
-Our website is build on the [Flask](https://flask.palletsprojects.com/en/2.2.x/) web framework. To [render a page](https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates) go to the ("**main.py**") file and define the url you want for the page along with the location of your page HTML file.
+Our website is build on the [Flask](https://flask.palletsprojects.com/en/2.2.x/) web framework. To [render a page](https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates) go to the ("**main.py**") file and define the URL you want for the page along with the location of your page HTML file.
 
 *Located in:*
 
-```directory
-rwdp\main.py
-```
+`rwdp\main.py`
 
-*Code:*
+*Python code:*
 
 ```python
+# Render a template
 @app.route('/example-page-url')
 def example_page():
     return render_template('example-page.html')
@@ -75,7 +72,7 @@ def example_page():
 
 ### **2. Building the child template**
 
-Earlier we mentioned that pages are an "extention" of the [base template](https://jinja.palletsprojects.com/en/3.1.x/templates/#base-template) HTML file. We refer to these pages as [child templates](https://jinja.palletsprojects.com/en/3.1.x/templates/#child-template).
+Earlier we mentioned that pages are an "extension" of the [base template](https://jinja.palletsprojects.com/en/3.1.x/templates/#base-template) HTML file. We refer to these pages as [child templates](https://jinja.palletsprojects.com/en/3.1.x/templates/#child-template).
 
 #### **2.1 Extend template**
 
@@ -87,7 +84,7 @@ Earlier we mentioned that pages are an "extention" of the [base template](https:
 \- *This MUST be the first tag in your child template*  
 \- *Your BASE TEMPLATE **needs to be in the same folder or in a subfolder** from where your CHILD TEMPLATE is located.*
 
-```Jinja
+```jinja
 {% extends "pages/base/base-main.html" %}
 ```
 
@@ -99,13 +96,13 @@ Custom Jinja variables each controlling specific page behaviours making them eas
 
 - ##### **Variable to disable the default navigation completely**
 
-  If needed you can completely remove the default navigation by setting this variable to `true`.
+  If needed you can completely remove the default navigation by setting the `nav_disabled` variable to `true`.
 
-  This will:  
-  \- disable all the HTML associated with the default navigation bar  
-  \- remove the shylesheet link for the default navigation bar in the `<head>` tag
+  **This will:**  
+  \- *disable all the HTML associated with the default navigation bar*  
+  \- *remove the stylesheet link for the default navigation bar in the `<head>` tag*
 
-  ```Jinja
+  ```jinja
   {# Disables the default navigation bar #}
   {# Removes both its HTML and CSS #}
 
@@ -114,11 +111,11 @@ Custom Jinja variables each controlling specific page behaviours making them eas
 
 - ##### **Variable to set the href link for the "skip navigation" button**
 
-  If you decide to **KEEP** the default navigation bar you musn't forget to:  
+  If you decide to **KEEP** the default navigation bar you mustn't forget to:  
   \- set up your nav buttons (Check the ["nav_extra_buttons"](#block-nav_extra_buttons) block)  
   \- set a href link for your hidden "skip navigation" button
 
-  ```Jinja
+  ```jinja
   {# Sets the href link for the "skip navigation" button #}
 
   {% set skip_nav_href = '#anchor' %}
@@ -128,9 +125,9 @@ Custom Jinja variables each controlling specific page behaviours making them eas
 
 ---
 
-Empty Jinja blocks as the name suggests have no predefined content in them. They are there to insert additional content on top of the existing one in the base template file.
+Empty Jinja blocks as the name suggests have no predefined content in them. They are there ONLY to insert additional content on top of the existing one in the base template file.
 
-**To keep things organized, blocks should be called in the same order in your child template as they are listed here!**
+**To keep things organized, blocks should be called/used in the same order in your child template as they are listed in the [example page](#example-page)!**
 
 - ##### Block "page_description"
 
@@ -140,8 +137,8 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   And as you may have guessed you can set a description for your page with it.
 
-  ```Jinja
-  {# Sets the description for your page if needed #}
+  ```jinja
+  {# Sets the description for your page if NEEDED #}
   {# Align atrributes underneath eachother like in the example #}
 
   {% block page_description %}
@@ -154,7 +151,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  **It is intended that every page that "extends" the base template page has its own seperate CSS file, so that we keep things organized.**
+  **It is intended that every page that "extends" the base template page has its own separate CSS file, so that we keep things organized.**
 
   The base template page is build in a way that the stylesheet link for the child template is called **LAST** after all other stylesheet links!
   This is so that if you want to overwrite the default styling for your new page, you can easily do it!
@@ -163,7 +160,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   **Meaning you MUST include this block and set up a stylesheet link!**
 
-  ```Jinja
+  ```jinja
   {# Sets the link for the stylesheet for your new page #}
   {# It is the last stylesheet link in the <head> #}
   {# Align atrributes underneath eachother like in the example #}
@@ -182,7 +179,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   **Meaning you MUST include this block and set up a page title!**
 
-  ```Jinja
+  ```jinja
   {# [DEFINED AS REQUIRED] Sets the page title #}
   {# Title text is used in the footer by default #}
 
@@ -195,66 +192,33 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags. Usefull if you want to apply different styling on them for the specific page using a different "id" and "classes" for every page.
+  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags. Useful if you want to apply different styling on them for the specific page using a different "id" and "classes" for every page.
 
   **IMPORTANT:**  
   \- Always add **1 space** ("&nbsp;") before the first attribute  
   \- Write the attributes on the same line as the "opening block"  
   \- You can wrap ONLY the "closing block" but need to add "-" at the start of it (see examples)
 
-  ```Jinja
-  {# Write your attributes here #}
+  ```jinja
+  {# ALWAYS write your attributes on the same line as the opening block #}
+  {# ALWAYS leave 1 space (" ") between the opening block and first attribute #}
+  {# DO NOT leave any whitespace before the closing block #}
+
+  {# Available ONLY if default navigation is ENABLED #}
 
   {% block header_attr %} class="example"{% endblock %}
   {%- block footer_attr %} id="example"{% endblock %}
   ```
 
-  ```Jinja
+  ```jinja
   {# Example on how to wrap the closing block if the line gets too long #}
-  {# DO NOT LEAVE ANY WHITESPACE BEFORE THE CLOSING BLOCK #}
+  {# DO NOT leave any whitespace before the closing block #}
 
   {% block header_attr %} class="example-one example-two" id="test"
   {%- endblock %}
   ```
 
-- ##### Block "nav_extra_buttons"
-
-  ---
-
-  **If you decide to KEEP the navigation bar you musn't forget to set up extra buttons if needed, as it will only have a HOME ("return to index") button and the always present ABOUT and GITHUB buttons!**
-
-  **RECOMMENDED:**  
-  Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom & small screen widths!
-
-  *Of course you can add as many buttons as you like, but you will have to adjust the CSS of the navigation ("**nav.css**") so that everything looks nice and in place!*
-
-  **IMPORTANT:**  
-  \- Always add the `class="nav-item"` to all the button `<li>` tags.  
-  \- Always add `class="nav-most-right` to the `<li>` tag on the last/most right button. It sets part of the separating line between the left buttons and the static right buttons (ABOUT & GITHUB).
-
   **NOTE:** *Only available if the default navigation is **ENABLED**.*
-
-  ```Jinja
-  {# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
-  {# Always add the class "nav-item" to all the buttons #}
-  {# Always add the class "nav-most-right" to the last/most right button #}
-  {# Available ONLY if default navigation is ENABLED #}
-
-  {% block nav_extra_buttons %}
-  {%- filter indent(width=8) %}
-    <li class="nav-item">
-      <a href="#anchor-one">
-        Button1
-      </a>
-    </li>
-    <li class="nav-item nav-most-right">
-      <a href="#anchor-two">
-        Button2
-      </a>
-    </li>
-  {%- endfilter %}
-  {%- endblock %}
-  ```
 
 - ##### Block "header_extra"
 
@@ -262,11 +226,10 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   The "header_extra" block is for building on top of the existing content, so **DO NOT** include the `<header>` tag as it is already in it.
 
-  **NOTE:** *Only available if the default navigation is **ENABLED**.*
-
-  ```Jinja
+  ```jinja
   {# Write your ADITIONAL <header> html here #}
   {# DO NOT add the <header> tag #}
+
   {# Available ONLY if default navigation is ENABLED #}
 
   {% block header_extra %}
@@ -278,6 +241,8 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock %}
   ```
 
+  **NOTE:** *Only available if the default navigation is **ENABLED**.*
+
 - ##### Block "header"
 
   ---
@@ -287,11 +252,10 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   In the base template page this block is completely EMPTY!
   It's only in the correct place, meaning you **MUST** add the `<header>` tag.
 
-  **NOTE:** *Only available if the default navigation is **DISABLED**.*
-
-  ```Jinja
+  ```jinja
   {# Write your <header> html here #}
   {# ALWAYS add the <header> tag #}
+
   {# Available ONLY if default navigation is DISABLED #}
 
   {% block header %}
@@ -300,6 +264,8 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
     </header>
   {% endblock header %}
   ```
+
+  **NOTE:** *Only available if the default navigation is **DISABLED**.*
 
 - ##### Block "main"
 
@@ -310,7 +276,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   In the base template page this block is completely EMPTY!
   It's only in the correct place, meaning you **MUST** add the `<main>` tag.
 
-  ```Jinja
+  ```jinja
   {# Write your <main> html here #}
   {# Always add the <main> tag #}
 
@@ -335,12 +301,12 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  **By default the footer title is the SAME as the page title defined in the ["title"](#block-title-required) block.**
+  **By default, the footer title is the SAME as the page title defined in the ["title"](#block-title-required) block.**
 
   If you decide to change it ONLY write in plain text with no tags.
   The "footer_title" block is encased in a `<p>` tag by default in the base template page.
 
-  ```Jinja
+  ```jinja
   {# Write your footer title here #}
   {# By default it is the same as the text in the "title" block #}
 
@@ -355,7 +321,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   The "footer_extra" block is for building on top of the existing content, so **DO NOT** include the `<footer>` tag as it is already in it.
 
-  ```Jinja
+  ```jinja
   {# Write your ADITIONAL <footer> html here #}
   {# DO NOT add the <footer> tag #}
 
@@ -376,7 +342,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   **This Jinja block is placed BETWEEN the `<footer>` and the `<scrip>` tags**
 
-  ```Jinja
+  ```jinja
   {# Write your ADITIONAL <body> html here #}
   {# DO NOT add the <body> tag #}
 
@@ -394,26 +360,74 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 ---
 
 **IMPORTANT:**
-*These blocks already have html written in them so if you call them you will essentially **erase** all of their original contents!*
+*These blocks already have HTML written in them so if you call them you will essentially **erase** all of their original contents!*
 
 But if you desire to completely rework them the option is there.
+
+**NOTE:** *With the Jinja `{{ super() }}` block you can copy the original content of the block. So you can add additional content while preserving the original. [Read more about the Jinja super blocks.](https://jinja.palletsprojects.com/en/3.1.x/templates/#super-blocks)*
+
+- ##### Block "nav_extra_buttons"
+
+  ---
+
+  If you decide to KEEP the navigation bar you mustn't forget to set up extra buttons if NEEDED, as it will only have a HOME ("return to index") button and the **always present static About and GitHub buttons!**
+
+  If you call/use this block EMPTY it will remove the default non-static HOME ("return to index") button!
+
+  **RECOMMENDED:**  
+  Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom & small screen widths!
+
+  *Of course, you can add as many buttons as you like, but you will have to adjust/overwrite the CSS for the default navigation so that everything looks nice and in place!*
+
+  **IMPORTANT:**  
+  \- Always add `class="nav-item"` to all the `<li>` tags.  
+  \- Always add `class="nav-most-right` to the `<li>` tag on the last/most right button. It sets part of the separating line between the left non-static buttons and the right static buttons (About & GitHub).
+
+  > *Do not call/use this block EMPTY unless you want to COMPLETELY **remove** all the non-static buttons.*
+
+  ```jinja
+  {# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
+  {# Always add the class "nav-item" to all the buttons #}
+  {# Always add the class "nav-most-right" to the last/most right button #}
+
+  {# Available ONLY if default navigation is ENABLED #}
+
+  {% block nav_extra_buttons %}
+  {%- filter indent(width=8) %}
+    <li class="nav-item">
+      <a href="#anchor-one">
+        Button1
+      </a>
+    </li>
+    <li class="nav-item nav-most-right">
+      <a href="#anchor-two">
+        Button2
+      </a>
+    </li>
+  {%- endfilter %}
+  {%- endblock %}
+  ```
+
+  **NOTE:** *Only available if the default navigation is **ENABLED**.*
 
 - ##### Block "body"
 
   ---
 
-  The `<body>` is encased in a "body" Jinja block. In it is **ALL** of the main content of the base template page! Calling this block EMPTY will basically make an empty page with only the content in `<head>` intact!
+  The `<body>` is encased in a "body" Jinja block. In it is **ALL** the main content of the base template page! Calling this block EMPTY will basically make an empty page with only the content in `<head>` intact!
 
-  > *Do not call this block EMPTY unless you want to COMPLETELY **overwrite and rework** all of the content in it. (`<body>`, `<header>`, `<main>`, `<footer>`)*
+  **IMPORTANT:** *The `<script>` tags are at the bottom of the `<body>` tag and will also be REMOVED if you call/use this block EMPTY!*
 
-  ```Jinja
+  > *Do not call/use this block EMPTY unless you want to COMPLETELY **overwrite and rework** all the content in it. (`<body>`, `<header>`, `<main>`, `<footer>`)*
+
+  ```jinja
   {# ONLY add if you want to completely rework the default body content #}
 
   {%- block body %}
   {% endblock %}
   ```
 
-  ```Jinja
+  ```jinja
   {# Add additional content with the super block #}
 
   {%- block body %}
@@ -427,26 +441,24 @@ But if you desire to completely rework them the option is there.
   {% endblock %}
   ```
 
-**NOTE:** *With the Jinja `{{ super() }}` block you can copy the original content of the block. So you can add additional content while preserving the original. [Read more about the Jinja super blocks.](https://jinja.palletsprojects.com/en/3.1.x/templates/#super-blocks)*
-
-This can essentially make the block act as a more powerfull ["body_extra"](#block-body_extra) block.
+  **NOTE:** *`{{ super() }}` blocks can essentially make the block act as a **more powerful** ["body_extra"](#block-body_extra) block.*
 
 - ##### Block "footer"
 
   ---
 
-  The `<footer>` is encased in a "footer" Jinja n it is **ALL** of the default footer content of the base template page!
+  The `<footer>` is encased in a "footer" Jinja n it is **ALL** the default footer content of the base template page!
 
-  > *Do not call this block EMPTY unless you want to **disable** the default footer or COMPLETELY **overwrite and rework** all of the content in it. (`<footer>`)*
+  > *Do not call/use this block EMPTY unless you want to **disable** the default footer or COMPLETELY **overwrite and rework** all the content in it. (`<footer>`)*
 
-  ```Jinja
+  ```jinja
   {# ONLY add if you want to disable/rework the default footer #}
 
   {%- block footer %}
   {% endblock %}
   ```
 
-  ```Jinja
+  ```jinja
   {# Add additional content with the super block #}
 
   {%- block footer %}
@@ -460,11 +472,41 @@ This can essentially make the block act as a more powerfull ["body_extra"](#bloc
   {% endblock %}
   ```
 
-**NOTE:** *With the Jinja `{{ super() }}` block you can copy the original content of the block. So you can add additional content while preserving the original. [Read more about the Jinja super blocks.](https://jinja.palletsprojects.com/en/3.1.x/templates/#super-blocks)*
-
-This can essentially make the block act as a more powerfull ["footer_extra"](#block-footer_extra) block.
+  **NOTE:** *`{{ super() }}` blocks can essentially make the block act as a **more powerful** ["footer_extra"](#block-footer_extra) block.*
 
 ## EXAMPLE PAGE
+
+General information about the Jinja & HTML blocks/tags used for creating a page.
+
+|Call/use order|Special Mark|Type|Name|Parent Jinja & HTML blocks/tags|
+|:---:|:---:|:---:|:---|:---:|
+|1|-|extends|"base template location"|-|
+|2|-|set (custom variable)|"nav_disabled"|-|
+|2|-|set (custom variable)|"skip_nav_href"|`<header>`|
+|3|-|block|"page_description"|-|
+|4|REQUIRED|block|"stylesheets_extra"|-|
+|5|REQUIRED|block|"title"|-|
+|6|-|block|"header_attr"|`<header>`|
+|7|-|block|"nav_extra_buttons"|`<header>`|
+|8|-|block|"header_extra"|`<header>`|
+|9|-|block|"header"|"body"|
+|10|-|block|"main"|"body"|
+|11|-|block|"footer_attr"|"footer"|
+|12|-|block|"footer_title"|"footer"|
+|13|-|block|"footer_extra"|"footer"|
+|14|-|block|"body_extra"|"body"|
+|15|-|block|"body"|-|
+|15|-|block|"footer"|"body"|
+
+If `nav_disabled = true` all Jinja blocks/tags with a parent HTML tag `<header>` are **DISABLED/ERASED** and the ["header"](#block-header) Jinja block becomes available where you can create a new `<header>`.
+
+If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of their child/grandchild Jinja blocks/tags will be **DISABLED/ERASED** and would have to be completely recreated.
+
+|Parent|Children|Grandchildren|
+|:---:|:---|:---|
+|"body"|`<header>`, "header", "main", "footer", "body_extra"|"skip_nav_href", "header_attr", "nav_extra_buttons", "header_extra", "footer_attr", "footer_title", "footer_extra"|
+|`<header>`|"skip_nav_href", "header_attr", "nav_extra_buttons", "header_extra"|-|
+|"footer"|"footer_attr", "footer_title", "footer_extra"|-|
 
 **IMPORTANT:** *Blocks should be called/used in the same order & written as shown in the example for consistency and whitespace control across all the pages.*
 
@@ -501,10 +543,11 @@ This can essentially make the block act as a more powerfull ["footer_extra"](#bl
   Example page title
 {%- endblock %}
 
-{# Write your attributes on the same line as the opening block #}
-{# ALWAYS LEAVE 1 SPACE " " BETWEEN THE OPENING BLOCK AND FIRST ATTRIBUTE #}
-{# DO NOT LEAVE ANY WHITESPACE BEFORE THE CLOSING BLOCK #}
-{# [IMPORTANT] Check information on how to linewrap ONLY the closing block if needed #}
+{# ALWAYS write your attributes on the same line as the opening block #}
+{# ALWAYS leave 1 space (" ") between the opening block and first attribute #}
+{# DO NOT leave any whitespace before the closing block #}
+{# [IMPORTANT] Check information on how to linewrap ONLY the closing block if NEEDED #}
+{# Available ONLY if default navigation is ENABLED #}
 {% block header_attr %} class="example"{% endblock %}
 {%- block footer_attr %} id="example"{% endblock %}
 
@@ -601,3 +644,9 @@ This can essentially make the block act as a more powerfull ["footer_extra"](#bl
 {%- block footer %}
 {% endblock %}
 ```
+
+## **FINAL NOTES:**
+
+These instructions are for the features of Flask & Jinja that were used for the creation of the pages for this project! Giving you a better understanding of how the project is structured and meant to work.
+
+**This is not an in-dept guide!**
