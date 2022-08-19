@@ -478,7 +478,7 @@ But if you desire to completely rework them the option is there.
 
 General information about the Jinja & HTML blocks/tags used for creating a page.
 
-|Call/use order|Special Mark|Type|Name|Parent Jinja & HTML blocks/tags|
+|Call/use order|Marked as|Type|Name|Parent Jinja & HTML blocks/tags|
 |:---:|:---:|:---:|:---|:---:|
 |1|-|extends|"base template location"|-|
 |2|-|set (custom variable)|"nav_disabled"|-|
