@@ -13,14 +13,17 @@ The idea behind this is that we don't waste time rewriting code that will be reu
 
 ### 1. Jinja block indentation
 
-**IMPORTANT:**
-*Always indent the content in the Jinja blocks by **2 spaces** ("&nbsp;&nbsp;")*
+- Always indent the content in the Jinja blocks by **2 spaces** ("&nbsp;&nbsp;")
+
+  **IMPORTANT:**
+*If there is a filter block within the Jinja block **DO NOT** indent it!  
+Indent only non Jinja content within the filter blocks!*
 
 ### 2. Whitespace control
 
-- Jinja block tags are made with [whitespace control](https://jinja.palletsprojects.com/en/3.1.x/templates/#whitespace-control) in mind so it is important to write them as in the examples.
+- Jinja block tags are made with [whitespace control](https://jinja.palletsprojects.com/en/3.1.x/templates/#whitespace-control) in mind so it is important to write them as in the [examples](#example-page).
 
-- Some blocks may have addition filter blocks within them to add indents, so the html looks nice and clean with the Jinja blocks stripped. **Write your content between the filter blocks!**
+- Some blocks may have additional [filter blocks](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-filters) within them to add indents, so the html looks nice and clean when the Jinja blocks are stripped. **Write your content between the filter blocks!**
 
 **IMPORTANT:**
 *Pay attention to the minus symbol ("-") in the Jinja blocks!*
@@ -125,7 +128,7 @@ Custom Jinja variables each controlling specific page behaviours making them eas
 
 ---
 
-Empty Jinja blocks as the name suggests have no predefined content in them. They are there ONLY to insert additional content on top of the existing one in the base template file.
+Empty Jinja blocks as the name suggests have no predefined content in them. They are there **ONLY** to insert additional content on top of the existing one in the base template file.
 
 **To keep things organized, blocks should be called/used in the same order in your child template as they are listed in the [example page](#example-page)!**
 
@@ -192,7 +195,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   ---
 
-  The "attribute" blocks are used ONLY to add attributes to the `<header>` and `<footer>` tags. Useful if you want to apply different styling on them for the specific page using a different "id" and "classes" for every page.
+  The "attribute" blocks are used **ONLY** to add attributes to the `<header>` and `<footer>` tags. Useful if you want to apply different styling on them for the specific page using a different "id" and "classes" for every page.
 
   **IMPORTANT:**  
   \- Always add **1 space** ("&nbsp;") before the first attribute  
@@ -303,7 +306,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   **By default, the footer title is the SAME as the page title defined in the ["title"](#block-title-required) block.**
 
-  If you decide to change it ONLY write in plain text with no tags.
+  If you decide to change it **ONLY** write in plain text with no HTML tags.
   The "footer_title" block is encased in a `<p>` tag by default in the base template page.
 
   ```jinja
@@ -370,20 +373,20 @@ But if you desire to completely rework them the option is there.
 
   ---
 
-  If you decide to KEEP the navigation bar you mustn't forget to set up extra buttons if NEEDED, as it will only have a HOME ("return to index") button and the **always present static About and GitHub buttons!**
+  If you decide to **KEEP** the navigation bar you mustn't forget to set up extra buttons **IF NEEDED**, as it will only have a HOME ("return to index") button and the **always present static About and GitHub buttons!**
 
-  If you call/use this block EMPTY it will remove the default non-static HOME ("return to index") button!
+  If you call/use this block **EMPTY** it will remove the default non-static HOME ("return to index") button!
 
   **RECOMMENDED:**  
-  Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom & small screen widths!
+  Add no more than 2 buttons with not so many characters in them as it will cause overflow on high zoom in & small screen widths!
 
-  *Of course, you can add as many buttons as you like, but you will have to adjust/overwrite the CSS for the default navigation so that everything looks nice and in place!*
+  > *Of course, you can add as many buttons as you like, but you will have to adjust/overwrite the CSS for the default navigation so that everything looks nice and in place!*
 
   **IMPORTANT:**  
   \- Always add `class="nav-item"` to all the `<li>` tags.  
   \- Always add `class="nav-most-right` to the `<li>` tag on the last/most right button. It sets part of the separating line between the left non-static buttons and the right static buttons (About & GitHub).
 
-  > *Do not call/use this block EMPTY unless you want to COMPLETELY **remove** all the non-static buttons.*
+  > **DO NOT** call/use this block EMPTY unless you want to COMPLETELY **remove** all the non-static buttons.*
 
   ```jinja
   {# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
@@ -418,7 +421,7 @@ But if you desire to completely rework them the option is there.
 
   **IMPORTANT:** *The `<script>` tags are at the bottom of the `<body>` tag and will also be REMOVED if you call/use this block EMPTY!*
 
-  > *Do not call/use this block EMPTY unless you want to COMPLETELY **overwrite and rework** all the content in it. (`<body>`, `<header>`, `<main>`, `<footer>`)*
+  > **DO NOT** call/use this block EMPTY unless you want to COMPLETELY **overwrite and rework** all the content in it. (`<body>`, `<header>`, `<main>`, `<footer>`)*
 
   ```jinja
   {# ONLY add if you want to completely rework the default body content #}
@@ -449,7 +452,7 @@ But if you desire to completely rework them the option is there.
 
   The `<footer>` is encased in a "footer" Jinja n it is **ALL** the default footer content of the base template page!
 
-  > *Do not call/use this block EMPTY unless you want to **disable** the default footer or COMPLETELY **overwrite and rework** all the content in it. (`<footer>`)*
+  > **DO NOT** call/use this block EMPTY unless you want to **disable** the default footer or COMPLETELY **overwrite and rework** all the content in it. (`<footer>`)*
 
   ```jinja
   {# ONLY add if you want to disable/rework the default footer #}
@@ -476,7 +479,7 @@ But if you desire to completely rework them the option is there.
 
 ## EXAMPLE PAGE
 
-General information about the Jinja & HTML blocks/tags used for creating a page.
+### General information about the Jinja & HTML blocks/tags used for creating a page
 
 |Call/use order|Marked as|Type|Name|Parent Jinja & HTML blocks/tags|
 |:---:|:---:|:---:|:---|:---:|
@@ -502,6 +505,8 @@ If `nav_disabled = true` all Jinja blocks/tags with a parent HTML tag `<header>`
 
 If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of their child/grandchild Jinja blocks/tags will be **DISABLED/ERASED** and would have to be completely recreated.
 
+### Block/tag hierarchy
+
 |Parent|Children|Grandchildren|
 |:---:|:---|:---|
 |"body"|`<header>`, "header", "main", "footer", "body_extra"|"skip_nav_href", "header_attr", "nav_extra_buttons", "header_extra", "footer_attr", "footer_title", "footer_extra"|
@@ -509,6 +514,8 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 |"footer"|"footer_attr", "footer_title", "footer_extra"|-|
 
 **IMPORTANT:** *Blocks should be called/used in the same order & written as shown in the example for consistency and whitespace control across all the pages.*
+
+### Example structure for a page
 
 ```jinja
 {% extends "pages/base/base-main.html" %}
@@ -543,18 +550,18 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
   Example page title
 {%- endblock %}
 
+{# Available ONLY if the default navigation is ENABLED #}
 {# ALWAYS write your attributes on the same line as the opening block #}
 {# ALWAYS leave 1 space (" ") between the opening block and first attribute #}
 {# DO NOT leave any whitespace before the closing block #}
 {# [IMPORTANT] Check information on how to linewrap ONLY the closing block if NEEDED #}
-{# Available ONLY if default navigation is ENABLED #}
 {% block header_attr %} class="example"{% endblock %}
 {%- block footer_attr %} id="example"{% endblock %}
 
+{# Available ONLY if the default navigation is ENABLED #}
 {# Set up additional navigation buttons if NEEDED, else REMOVE this block #}
 {# Always add the class "nav-item" to all the buttons #}
 {# Always add the class "nav-most-right" to the last/most right button #}
-{# Available ONLY if default navigation is ENABLED #}
 {% block nav_extra_buttons %}
 {%- filter indent(width=8) %}
   <li class="nav-item">
@@ -570,9 +577,9 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 {%- endfilter %}
 {%- endblock %}
 
+{# Available ONLY if the default navigation is ENABLED #}
 {# Write your ADITIONAL <header> html here #}
 {# DO NOT add the <header> tag #}
-{# Available ONLY if default navigation is ENABLED #}
 {% block header_extra %}
 {% filter indent(width=4) %}
   <p>
@@ -581,9 +588,9 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 {%- endfilter %}
 {%- endblock %}
 
+{# Available ONLY if the default navigation is DISABLED#}
 {# Write your <header> html here #}
 {# ALWAYS add the <header> tag #}
-{# Available ONLY if default navigation is DISABLED#}
 {% block header %}
   <header>
     Example header content
@@ -636,16 +643,18 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 
 {# !!! REMOVE THIS BLOCK UNLESS !!! #}
 {# You want to completely rework the default body content #}
+{# REMOVE every child/grandchild Jinja blocks if you decide to use it #}
 {%- block body %}
 {% endblock %}
 
 {# !!! REMOVE THIS BLOCK UNLESS !!! #}
 {# You want to disable/rework the default footer #}
+{# REMOVE every child/grandchild Jinja blocks if you decide to use it #}
 {%- block footer %}
 {% endblock %}
 ```
 
-**NOTE:** *When a **parent** is called/used its **children/grandchildren** should not be called/used as they will not do/change anything.*
+**NOTE:** *When a **parent** is called/used its **children/grandchildren** should not be called/used as they will not do/change anything. Check the [block/tag hierarchy](#blocktag-hierarchy).*
 
 ## **FINAL NOTES:**
 
