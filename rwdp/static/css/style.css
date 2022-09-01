@@ -14,7 +14,7 @@
     --snap-type: var(--scroll-snap-type, none);
     --scroll-padding-top: var(--nav-hight, 0);
 
-    /* Body custom scrollbar ---------------------------------------- */
+    /* Body custom scrollbar size ----------------------------------- */
     --body-scrollbar: clamp(0.8vw, 14px, 1.8vw);
     --body-scrollbar-thumb: calc(0.35 * var(--body-scrollbar));
     --body-scrollbar-thumb-hover: calc(0.15 * var(--body-scrollbar));

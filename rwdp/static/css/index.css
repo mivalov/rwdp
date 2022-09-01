@@ -1,8 +1,8 @@
 /* [CUSTOM VARIABLES] =============================================== */
 :root {
 
-    /* Set block margin for the project section header -------------- */
-    --section-header-margin: min(5em, 8vh);
+    /* Set indirect block margin for the project section header ----- */
+    --project-header-block-margin: min(5em, 8vh);
 }
 
 /* [PAGE SPECIFIC] ================================================== */
@@ -43,7 +43,7 @@
 .project-section {
     scroll-snap-align: start;
     padding-inline: min(2rem, 3vw);
-    padding-block: var(--section-header-margin) min(12rem, 20vh);
+    padding-block: var(--project-header-block-margin) min(12rem, 20vh);
     clip-path: polygon(100% 0, 100% 100%, 50% 98%, 0 100%, 0 0);
     background-color: var(--clr-secondary);
 }
@@ -62,7 +62,7 @@
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-block: var(--section-header-margin);
+    margin-block: var(--project-header-block-margin);
     text-align: center;
     justify-content: center;
     grid-template-columns: repeat(2, minmax(30rem, 50rem));
