@@ -16,12 +16,12 @@
     /* Nav size is calculated based on the nav logo font size ------- */
     --fs-nav-logo: 6vw;
     --fs-nav-menu: calc(0.5 * var(--fs-nav-logo));
-    --nav-margin-inline: calc(var(--fs-nav-logo) / 3);
+    --nav-margin-inline: calc(0.3 * var(--fs-nav-logo));
     --nav-width: calc(3 * (var(--fs-nav-logo) + var(--nav-margin-inline)));
 
     /* How much the nav is poking from the left when hidden --------- */
     --nav-poking: min(4vw, var(--nav-width));
-    --nav-transform: calc((var(--nav-width) - var(--nav-poking)) * -1);
+    --nav-transform: calc(-1 * (var(--nav-width) - var(--nav-poking)));
 
     /* Vertical spacing between nav items --------------------------- */
     --nav-item-spacing: 1.8vw;
