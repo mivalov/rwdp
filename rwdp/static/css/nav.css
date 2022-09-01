@@ -37,7 +37,7 @@
     --clr-nav-scrollbar-thumb-hover: var(--clr-nav-accent-100);
 
     /* Set inline margin for <main> --------------------------------- */
-    --margin-inline: 1.4vw;
+    --margin-inline: 2vw;
 }
 
 /* [DEFAULT NAV] ==================================================== */

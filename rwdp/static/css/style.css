@@ -20,7 +20,7 @@
     --body-scrollbar-thumb-hover: calc(0.15 * var(--body-scrollbar));
 
     /* Body custom scrollbar colors --------------------------------- */
-    --clr-body-scrollbar: white;
+    --clr-body-scrollbar: rgba(211, 211, 211, 0.4);
     --clr-body-scrollbar-thumb: var(--clr-300);
     --clr-body-scrollbar-thumb-hover: var(--clr-500);
     --clr-body-scrollbar-thumb-active: var(--clr-700);
@@ -91,7 +91,7 @@ body {
 }
 
 main {
-    filter: drop-shadow(0 min(0.4em, 2vw) min(0.4em, 2vw) rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 min(0.4em, 0.6vw) min(0.4em, 0.6vw) rgba(0, 0, 0, 0.4));
 }
 
 footer {
