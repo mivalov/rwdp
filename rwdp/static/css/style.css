@@ -5,6 +5,7 @@
     --clr-accent-100: #3aee43;
     --clr-secondary: #cc465f;
     --clr-100: #ffffffe6;
+    --clr-150: #d3d3d370;
     --clr-300: #808080;
     --clr-500: #444444;
     --clr-700: #242424;
@@ -20,7 +21,7 @@
     --body-scrollbar-thumb-hover: calc(0.15 * var(--body-scrollbar));
 
     /* Body custom scrollbar colors --------------------------------- */
-    --clr-body-scrollbar: rgba(211, 211, 211, 0.4);
+    --clr-body-scrollbar: var(--clr-150);
     --clr-body-scrollbar-thumb: var(--clr-300);
     --clr-body-scrollbar-thumb-hover: var(--clr-500);
     --clr-body-scrollbar-thumb-active: var(--clr-700);
@@ -130,6 +131,6 @@ footer {
     font-weight: unset;
     font-size: min(2em, 3vw);
     padding-block: min(0.5em, 2vw);
-    border-top: 0.05em solid lightgray;
+    border-top: 0.1em solid var(--clr-150);
     color: inherit;
 }
