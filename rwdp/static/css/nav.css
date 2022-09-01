@@ -27,12 +27,12 @@
     --nav-item-spacing: 1.8vw;
 
     /* Nav custom scrollbar size ------------------------------------ */
-    --nav-scrollbar: 4px;
+    --nav-scrollbar: clamp(1vw, 10px, 2vw);;
     --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
     --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
 
     /* Nav custom scrollbar colors ---------------------------------- */
-    --clr-nav-scrollbar: var(--clr-700);
+    --clr-nav-scrollbar: var(--clr-nav-700);
     --clr-nav-scrollbar-thumb: var(--clr-nav-accent);
     --clr-nav-scrollbar-thumb-hover: var(--clr-nav-accent-100);
 
