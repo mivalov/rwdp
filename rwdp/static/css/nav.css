@@ -55,7 +55,7 @@ main {
 /* Button to skip navigation options -------------------------------- */
 .skip-nav {
     position: fixed;
-    z-index: 99;
+    z-index: 999;
     top: 6rem;
     left: 0.8rem;
     padding: 0.5em;
@@ -220,11 +220,6 @@ main {
         background-color: var(--clr-nav-scrollbar-thumb-hover);
     }
 
-    /* Disable skip navigation button ------------------------------- */
-    .skip-nav {
-        display: none;
-    }
-
     /* Default navigation switches from TOP to LEFT side ------------ */
     .nav {
         display: block;
@@ -237,6 +232,7 @@ main {
 
     .nav-list {
         opacity: 0;
+        pointer-events: none;
         width: auto;
         margin-inline: var(--nav-margin-inline);
 
@@ -244,14 +240,15 @@ main {
         margin-top: var(--nav-height);
     }
 
-    .nav:hover {
+    .nav:where(:hover, :focus-within) {
         overflow-y: auto;
         transition: 0.2s ease-out;
         transform: translateX(0);
     }
 
-    .nav:hover > .nav-list {
+    .nav:where(:hover, :focus-within) > .nav-list {
         opacity: 1;
+        pointer-events: all;
     }
 
     .nav-item {
