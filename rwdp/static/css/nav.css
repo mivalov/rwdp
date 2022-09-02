@@ -9,7 +9,7 @@
     --clr-nav-900: var(--clr-900, #0f0f0f);
     --clr-nav-text: var(--clr-text, #ffffffe6);
 
-    --nav-hight: 43px;
+    --nav-height: 43px;
 
     /* [FOR]: High zoom / Small screen width ======================== */
 
@@ -85,6 +85,12 @@
     color: var(--clr-nav-accent);
 }
 
+/* Navbar highlight ------------------------------------------------- */
+/* Highlight the navigation option with a class of "active"           */
+.active {
+    color: var(--clr-nav-accent) !important;
+}
+
 /* Main Content ----------------------------------------------------- */
 .nav {
     display: flex;
@@ -93,7 +99,7 @@
     top: 0;
     font-family: none;
     width: 100%;
-    height: var(--nav-hight);
+    height: var(--nav-height);
     align-items: center;
     text-transform: uppercase;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -129,12 +135,6 @@
 
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
-}
-
-/* Navbar highlight ------------------------------------------------- */
-/* Highlight the navigation option with a class of "active"           */
-.active {
-    color: var(--clr-nav-accent) !important;
 }
 
 .nav-item:not(.nav-github) a:is(:hover, :focus-visible) {
@@ -231,7 +231,7 @@
         margin-inline: var(--nav-margin-inline);
 
         /* freeCodeCapm's test is in the way of the nav ------------- */
-        margin-top: var(--nav-hight);
+        margin-top: var(--nav-height);
     }
 
     .nav:hover {

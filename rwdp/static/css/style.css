@@ -13,7 +13,7 @@
     --clr-text: #ffffffe6;
 
     --snap-type: var(--scroll-snap-type, none);
-    --scroll-padding-top: var(--nav-hight, 0);
+    --scroll-padding-top: var(--nav-height, 0);
 
     /* Body custom scrollbar size ----------------------------------- */
     --body-scrollbar: clamp(0.8vw, 14px, 1.8vw);
@@ -29,7 +29,6 @@
 
 /* [GLOBAL] ========================================================= */
 
-/* ------------------------------------------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -37,14 +36,12 @@
     text-decoration: none;
 }
 
-/* Box sizing rules ------------------------------------------------- */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Make images easier to work with ---------------------------------- */
 img,
 picture,
 svg {
