@@ -42,6 +42,16 @@
 
 /* [DEFAULT NAV] ==================================================== */
 
+/* [GLOBAL] Adjusment ----------------------------------------------- */
+main {
+    padding-top: var(--nav-height);
+}
+
+/* Utility classes -------------------------------------------------- */
+.padding-top-0 {
+    padding-top: 0;
+}
+
 /* Button to skip navigation options -------------------------------- */
 .skip-nav {
     position: fixed;
@@ -274,6 +284,7 @@
     main {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
+        padding-top: 0;
     }
 
     footer {
