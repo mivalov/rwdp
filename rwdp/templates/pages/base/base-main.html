@@ -75,7 +75,19 @@
             </a>
           </li>
         </ul>
+
+        <div class="nav-toggle-wrapper">
+          <input id="check"
+                 class="nav-toggle"
+                 type="checkbox"
+                 tabindex="1"
+                 title="Press spacebar to expand"
+                 aria-label="Expand navigation with spacebar">
+          <label class="nav-toggle-lable nav-open" for="check">&rsaquo;</label>
+          <label class="nav-toggle-lable nav-close" for="check">&lsaquo;</label>
+        </div>
       </nav>
+
       {%- block header_extra %}{% endblock %}
     </header>
     {% endif %}

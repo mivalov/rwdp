@@ -5,6 +5,7 @@
     --clr-nav-accent-100: var(--clr-accent-100, #3aee43);
     --clr-nav-100: var(--clr-100, #ffffffe6);
     --clr-nav-500: var(--clr-500, #444444);
+    --clr-nav-600: var(--clr-600, #272727);
     --clr-nav-700: var(--clr-700, #242424);
     --clr-nav-900: var(--clr-900, #0f0f0f);
     --clr-nav-text: var(--clr-text, #ffffffe6);
@@ -17,10 +18,10 @@
     --fs-nav-logo: 6vw;
     --fs-nav-menu: calc(0.5 * var(--fs-nav-logo));
     --nav-margin-inline: calc(0.3 * var(--fs-nav-logo));
-    --nav-width: calc(3 * (var(--fs-nav-logo) + var(--nav-margin-inline)));
+    --nav-width: calc(3.5 * (var(--fs-nav-logo) + var(--nav-margin-inline)));
 
     /* How much the nav is poking from the left when hidden --------- */
-    --nav-poking: min(4vw, var(--nav-width));
+    --nav-poking: min(4vw, 0.25 * var(--nav-width));
     --nav-transform: calc(-1 * (var(--nav-width) - var(--nav-poking)));
 
     /* Vertical spacing between nav items --------------------------- */
@@ -102,6 +103,10 @@ main {
 }
 
 /* Main Content ----------------------------------------------------- */
+.nav-toggle-wrapper {
+    display: none;
+}
+
 .nav {
     display: flex;
     position: fixed;
@@ -127,6 +132,7 @@ main {
 }
 
 .nav-item {
+    justify-content: center;
     list-style: none;
     padding-inline: 0.55em;
 }
@@ -168,6 +174,7 @@ main {
 }
 
 .nav-logo a {
+    outline: none;
     font-size: 3.2em;
     border-radius: 0;
 }
@@ -220,9 +227,19 @@ main {
         background-color: var(--clr-nav-scrollbar-thumb-hover);
     }
 
+    /* Disable skip navigation button ------------------------------- */
+    .skip-nav {
+        display: none;
+    }
+
     /* Default navigation switches from TOP to LEFT side ------------ */
     .nav {
-        display: block;
+        --left-column: calc(100% - var(--nav-poking));
+        --right-column: var(--nav-poking);
+
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: var(--left-column) var(--right-column);
         overflow: hidden;
         height: 100%;
         width: var(--nav-width);
@@ -231,24 +248,16 @@ main {
     }
 
     .nav-list {
+        display: block;
         opacity: 0;
         pointer-events: none;
+        align-self: start;
         width: auto;
         margin-inline: var(--nav-margin-inline);
 
+        /* margin-block: auto; */
         /* freeCodeCapm's test is in the way of the nav ------------- */
         margin-top: var(--nav-height);
-    }
-
-    .nav:where(:hover, :focus-within) {
-        overflow-y: auto;
-        transition: 0.2s ease-out;
-        transform: translateX(0);
-    }
-
-    .nav:where(:hover, :focus-within) > .nav-list {
-        opacity: 1;
-        pointer-events: all;
     }
 
     .nav-item {
@@ -259,6 +268,7 @@ main {
     }
 
     .nav-item a {
+        display: none;
         width: 100%;
         text-align: center;
     }
@@ -277,6 +287,90 @@ main {
         border-inline: none;
     }
 
+    /* Pin nav using the experimental :has() selector --------------- */
+    .nav-toggle-wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: var(--nav-poking) 0;
+        height: 100%;
+    }
+
+    .nav-toggle-lable {
+        display: inherit;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--fs-nav-logo);
+        color: var(--clr-nav-100);
+        background-color: var(--clr-nav-700);
+    }
+
+    .nav-open {
+        grid-column: 1;
+    }
+
+    input[type="checkbox"].nav-toggle {
+        opacity: 0;
+    }
+
+    input[type="checkbox"].nav-toggle:hover ~ label {
+        background-color: var(--clr-nav-600);
+    }
+
+    input[type="checkbox"].nav-toggle:hover ~ label {
+        color: var(--clr-nav-accent);
+    }
+
+    input[type="checkbox"].nav-toggle:focus-visible ~ label {
+        border: 0.5vw solid var(--clr-nav-accent);
+    }
+
+    /* Expand navigation on checked --------------------------------- */
+    .nav:has(input[type="checkbox"].nav-toggle:checked) {
+        overflow-y: auto;
+        transition: 0.2s ease-out;
+        transform: translateX(0);
+    }
+
+    .nav:has(input[type="checkbox"].nav-toggle:checked) > .nav-list {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav:has(input[type="checkbox"].nav-toggle:checked) > .nav-list a {
+        display: block;
+    }
+
+    .nav:has(input[type="checkbox"].nav-toggle:checked) > div > .nav-open {
+        grid-column: 2;
+    }
+
+    .nav:has(input[type="checkbox"].nav-toggle:checked) > div > .nav-close {
+        grid-column: 1;
+    }
+
+    /* Expand navigation on focus ----------------------------------- */
+
+    /*
+    .nav:focus-within {
+        overflow-y: auto;
+        transition: 0.2s ease-out;
+        transform: translateX(0);
+    }
+
+    .nav:focus-within > .nav-list {
+        opacity: 1;
+        pointer-events: all;
+    }
+    */
+
+    /* Collapse navigation on unchecked ----------------------------- */
+    .nav:has(input[type="checkbox"].nav-toggle:not(:checked)) {
+        transition: none;
+        overflow: hidden;
+        transform: translateX(var(--nav-transform));
+    }
+
     /* [GLOBAL] Adjusment ------------------------------------------- */
     main {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
@@ -284,7 +378,19 @@ main {
         padding-top: 0;
     }
 
+    /* header:has(.nav:where(:focus-within)) ~ main, */
+    header:has(input[type="checkbox"].nav-toggle:checked) ~ main {
+        transition: 0.2s ease-out;
+        margin-left: calc(var(--margin-inline) + var(--nav-width));
+    }
+
     footer {
         margin-left: var(--nav-poking);
+    }
+
+    /* header:has(.nav:where(:focus-within)) ~ footer, */
+    header:has(input[type="checkbox"].nav-toggle:checked) ~ footer {
+        transition: 0.2s ease-out;
+        margin-left: var(--nav-width);
     }
 }
