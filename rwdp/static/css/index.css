@@ -102,7 +102,7 @@
 /* [MEDIA QUERIES] ================================================== */
 @media screen
 and ((min-height: 55em) and (max-height: 60em))
-and (min-width: 70em) {
+and (min-width: 65em) {
 
     html {
         --scroll-snap-type: y mandatory;

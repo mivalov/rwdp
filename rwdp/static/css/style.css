@@ -99,15 +99,15 @@ footer {
     gap: min(1em, 1vw);
     padding-inline: min(4em, 4vw);
     margin-top: auto;
-    max-height: 30vh;
+    height: fit-content;
     font-size: 1rem;
     text-align: center;
     color: black;
 }
 
 .footer-title {
-    margin-bottom: max(2rem, 5vh);
-    padding-block: min(1rem, 2vw);
+    padding-top: min(2rem, 4vw);
+    padding-bottom: min(3rem, 6vw);
     font-size: min(3em, 4vw);
     font-weight: bold;
     color: inherit;
