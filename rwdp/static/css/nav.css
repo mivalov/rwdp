@@ -249,8 +249,6 @@ main {
 
     .nav-list {
         display: block;
-        opacity: 0;
-        pointer-events: none;
         align-self: start;
         width: auto;
         margin-inline: var(--nav-margin-inline);
@@ -291,7 +289,7 @@ main {
     .nav-toggle-wrapper {
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: var(--nav-poking) 0;
+        grid-template-columns: var(--nav-poking) 0 0;
         height: 100%;
     }
 
@@ -305,24 +303,22 @@ main {
         background-color: var(--clr-nav-700);
     }
 
-    .nav-open {
-        grid-column: 1;
-    }
-
     input[type="checkbox"].nav-toggle {
         opacity: 0;
-    }
-
-    input[type="checkbox"].nav-toggle:hover ~ label {
-        background-color: var(--clr-nav-600);
+        grid-column: 3;
     }
 
     input[type="checkbox"].nav-toggle:hover ~ label {
         color: var(--clr-nav-accent);
+        background-color: var(--clr-nav-600);
     }
 
     input[type="checkbox"].nav-toggle:focus-visible ~ label {
         border: 0.5vw solid var(--clr-nav-accent);
+    }
+
+    .nav-close {
+        display: none;
     }
 
     /* Expand navigation on checked --------------------------------- */
@@ -332,20 +328,16 @@ main {
         transform: translateX(0);
     }
 
-    .nav:has(input[type="checkbox"].nav-toggle:checked) > .nav-list {
-        opacity: 1;
-        pointer-events: all;
-    }
-
     .nav:has(input[type="checkbox"].nav-toggle:checked) > .nav-list a {
         display: block;
     }
 
     .nav:has(input[type="checkbox"].nav-toggle:checked) > div > .nav-open {
-        grid-column: 2;
+        display: none;
     }
 
     .nav:has(input[type="checkbox"].nav-toggle:checked) > div > .nav-close {
+        display: grid;
         grid-column: 1;
     }
 
@@ -367,8 +359,11 @@ main {
     /* Collapse navigation on unchecked ----------------------------- */
     .nav:has(input[type="checkbox"].nav-toggle:not(:checked)) {
         transition: none;
-        overflow: hidden;
         transform: translateX(var(--nav-transform));
+    }
+
+    .nav:has(input[type="checkbox"].nav-toggle:not(:checked)) > .nav-list {
+        margin-block: 0;
     }
 
     /* [GLOBAL] Adjusment ------------------------------------------- */
