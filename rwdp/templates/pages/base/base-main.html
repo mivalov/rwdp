@@ -50,21 +50,21 @@
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
-            <a href="{{ url_for('index') }}"
-            title="Responsive Web Design with Python">
+            <a title="Responsive Web Design with Python"
+            href="{{ url_for('index') }}">
               rwdp
             </a>
           </li>
           {%- block nav_extra_buttons %}
-          <li class="nav-item nav-most-right">
+          <li class="nav-item">
             <a href="{{ url_for('index') }}">
               Home
             </a>
           </li>
           {%- endblock nav_extra_buttons %}
           <li class="nav-item nav-about">
-            <a href="{{ url_for('about') }}"
-            {%- block nav_active %}{% endblock %}>{# Navbar highlight #}
+            <a class="{{ 'active' if request.path == url_for('about') }}"
+            href="{{ url_for('about') }}">
               About
             </a>
           </li>
@@ -95,12 +95,14 @@
       <a class="fa fa-home"
       title="Return to Index"
       aria-label="Return to Index"
-      href="{{ url_for('index') }}"></a>
+      href="{{ url_for('index') }}">
+      </a>
 
       <a class="fa fa-github" rel="external" target="_blank"
       title="Link to GitHub"
       aria-label="Link to GitHub"
-      href="https://github.com/mivalov/rwdp"></a>
+      href="https://github.com/mivalov/rwdp">
+      </a>
 
       <p class="footer-year">
         2022

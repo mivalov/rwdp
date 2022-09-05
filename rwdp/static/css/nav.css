@@ -189,7 +189,7 @@ main {
     border-inline-start: 0.01em solid var(--clr-nav-text);
 }
 
-:is(.nav-most-right) {
+.nav-list > :nth-last-child(3) {
     border-inline-end: 0.01em solid var(--clr-nav-text);
 }
 
@@ -273,7 +273,7 @@ main {
         font-size: var(--fs-nav-menu);
     }
 
-    :is(.nav-about, .nav-most-right) {
+    :is(.nav-about, .nav-list > :nth-last-child(3)) {
         border-inline: none;
     }
 

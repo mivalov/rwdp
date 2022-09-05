@@ -3,14 +3,9 @@
 {% block stylesheets_extra %}
 {%- endblock %}
 
-{% block title %}
+{% block title -%}
   About Page
-{% endblock %}
-
-<!-- Navbar highlight -->
-{% block nav_active %}
-  class="active"
-{% endblock %}
+{%- endblock %}
 
 {% block main %}
   <main>
@@ -26,8 +21,8 @@
     <section id="projects" class="project-section">
     </section>
   </main>
-{% endblock %}
+{%- endblock main %}
 
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}
