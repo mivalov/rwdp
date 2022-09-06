@@ -27,6 +27,20 @@
     {%- block stylesheets_extra required %}{% endblock %}
     {%- endfilter %}
 
+    <!-- [SCRIPTS] ================================================= -->
+
+    <!-- [PROJECT] Reload page on window resize -------------------- -->
+    <!-- Need to reload page so the custom scrollbar updates size    -->
+    <script defer src="data:text/javascript,
+      window.onresize = () => {
+        location.reload();
+      }">
+    </script>
+
+    <!-- [EXTERNAL] freeCodeCamp's test ---------------------------- -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script defer src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
+
     <title>
       {%- block title required %}{% endblock -%}
     </title>
@@ -84,6 +98,8 @@
     {%- block main %}{% endblock %}
     {%- endfilter %}
 
+    {%- block body_extra %}{% endblock %}
+
     {% block footer -%}
     <footer {%- block footer_attr %}{% endblock %}>
       <p class="footer-title">
@@ -109,22 +125,6 @@
       </p>
     </footer>
     {%- endblock footer %}
-
-    {%- block body_extra %}{% endblock %}
-
-    <!-- [SCRIPTS] ================================================= -->
-
-    <!-- [PROJECT] Reload page on window resize -------------------- -->
-    <!-- Need to reload page so the custom scrollbar updates size    -->
-    <script>
-      window.onresize = () => {
-        location.reload();
-      }
-    </script>
-
-    <!-- [EXTERNAL] freeCodeCamp's test ---------------------------- -->
-    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
-    <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
   </body>
   {%- endblock body %}
 </html>

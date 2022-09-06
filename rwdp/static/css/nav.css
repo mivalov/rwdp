@@ -43,7 +43,7 @@
 /* [DEFAULT NAV] ==================================================== */
 
 /* [GLOBAL] Adjusment ----------------------------------------------- */
-main {
+header {
     padding-top: var(--nav-height);
 }
 
@@ -278,10 +278,18 @@ main {
     }
 
     /* [GLOBAL] Adjusment ------------------------------------------- */
-    main {
+    header {
+        padding-top: 0;
+    }
+
+    body > :not(:nth-child(-n + 1), footer) {
         margin-left: calc(var(--margin-inline) + var(--nav-poking));
         margin-right: var(--margin-inline);
-        padding-top: 0;
+    }
+
+    header > :nth-child(n + 3) {
+        margin-left: calc(var(--margin-inline) + var(--nav-poking));
+        margin-right: var(--margin-inline);
     }
 
     footer {
