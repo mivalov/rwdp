@@ -241,7 +241,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
 
   {# Available ONLY if the default navigation is ENABLED #}
 
-  {% block header_attr %} class="example"{% endblock %}
+  {% block header_attr %} class="example" id="example"{% endblock %}
   ```
 
   ```jinja
@@ -307,6 +307,27 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {%- endblock main %}
   ```
 
+- ##### Block "body_extra"
+
+  ---
+
+  The "body_extra" block is for building on top of the existing content, so **DO NOT** include the `<body>` tag as it is already in it.
+
+  **This Jinja block is placed BETWEEN the `<footer>` and the `<scrip>` tags**
+
+  ```jinja
+  {# Write your ADITIONAL <body> html here #}
+  {# DO NOT add the <body> tag #}
+
+  {%- block body_extra %}
+  {% filter indent(width=2) %}
+    <p>
+      Extra body content
+    </p>
+  {%- endfilter %}
+  {%- endblock %}
+  ```
+
 - ##### Block "footer_attr"
 
   ---
@@ -323,7 +344,7 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
   {# ALWAYS leave 1 space (" ") between the opening block and first attribute #}
   {# DO NOT leave any whitespace before the closing block #}
 
-  {%- block footer_attr %} id="example"{% endblock %}
+  {%- block footer_attr %} class="example" id="example"{% endblock %}
   ```
 
   ```jinja
@@ -369,27 +390,6 @@ Empty Jinja blocks as the name suggests have no predefined content in them. They
     </p>
   {%- endfilter %}
   {%- endblock %}
-  ```
-
-- ##### Block "body_extra"
-
-  ---
-
-  The "body_extra" block is for building on top of the existing content, so **DO NOT** include the `<body>` tag as it is already in it.
-
-  **This Jinja block is placed BETWEEN the `<footer>` and the `<scrip>` tags**
-
-  ```jinja
-  {# Write your ADITIONAL <body> html here #}
-  {# DO NOT add the <body> tag #}
-
-  {%- block body_extra %}
-  {% filter indent(width=4) %}
-    <p>
-      Extra body content
-    </p>
-  {%- endfilter %}
-  {% endblock %}
   ```
 
 #### **2.4 List of all the FULL blocks**
@@ -525,9 +525,10 @@ But if you desire to completely rework them the option is there.
       </a>
     </li>
     {#- Navigation button with highlight #}
+    {#- Don't forget to change the URL #}
     <li class="nav-item">
-      <a class="{{ 'active' if request.path == url_for('example_page') }}"
-      href="{{ url_for('example_page') }}">
+      <a class="{{ 'active' if request.path == url_for('index') }}"
+      href="{{ url_for('index') }}">
         Button2
       </a>
     </li>
@@ -552,11 +553,11 @@ But if you desire to completely rework them the option is there.
   {# ONLY add if you want to completely rework the default body content #}
   {# ALWAYS add the <body> tag #}
 
-  {%- block body %}
+  {%- block body -%}
     <body>
       New body content
     </body>
-  {% endblock %}
+  {%- endblock %}
   ```
 
   **NOTE:** *The `<body>` tag is encased in a "body" Jinja block, so using the `{{ super() }}` block and adding additional content will result in that content being outside the `<body>` tag.*
@@ -576,10 +577,12 @@ But if you desire to completely rework them the option is there.
   {# ALWAYS add the <footer> tag #}
 
   {%- block footer %}
+  {%- filter indent(width=2) -%}
     <footer>
       New footer content
     </footer>
-  {% endblock %}
+  {%- endfilter %}
+  {%- endblock %}
   ```
 
   **NOTE:** *The `<footer>` tag is encased in a "footer" Jinja block, so using the `{{ super() }}` block and adding additional content will result in that content being outside the `<footer>` tag.*
@@ -604,11 +607,11 @@ But if you desire to completely rework them the option is there.
 |9|-|block|"nav_extra_buttons"|`<header>`|
 |10|-|block|"header_extra"|`<header>`|
 |11|-|block|"main"|"body"|
-|12|-|block|"footer"|"body"|
-|13|-|block|"footer_attr"|"footer"|
-|14|-|block|"footer_title"|"footer"|
-|15|-|block|"footer_extra"|"footer"|
-|16|-|block|"body_extra"|"body"|
+|12|-|block|"body_extra"|"body"|
+|13|-|block|"footer"|"body"|
+|14|-|block|"footer_attr"|"footer"|
+|15|-|block|"footer_title"|"footer"|
+|16|-|block|"footer_extra"|"footer"|
 
 If `nav_disabled = true` all Jinja blocks/tags with a parent HTML tag `<header>` are **DISABLED/ERASED** and the ["header"](#block-header) Jinja block becomes available where you can create a new `<header>`.
 
@@ -630,11 +633,13 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 ```jinja
 {% extends "pages/base/base-main.html" %}
 
-{# Remove this if you want to keep the default navigation ENABLED #}
+{# REMOVE this if you want to keep the default navigation ENABLED #}
+{# REMOVE if you decide to use the "body" block #}
 {% set nav_disabled = true %}
 
 {# If you decide to keep the default navigation ENABLED #}
 {# Set a href link for the "skip navigation" button #}
+{# REMOVE if you decide to use the "body" block #}
 {% set skip_nav_href = '#anchor' %}
 
 {# ALWAYS INDENT CONTENT IN THE JINJA BLOCK BY 2 SPACES "  " #}
@@ -663,12 +668,13 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
 {# !!! [REMOVE THIS BLOCK UNLESS] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #}
 {# You want to completely rework the default body content #}
 {# REMOVE every child/grandchild Jinja block if you decide to use it #}
+{# Or in other words remove every Jinja block BELOW it #}
 {# ALWAYS add the <body> tag #}
-{%- block body %}
+{%- block body -%}
   <body>
     New body content
   </body>
-{% endblock %}
+{%- endblock %}
 
 {# Available ONLY if the default navigation is DISABLED !!!!!!!!!!!!! #}
 {# Write your <header> html here #}
@@ -699,9 +705,10 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
     </a>
   </li>
   {#- Navigation button with highlight #}
+  {#- Don't forget to change the URL #}
   <li class="nav-item">
-    <a class="{{ 'active' if request.path == url_for('example_page') }}"
-    href="{{ url_for('example_page') }}">
+    <a class="{{ 'active' if request.path == url_for('index') }}"
+    href="{{ url_for('index') }}">
       Button2
     </a>
   </li>
@@ -738,21 +745,34 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
   </main>
 {%- endblock main %}
 
+{# Write your ADITIONAL <body> html here #}
+{# DO NOT add the <body> tag #}
+{%- block body_extra %}
+{% filter indent(width=2) %}
+  <p>
+    Extra body content
+  </p>
+{%- endfilter %}
+{%- endblock %}
+
 {# !!! [REMOVE THIS BLOCK UNLESS] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #}
-{# You want to disable/rework the default footer #}
+{# You want to disable/rework the default footer content #}
 {# REMOVE every child/grandchild Jinja block if you decide to use it #}
+{# Or in other words remove every Jinja block BELOW it #}
 {# ALWAYS add the <footer> tag #}
 {%- block footer %}
+{%- filter indent(width=2) -%}
   <footer>
     New footer content
   </footer>
-{% endblock %}
+{%- endfilter %}
+{%- endblock %}
 
 {# ALWAYS write your attributes on the same line as the opening block #}
 {# ALWAYS leave 1 space (" ") between the opening block and first attribute #}
 {# DO NOT leave any whitespace before the closing block #}
 {# [IMPORTANT] Check information on how to linewrap ONLY the closing block if NEEDED #}
-{%- block footer_attr %} id="example"{% endblock %}
+{%- block footer_attr %} class="example" id="example"{% endblock %}
 
 {# Write your footer title here #}
 {# By default it is the same as the text in the "title" block #}
@@ -769,16 +789,6 @@ If any of the parent Jinja & HTML blocks/tags is called/used **EMPTY** all of th
   </p>
 {%- endfilter %}
 {%- endblock %}
-
-{# Write your ADITIONAL <body> html here #}
-{# DO NOT add the <body> tag #}
-{%- block body_extra %}
-{% filter indent(width=4) %}
-  <p>
-    Extra body content
-  </p>
-{%- endfilter %}
-{% endblock %}
 ```
 
 **NOTE:** *When a **parent** is called/used its **children/grandchildren** should not be called/used as they will not do/change anything. Check the [block/tag hierarchy](#blocktag-hierarchy).*
