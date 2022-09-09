@@ -1,11 +1,8 @@
-/* [CUSTOM VARIABLES] =============================================== */
 :root {
 
     /* Set indirect block margin for the project section header ----- */
     --project-header-block-margin: min(5em, 8vh);
 }
-
-/* [PAGE SPECIFIC] ================================================== */
 
 /* Custom selection ------------------------------------------------- */
 ::selection {

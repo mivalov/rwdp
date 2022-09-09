@@ -13,8 +13,7 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}"/>
 
-    {#- Add {% set nav_disabled = false %} in the pages were you want #}
-    {#- the defaul navigation removed.                                #}
+    {#- Add {% set nav_disabled = true %} in pages to disable the nav #}
 
     {#- STAGE [1]: Disables default navigation CSS if set to 'true'.  #}
     {%- if nav_disabled == true %}
@@ -29,15 +28,14 @@
 
     <!-- [SCRIPTS] ================================================= -->
 
-    <!-- [PROJECT] Reload page on window resize -------------------- -->
-    <!-- Need to reload page so the custom scrollbar updates size    -->
+    <!-- Reload page so the custom scrollbar updates size ---------- -->
     <script defer src="data:text/javascript,
       window.onresize = () => {
         location.reload();
       }">
     </script>
 
-    <!-- [EXTERNAL] freeCodeCamp's test ---------------------------- -->
+    <!-- freeCodeCamp's test --------------------------------------- -->
     <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
     <script defer src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
 

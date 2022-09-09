@@ -1,4 +1,4 @@
-/* [CUSTOM VARIABLES] =============================================== */
+/* [GLOBAL] ========================================================= */
 :root {
     --clr-primary: #2c2c2c;
     --clr-accent: #31cc39;
@@ -26,8 +26,6 @@
     --clr-body-scrollbar-thumb-hover: var(--clr-500);
     --clr-body-scrollbar-thumb-active: var(--clr-700);
 }
-
-/* [GLOBAL] ========================================================= */
 
 * {
     margin: 0;

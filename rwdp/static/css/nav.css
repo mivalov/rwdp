@@ -1,4 +1,4 @@
-/* [CUSTOM VARIABLES] =============================================== */
+/* [DEFAULT NAV] ==================================================== */
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
     --clr-nav-accent: var(--clr-accent, #31cc39);
@@ -40,8 +40,6 @@
     --margin-inline: 2vw;
 }
 
-/* [DEFAULT NAV] ==================================================== */
-
 /* [GLOBAL] Adjusment ----------------------------------------------- */
 header {
     padding-top: var(--nav-height);
@@ -52,7 +50,7 @@ header {
     padding-top: 0;
 }
 
-/* Button to skip navigation options -------------------------------- */
+/* Button to skip default navigation -------------------------------- */
 .skip-nav {
     position: fixed;
     z-index: 999;
@@ -96,7 +94,6 @@ header {
 }
 
 /* Navbar highlight ------------------------------------------------- */
-/* Highlight the navigation option with a class of "active"           */
 .active {
     color: var(--clr-nav-accent) !important;
 }
@@ -198,7 +195,6 @@ header {
 
     /* [FOR]: High zoom / Small screen width ======================== */
 
-    /* [CUSTOM VARIABLES] ------------------------------------------- */
     :root {
         --scroll-padding-top: 0;
     }
@@ -236,7 +232,7 @@ header {
         width: auto;
         margin-inline: var(--nav-margin-inline);
 
-        /* freeCodeCapm's test is in the way of the nav ------------- */
+        /* freeCodeCapm's test is in the way of the nav */
         margin-top: var(--nav-height);
     }
 
