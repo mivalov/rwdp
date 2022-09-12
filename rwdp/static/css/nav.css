@@ -26,16 +26,6 @@
     /* Vertical spacing between nav items --------------------------- */
     --nav-item-spacing: 1.8vw;
 
-    /* Nav custom scrollbar size ------------------------------------ */
-    --nav-scrollbar: clamp(1vw, 10px, 2vw);;
-    --nav-scrollbar-thumb: calc(0.3 * var(--nav-scrollbar));
-    --nav-scrollbar-thumb-hover: calc(0.2 * var(--nav-scrollbar));
-
-    /* Nav custom scrollbar colors ---------------------------------- */
-    --clr-nav-scrollbar: var(--clr-nav-700);
-    --clr-nav-scrollbar-thumb: var(--clr-nav-accent);
-    --clr-nav-scrollbar-thumb-hover: var(--clr-nav-accent-100);
-
     /* Set inline margin for <main> --------------------------------- */
     --margin-inline: 2vw;
 }
@@ -197,23 +187,6 @@ header {
 
     :root {
         --scroll-padding-top: 0;
-    }
-
-    /* Nav custom scrollbar ----------------------------------------- */
-    .nav::-webkit-scrollbar {
-        width: var(--nav-scrollbar);
-        background-color: var(--clr-nav-scrollbar);
-    }
-
-    .nav::-webkit-scrollbar-thumb {
-        border-radius: 100vw;
-        border: var(--nav-scrollbar-thumb) solid var(--clr-nav-700);
-        background-color: var(--clr-nav-scrollbar-thumb);
-    }
-
-    .nav::-webkit-scrollbar-thumb:hover {
-        border: var(--nav-scrollbar-thumb-hover) solid var(--clr-nav-700);
-        background-color: var(--clr-nav-scrollbar-thumb-hover);
     }
 
     /* Default navigation switches from TOP to LEFT side ------------ */
