@@ -435,6 +435,8 @@ But if you desire to completely rework them the option is there.
   **IMPORTANT:**  
   *Always add `class="nav-item"` to all the `<li>` tags.*
 
+  ---
+
   ###### *Example 1 (default)*
 
   Default layout of the "nav_extra_buttons" block.
@@ -465,6 +467,8 @@ But if you desire to completely rework them the option is there.
   {#- Add the super block here if you want the default HOME button to be last #}
   {%- endblock %}
   ```
+
+  ---
 
   ###### *Example 2 (between)*
 
@@ -497,6 +501,8 @@ But if you desire to completely rework them the option is there.
   {%- endfilter %}
   {%- endblock %}
   ```
+
+  ---
 
   ###### *Example 3 (highlight)*
 
