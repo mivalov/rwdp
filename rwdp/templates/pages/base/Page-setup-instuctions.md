@@ -412,7 +412,7 @@ But if you desire to completely rework them the option is there.
   - Position of the HOME button:
 
     \- **most left/first button** when placed between the `{% block nav_extra_buttons %}` and the `{%- filter indent(width=8) %}` opening blocks  
-    *(default position)*
+    *([default position](#example-1-default))*
 
     \- **most right/last button** when placed between the `{%- endfilter %}` and the `{%- endblock %}` closing blocks  
     *([See example 1](#example-1-default))*
