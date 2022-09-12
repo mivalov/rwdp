@@ -417,7 +417,7 @@ But if you desire to completely rework them the option is there.
     \- **most right/last button** when placed between the `{%- endfilter %}` and the `{%- endblock %}` closing blocks  
     *([See example 1](#example-1-default))*
 
-    \- **between other button** when placed between separate filter blocks  
+    \- **between other buttons** when placed between separate filter blocks  
     *([See example 2](#example-2-between))*
 
     You can remove the HOME button if you remove the `{{ super() }}` block.
@@ -523,7 +523,7 @@ But if you desire to completely rework them the option is there.
   {# Available ONLY if the default navigation is ENABLED #}
 
   {% block nav_extra_buttons %}
-    {{- super() }} {#- Default HOME button #}
+    {{- super() }} {#- Default HOME button. Remove if not needed #}
   {%- filter indent(width=8) %}
     <li class="nav-item">
       <a href="#anchor-one">
