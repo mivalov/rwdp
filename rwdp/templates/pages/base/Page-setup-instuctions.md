@@ -415,7 +415,7 @@ But if you desire to completely rework them the option is there.
     *(default position)*
 
     \- **most right/last button** when placed between the `{%- endfilter %}` and the `{%- endblock %}` closing blocks  
-    *[([See example 1](#example-1-default))]*
+    *([See example 1](#example-1-default))*
 
     \- **between other button** when placed between separate filter blocks  
     *([See example 2](#example-2-between))*
