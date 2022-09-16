@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {% block page_description %}{% endblock %}
+    {%- filter indent(width=2) %}
+    {%- block page_description %}{% endblock %}
+    {%- endfilter %}
     <!-- <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
     <link rel="stylesheet"
@@ -11,53 +13,63 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}"/>
 
-    {# Add {% set nav_disabled = false %} in the pages were you want the navigation & its styling removed #}
-    {# Stage 1: Disables navigation stylesheet if set to 'true' #}
-    {% if nav_disabled == true %}
-    {% else %}
+    {#- Add {% set nav_disabled = true %} in pages to disable the nav #}
+
+    {#- STAGE [1]: Disables default navigation CSS if set to 'true'.  #}
+    {%- if nav_disabled == true %}
+    {%- else %}
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/nav.css') }}"/>
-    {% endif %}
+    {%- endif %}
 
-    {% block stylesheets_extra %}{% endblock %}
+    {%- filter indent(width=2) %}
+    {%- block stylesheets_extra required %}{% endblock %}
+    {%- endfilter %}
 
-    <title>{% block title required %}{% endblock %}</title>
+    <!-- [SCRIPTS] ================================================= -->
+
+    <!-- freeCodeCamp's test --------------------------------------- -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script defer src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
+
+    <title>
+      {%- block title required %}{% endblock -%}
+    </title>
   </head>
 
-  {% block body %}
+  {% block body -%}
   <body>
-    {% block header %}
-    <header {% block header_attr %}{% endblock %}>
-      {% set skip_nav_href = skip_nav_href|default('') %}
-      <a class="skip-nav" href="{{skip_nav_href}}">
+    {#- STAGE [2]: Disables default navigation HTML if set to 'true'. #}
+    {%- if nav_disabled == true %}
+    {%- filter indent(width=2) %}
+    {%- block header %}
+    {%- endblock header %}
+    {%- endfilter -%}
+    {% else %}
+    <header {%- block header_attr %}{% endblock %}>
+      {%- set skip_nav_href = skip_nav_href|default('') %}
+      <a class="skip-nav" href="{{- skip_nav_href -}}">
         skip navigation
       </a>
 
-      {# Stage 2: Disables navigation html if set to 'true' #}
-      {% if nav_disabled == true %}
-      {% else %}
       <nav id="navbar" class="nav nav-hide">
         <ul class="nav-list">
           <li class="nav-item nav-logo">
-            <a href="{{ url_for('index') }}">
+            <a title="Responsive Web Design with Python"
+            href="{{ url_for('index') }}">
               rwdp
             </a>
           </li>
-          {% block nav_extra_buttons %}
-          <li class="nav-item nav-home">
-            <a href="#welcome-section">
+          {%- block nav_extra_buttons %}
+          <li class="nav-item">
+            <a href="{{ url_for('index') }}">
               Home
             </a>
           </li>
-          <li class="nav-item nav-projects">
-            <a href="#projects">
-              Projects
-            </a>
-          </li>
-          {% endblock nav_extra_buttons %}
+          {%- endblock nav_extra_buttons %}
           <li class="nav-item nav-about">
-            <a href="{{ url_for('about') }}"
-            {% block nav_active %}{% endblock %}> <!-- Navbar highlight -->
+            <a class="{{ 'active' if request.path == url_for('about') }}"
+            href="{{ url_for('about') }}">
               About
             </a>
           </li>
@@ -69,36 +81,41 @@
           </li>
         </ul>
       </nav>
-      {% endif %}
-
-      {% block header_extra %}{% endblock %}
+      {%- block header_extra %}{% endblock %}
     </header>
-    {% endblock header %}
+    {% endif %}
 
-    {% block main %}
-    <main {% block main_attr %}{% endblock %}>
-      {% block main_extra %}{% endblock %}
-    </main>
-    {% endblock main %}
+    {%- filter indent(width=2) %}
+    {%- block main %}{% endblock %}
+    {%- endfilter %}
 
-    {% block footer %}
-    <footer {% block footer_attr %}{% endblock %}>
-      <p>{% block footer_title %}{% endblock %}</p>
+    {%- block body_extra %}{% endblock %}
 
-      {% block footer_extra %}{% endblock %}
+    {% block footer -%}
+    <footer {%- block footer_attr %}{% endblock %}>
+      <p class="footer-title">
+        {% block footer_title %}{% endblock %}
+      </p>
+
+      {%- block footer_extra %}{% endblock %}
+
+      <a class="fa fa-home"
+      title="Return to Index"
+      aria-label="Return to Index"
+      href="{{ url_for('index') }}">
+      </a>
+
       <a class="fa fa-github" rel="external" target="_blank"
+      title="Link to GitHub"
       aria-label="Link to GitHub"
-      href="https://github.com/mivalov/rwdp"></a>
+      href="https://github.com/mivalov/rwdp">
+      </a>
+
       <p class="footer-year">
         2022
       </p>
     </footer>
-    {% endblock footer %}
-
-    {% block body_extra %}{% endblock %}
+    {%- endblock footer %}
   </body>
-  {% endblock body %}
-
-  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
-  <script src="{{ url_for('static', filename='javascript/testable-projects-fcc-bundle.js') }}"></script>
+  {%- endblock body %}
 </html>

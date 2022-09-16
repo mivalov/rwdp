@@ -6,22 +6,18 @@
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/survey_form.css') }}"/>
-{% endblock %}
+{%- endblock %}
 
-{% block title %}
+{% block title -%}
   Survey Form
-{% endblock %}
-
-{% block nav_extra_buttons %}
-  {% include "pages/base/base-nav-home-btn.html" %}
-{% endblock %}
+{%- endblock %}
 
 {% block header %}
   <header>
     <h1 id="title">Music Survey Form</h1>
     <p id="description">Thank you for taking the time for this survey!</p>
   </header>
-{% endblock %}
+{% endblock header %}
 
 {% block main %}
   <main>
@@ -170,8 +166,8 @@
       </div>
     </form>
   </main>
-{% endblock %}
+{%- endblock main %}
 
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}

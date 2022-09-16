@@ -6,70 +6,65 @@
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/product-landing-page.css') }}"/>
-{% endblock %}
+{%- endblock %}
 
-{% block title %}
+{% block title -%}
   Product Landing Page
+{%- endblock %}
+
+{% block header %}
+  <header id="header" >
+    <nav id="nav-bar">
+      <ul class="nav-list">
+        <li class="nav-element nav-img">
+          <img id="header-img" src="" alt="logo">
+        </li>
+        <li class="nav-element nav-one">
+          <a class="nav-link" href="#one">
+            one
+          </a>
+        </li>
+        <li class="nav-element nav-two">
+          <a class="nav-link" href="#two">
+            two
+          </a>
+        </li>
+        <li class="nav-element nav-three">
+          <a class="nav-link" href="#three">
+            three
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 {% endblock %}
 
-{% block nav_extra_buttons %}
-  {% include "pages/base/base-nav-home-btn.html" %}
-{% endblock %}
+{% block main %}
+  <main>
+    <section id="one" class="section">
+      <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <input id="email" type="email" name="email" required
+               placeholder="Enter email">
+        <br><br>
+        <input id="submit" type="submit" value="Submit">
+      </form>
+    </section>
 
-{% block header_attr %}
-  id="header"
-{% endblock %}
+    <section id="two" class="section">
+      <iframe id="video"
+              width="854"
+              height="480"
+              frameborder="0"
+              allowfullscreen
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      </iframe>
+    </section>
 
-{% block header_extra %}
- <nav id="nav-bar">
-  <ul class="nav-list">
-    <li class="nav-element nav-img">
-      <img id="header-img" src="" alt="logo">
-    </li>
-    <li class="nav-element nav-one">
-      <a class="nav-link" href="#one">
-        one
-      </a>
-    </li>
-    <li class="nav-element nav-two">
-      <a class="nav-link" href="#two">
-        two
-      </a>
-    </li>
-    <li class="nav-element nav-three">
-      <a class="nav-link" href="#three">
-        three
-      </a>
-    </li>
-  </ul>
- </nav>
-{% endblock %}
+    <section id="three" class="section">
+    </section>
+  </main>
+{%- endblock main %}
 
-{% block main_extra %}
-  <section id="one" class="section">
-    <form id="form" action="https://www.freecodecamp.com/email-submit">
-      <input id="email" type="email" name="email" required
-             placeholder="Enter email">
-      <br><br>
-      <input id="submit" type="submit"
-             value="Submit">
-    </form>
-  </section>
-
-  <section id="two" class="section">
-    <iframe id="video"
-            width="854"
-            height="480"
-            frameborder="0"
-            allowfullscreen
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-    </iframe>
-  </section>
-
-  <section id="three" class="section">
-  </section>
-{% endblock %}
-
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}

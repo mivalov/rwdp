@@ -1,32 +1,28 @@
 {% extends "pages/base/base-main.html" %}
 
-{% block title %}
+{% block stylesheets_extra %}
+{%- endblock %}
+
+{% block title -%}
   About Page
-{% endblock %}
+{%- endblock %}
 
-<!-- Navbar highlight -->
-{% block nav_active %}
-  class="active"
-{% endblock %}
+{% block main %}
+  <main>
+    <section id="welcome-section" class="welcome-section">
+      <h1 class="welcome-section-header">
+        About us
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet.
+      </p>
+    </section>
 
-{% block nav_extra_buttons %}
-  {% include "pages/base/base-nav-home-btn.html" %}
-{% endblock %}
+    <section id="projects" class="project-section">
+    </section>
+  </main>
+{%- endblock main %}
 
-{% block main_extra %}
-  <section id="welcome-section" class="welcome-section">
-    <h1 class="welcome-section-header">
-      About us
-    </h1>
-    <p>
-      Lorem ipsum dolor sit amet.
-    </p>
-  </section>
-
-  <section id="projects" class="project-section">
-  </section>
-{% endblock %}
-
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}

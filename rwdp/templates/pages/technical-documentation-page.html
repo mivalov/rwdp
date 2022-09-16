@@ -6,169 +6,170 @@
 {% block stylesheets_extra %}
   <link rel="stylesheet"
         href="{{ url_for('static', filename='css/technical-documentation-page.css') }}"/>
-{% endblock %}
+{%- endblock %}
 
-{% block title %}
+{% block title -%}
   Technical Documentation Page
-{% endblock %}
-
-{% block nav_extra_buttons %}
-  {% include "pages/base/base-nav-home-btn.html" %}
-{% endblock %}
+{%- endblock %}
 
 {% block header %}
- <nav id="navbar" class="navbar">
-  <ul class="nav-list">
-    <li class="nav-element nav-header">
+  <header>
+    <nav id="navbar" class="navbar">
+      <ul class="nav-list">
+        <li class="nav-element nav-header">
+          <header>
+            Technical Documentation Page
+          </header>
+        </li>
+        <li class="nav-element nav-one">
+          <a class="nav-link" href="#Lorem-one">
+            Lorem-one
+          </a>
+        </li>
+        <li class="nav-element nav-two">
+          <a class="nav-link" href="#Lorem-two">
+            Lorem-two
+          </a>
+        </li>
+        <li class="nav-element nav-three">
+          <a class="nav-link" href="#Lorem-three">
+            Lorem-three
+          </a>
+        </li>
+        <li class="nav-element nav-four">
+          <a class="nav-link" href="#Lorem-four">
+            Lorem-four
+          </a>
+        </li>
+        <li class="nav-element nav-five">
+          <a class="nav-link" href="#Lorem-five">
+            Lorem-five
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+{% endblock header %}
+
+{% block main %}
+  <main id="main-doc">
+    <section id="Lorem-one" class="main-section">
       <header>
-        Technical Documentation Page
-      </header>
-    </li>
-    <li class="nav-element nav-one">
-      <a class="nav-link" href="#Lorem-one">
         Lorem-one
-      </a>
-    </li>
-    <li class="nav-element nav-two">
-      <a class="nav-link" href="#Lorem-two">
+      </header>
+
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
+        </p>
+        <ul>
+          <li>
+            list
+          </li>
+        </ul>
+        <code>
+          printf("Hello, World!");
+        </code>
+      </article>
+    </section>
+
+    <section id="Lorem-two" class="main-section">
+      <header>
         Lorem-two
-      </a>
-    </li>
-    <li class="nav-element nav-three">
-      <a class="nav-link" href="#Lorem-three">
+      </header>
+
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
+        </p>
+        <ul>
+          <li>
+            list
+          </li>
+        </ul>
+        <code>
+          printf("Hello, World!");
+        </code>
+      </article>
+    </section>
+
+    <section id="Lorem-three" class="main-section">
+      <header>
         Lorem-three
-      </a>
-    </li>
-    <li class="nav-element nav-four">
-      <a class="nav-link" href="#Lorem-four">
+      </header>
+
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
+        </p>
+        <ul>
+          <li>
+            list
+          </li>
+        </ul>
+        <code>
+          printf("Hello, World!");
+        </code>
+      </article>
+    </section>
+
+    <section id="Lorem-four" class="main-section">
+      <header>
         Lorem-four
-      </a>
-    </li>
-    <li class="nav-element nav-five">
-      <a class="nav-link" href="#Lorem-five">
+      </header>
+
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
+        </p>
+        <ul>
+          <li>
+            list
+          </li>
+        </ul>
+        <code>
+          printf("Hello, World!");
+        </code>
+      </article>
+    </section>
+
+    <section id="Lorem-five" class="main-section">
+      <header>
         Lorem-five
-      </a>
-    </li>
-  </ul>
- </nav>
-{% endblock %}
+      </header>
 
-{% block main_attr %}
-  id="main-doc"
-{% endblock %}
+      <article>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
+        </p>
+        <ul>
+          <li>
+            list
+          </li>
+        </ul>
+        <code>
+          printf("Hello, World!");
+        </code>
+      </article>
+    </section>
+  </main>
+{%- endblock main %}
 
-{% block main_extra %}
-  <section id="Lorem-one" class="main-section">
-    <header>
-      Lorem-one
-    </header>
-    <article>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
-      </p>
-      <ul>
-        <li>
-          list
-        </li>
-      </ul>
-      <code>
-        printf("Hello, World!");
-      </code>
-    </article>
-  </section>
-
-  <section id="Lorem-two" class="main-section">
-    <header>
-      Lorem-two
-    </header>
-    <article>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
-      </p>
-      <ul>
-        <li>
-          list
-        </li>
-      </ul>
-      <code>
-        printf("Hello, World!");
-      </code>
-    </article>
-  </section>
-
-  <section id="Lorem-three" class="main-section">
-    <header>
-      Lorem-three
-    </header>
-    <article>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
-      </p>
-      <ul>
-        <li>
-          list
-        </li>
-      </ul>
-      <code>
-        printf("Hello, World!");
-      </code>
-    </article>
-  </section>
-
-  <section id="Lorem-four" class="main-section">
-    <header>
-      Lorem-four
-    </header>
-    <article>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
-      </p>
-      <ul>
-        <li>
-          list
-        </li>
-      </ul>
-      <code>
-        printf("Hello, World!");
-      </code>
-    </article>
-  </section>
-
-  <section id="Lorem-five" class="main-section">
-    <header>
-      Lorem-five
-    </header>
-    <article>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, suscipit?
-      </p>
-      <ul>
-        <li>
-          list
-        </li>
-      </ul>
-      <code>
-        printf("Hello, World!");
-      </code>
-    </article>
-  </section>
-{% endblock %}
-
-{% block footer_title %}
+{% block footer_title -%}
   {{ self.title() }}
-{% endblock %}
+{%- endblock %}

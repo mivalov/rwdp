@@ -12,7 +12,7 @@ html {
     top: 0;
     left: 0;
     padding: var(--text-padding);
-    min-width: var(--nav-width);
+    width: var(--nav-width);
     height: 100vh;
     font-size: 2rem;
     background-color: aqua;

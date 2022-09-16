@@ -1,68 +1,129 @@
+:root {
+
+    /* Set indirect block margin for the project section header ----- */
+    --project-header-block-margin: min(5em, 8vh);
+}
+
+/* Custom selection ------------------------------------------------- */
 ::selection {
-    color: white;
+    color: var(--clr-text);
     background-color: var(--clr-accent);
 }
+
+.project-title::selection {
+    color: var(--clr-accent);
+    background-color: var(--clr-text);
+}
+
+/* Main Content ----------------------------------------------------- */
+.welcome-section {
+    scroll-snap-align: start;
+    padding-block: min(20rem, 14vw) min(4rem, 10vw);
+    padding-inline: min(2rem, 2vw);
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(44,44,44,1) 10%, rgba(84,84,84,1) 60%);
+}
+
+.welcome-section-header {
+    margin-bottom: 4vw;
+    font-weight: bold;
+    font-size: min(8rem, 6vw);
+    text-transform: uppercase;
+    color: var(--clr-text);
+}
+
+.welcome-section p {
+    font-size: min(3vw, 4rem);
+}
+
+.project-section {
+    scroll-snap-align: start;
+    padding-inline: min(2rem, 3vw);
+    padding-block: var(--project-header-block-margin) min(12rem, 20vh);
+    clip-path: polygon(100% 0, 100% 100%, 50% 98%, 0 100%, 0 0);
+    background-color: var(--clr-secondary);
+}
+
 .project-section-header {
-    padding: 1rem;
+    padding: 0.5em;
     margin-inline: auto;
     width: fit-content;
-    font-size: min(4.6vw, 4rem);
+    font-weight: bold;
+    font-size: min(4.5vw, 4rem);
     text-align: center;
     text-transform: uppercase;
-    /* border-bottom: 0.2rem solid var(--clr-primary); */
     background-color: white;
 }
+
 .project-grid {
     display: grid;
     margin-inline: auto;
-    margin-top: min(8vw, 8rem);
+    margin-block: var(--project-header-block-margin);
     text-align: center;
     justify-content: center;
-    grid-template-columns: repeat(2, minmax(20rem, 48rem));
-    grid-gap: 4rem;
+    grid-template-columns: repeat(2, minmax(30rem, 50rem));
+    grid-gap: min(4em, 5vw);
     background-color: azure;
 }
+
 .project-tile {
     transition: 0.4s ease-out;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: min(0.2em, 1vw);
     aspect-ratio: 16/9;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px min(0.4em, 1vw) min(1.2em, 3vw) rgba(0, 0, 0, 0.5);
     background-color:blueviolet;
 }
-.project-tile:is(:hover, :focus) {
+
+.project-tile:is(:hover, :focus-visible) {
     transition: transform 0.2s ease-out;
-    outline: 0.3rem solid var(--clr-accent);
+    outline: min(0.3em, 0.5vw) solid var(--clr-accent);
     outline-offset: 0;
-    transform: translateY(-1rem);
-    box-shadow: inset 0px 8px 20px var(--clr-accent), 0px 5px 15px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+    box-shadow: inset 0px min(0.8em, 1vw) min(2em, 3vw) var(--clr-accent),
+                      0px min(0.4em, 1vw) min(1.2em, 3vw) rgba(0, 0, 0, 0.5);
 }
+
 .project-title {
     margin-top: auto;
-    padding-block: 0.5rem;
+    padding-block: 0.4em;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: min(4vw, 2rem);
-    color: white;
+    font-size: min(3vw, 2rem);
+    color: var(--clr-text);
     background-color: var(--clr-accent);
 }
-@media screen and (max-height: 35rem), (max-width: 80rem) {
+
+/* [MEDIA QUERIES] ================================================== */
+@media screen
+and ((min-height: 55em) and (max-height: 60em))
+and (min-width: 65em) {
+
     html {
-        scroll-snap-type: y proximity;
+        --scroll-snap-type: y mandatory;
     }
 }
-@media screen and (max-width: 45rem) {
+
+@media screen and (max-width: 45em) {
+
     .project-grid {
-    grid-template-columns: repeat(1, minmax(20rem, 42rem));
+        grid-template-columns: repeat(1, minmax(30rem, 40rem));
+    }
+
+    .project-tile:is(:hover, :focus-visible) {
+        transition: none;
+        transform: none;
+        outline-offset: 0;
     }
 }
-/* For 500% zoom in */
-@media screen and (max-width: 30rem) {
+
+@media screen and (max-width: 30em) {
+
+    /* [FOR]: High zoom / Small screen width ======================== */
+
     .project-grid {
-    grid-template-columns: repeat(1, minmax(8rem, 20rem));
-    }
-    .project-title {
-        font-size: min(3vw, 2rem);
+        grid-template-columns: repeat(1, minmax(1rem, 25rem));
     }
 }

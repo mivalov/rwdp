@@ -1,111 +1,267 @@
+/* [DEFAULT NAV] ==================================================== */
 :root {
     --clr-nav-primary: var(--clr-primary, #2c2c2c);
-    --clr-nav-accent: var(--clr-accent, #31CC39);
-    --clr-nav-light: var(--clr-light, #ffffffee);
-    --clr-nav-dark: var(--clr-dark, #000000d9);
-    --clr-nav-text: var(--clr-text, #ffffffee);
+    --clr-nav-accent: var(--clr-accent, #31cc39);
+    --clr-nav-accent-100: var(--clr-accent-100, #3aee43);
+    --clr-nav-100: var(--clr-100, #ffffffe6);
+    --clr-nav-500: var(--clr-500, #444444);
+    --clr-nav-700: var(--clr-700, #242424);
+    --clr-nav-900: var(--clr-900, #0f0f0f);
+    --clr-nav-text: var(--clr-text, #ffffffe6);
 
-    --nav-hight: 4.5rem;
+    --nav-height: 43px;
+
+    /* [FOR]: High zoom / Small screen width ======================== */
+
+    /* Nav size is calculated based on the nav logo font size ------- */
+    --fs-nav-logo: 6vw;
+    --fs-nav-menu: calc(0.5 * var(--fs-nav-logo));
+    --nav-margin-inline: calc(0.3 * var(--fs-nav-logo));
+    --nav-width: calc(3 * (var(--fs-nav-logo) + var(--nav-margin-inline)));
+
+    /* How much the nav is poking from the left when hidden --------- */
+    --nav-poking: min(4vw, var(--nav-width));
+    --nav-transform: calc(-1 * (var(--nav-width) - var(--nav-poking)));
+
+    /* Vertical spacing between nav items --------------------------- */
+    --nav-item-spacing: 1.8vw;
+
+    /* Set inline margin for <main> --------------------------------- */
+    --margin-inline: 2vw;
 }
+
+/* [GLOBAL] Adjusment ----------------------------------------------- */
+header {
+    padding-top: var(--nav-height);
+}
+
+/* Utility classes -------------------------------------------------- */
+.padding-top-0 {
+    padding-top: 0;
+}
+
+/* Button to skip default navigation -------------------------------- */
+.skip-nav {
+    position: fixed;
+    z-index: 999;
+    top: 6rem;
+    left: 0.8rem;
+    padding: 0.5em;
+    padding-left: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    transform: translateX(-200%);
+}
+
+.skip-nav:focus {
+    transition: 0.5s ease-out;
+    outline: none;
+    color: var(--clr-dark);
+    border: 2px solid var(--clr-nav-100);
+    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    background-color: var(--clr-nav-100);
+    transform: translateX(-10%);
+
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0%   {border: 2px solid var(--clr-nav-primary);}
+    50%  {border: 2px solid var(--clr-nav-accent);}
+    100% {border: 2px solid var(--clr-nav-primary);}
+}
+
+.skip-nav:hover {
+    transition: 0.1s ease-out;
+    color: var(--clr-nav-accent);
+}
+
+/* Navbar highlight ------------------------------------------------- */
+.active {
+    color: var(--clr-nav-accent) !important;
+}
+
+/* Main Content ----------------------------------------------------- */
 .nav {
     display: flex;
     position: fixed;
     z-index: 99;
     top: 0;
+    font-family: none;
     width: 100%;
-    height: var(--nav-hight);
+    height: var(--nav-height);
     align-items: center;
     text-transform: uppercase;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     background-color: var(--clr-nav-primary);
 }
+
 .nav-list {
     display: inherit;
     position: relative;
     align-items: center;
-    margin-block: 0;
     margin-inline: auto 0.5rem;
+    margin-block: 0;
     width: 100%;
+    gap: 0;
 }
+
 .nav-item {
     list-style: none;
+    padding-inline: 0.55em;
 }
+
 .nav-item a {
-    display: inherit;
-    align-items: center;
     outline-offset: 0;
-    border-radius: 0.4rem;
+    border-radius: 0.2em;
+    font-size: 1rem;
 }
-.nav-item:not(.nav-logo) {
-    padding-inline: 1rem;
-}
+
 .nav-item:not(.nav-logo) a {
     outline: none;
     padding: 0.2em 0.5em;
-    font-size: 18px;
+    font-size: min(3vw, 1.8em);
 }
+
 .nav-item:not(.nav-github) a {
     color: var(--clr-nav-text);
 }
-/* Navbar highlight */
-.active {
-    color: var(--clr-nav-accent) !important;
-}
-.nav-item:not(.nav-logo) a:is(:hover, :focus-visible) {
-    outline: 2px solid var(--clr-nav-accent);
-}
-.nav-item:not(.nav-logo, .nav-github) a:active {
-    transition: 0.1s ease-out;
-    box-shadow: inset 0 0 10px var(--clr-nav-accent);
-}
-.nav-logo {
-    margin-left: 5.9rem;
-    margin-right: auto;
-}
-.nav-logo a {
-    padding: 0.05em 0.2em;
-    font-size: 32px;
-}
-.nav-logo a:is(:hover, :focus-visible) {
+
+.nav-item:not(.nav-github) a:is(:hover, :focus-visible) {
     color: var(--clr-nav-accent);
 }
+
+.nav-item:not(.nav-logo, .nav-github) a:is(:focus-visible) {
+    outline: 0.14em solid var(--clr-nav-accent);
+}
+
+.nav-item:not(.nav-logo, .nav-github) a:active {
+    transition: 0.1s ease-out;
+    outline: 0.14em solid var(--clr-nav-accent);
+    box-shadow: inset 0 0 0.4em var(--clr-nav-accent);
+}
+
+.nav-logo {
+    padding-left: 0;
+    margin-left: 55px;
+    margin-right: auto;
+}
+
+.nav-logo a {
+    font-size: 3.2em;
+    border-radius: 0;
+}
+
 .nav-github a {
-    color: var(--clr-nav-dark);
-    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.5);
+    color: var(--clr-nav-900);
+    box-shadow: inset 0 0 0.8em rgba(0, 0, 0, 0.5);
     background-color: var(--clr-nav-accent);
 }
-.nav-github a:is(:hover, :focus) {
+
+.nav-github a:is(:hover, :focus-visible) {
     transition: 0.1s ease-out;
     color: var(--clr-nav-text);
-    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.8);
+    outline: 0.14em solid var(--clr-nav-accent);
+    box-shadow: inset 0 0 0.4em rgba(0, 0, 0, 0.8);
 }
+
 .nav-about {
-    border-inline-start: 1px solid var(--clr-nav-text);
+    border-inline-start: 0.01em solid var(--clr-nav-text);
 }
-:is(.nav-projects, .return-to-index) {
-    border-inline-end: 1px solid var(--clr-nav-text);
+
+.nav-list > :nth-last-child(3) {
+    border-inline-end: 0.01em solid var(--clr-nav-text);
 }
-@media screen and (max-width: 45rem) {
-    .nav-item:not(.nav-logo) {
-        padding-inline: 0.6rem;
+
+/* [MEDIA QUERIES] ================================================== */
+@media screen and (max-width: 30em) {
+
+    /* [FOR]: High zoom / Small screen width ======================== */
+
+    :root {
+        --scroll-padding-top: 0;
     }
-    .nav-item:not(.nav-logo) a {
-        font-size: 15px;
+
+    /* Default navigation switches from TOP to LEFT side ------------ */
+    .nav {
+        display: block;
+        overflow: hidden;
+        height: 100%;
+        width: var(--nav-width);
+        transform: translateX(var(--nav-transform));
+        box-shadow: none;
     }
+
+    .nav-list {
+        opacity: 0;
+        pointer-events: none;
+        width: auto;
+        margin-inline: var(--nav-margin-inline);
+
+        /* freeCodeCapm's test is in the way of the nav */
+        margin-top: var(--nav-height);
+    }
+
+    .nav:where(:hover, :focus-within) {
+        overflow-y: auto;
+        transition: 0.2s ease-out;
+        transform: translateX(0);
+    }
+
+    .nav:where(:hover, :focus-within) > .nav-list {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-item {
+        display: flex;
+        margin: 0;
+        padding-inline: 0;
+        padding-bottom: var(--nav-item-spacing);
+    }
+
+    .nav-item a {
+        width: 100%;
+        text-align: center;
+    }
+
     .nav-logo a {
-        font-size: 24px;
+        padding-bottom: var(--nav-item-spacing);
+        font-size: var(--fs-nav-logo);
+        border-bottom: 0.4vw solid var(--clr-nav-700);
     }
-}
-/* For 500% zoom in */
-@media screen and (max-width: 30rem) {
-    .nav-item:not(.nav-logo) {
-        padding-inline: 0.6rem;
-    }
+
     .nav-item:not(.nav-logo) a {
-        padding: 0.6em 0.8em;
-        font-size: 8px;
+        font-size: var(--fs-nav-menu);
     }
-    .nav-logo a {
-        font-size: 24px;
+
+    :is(.nav-about, .nav-list > :nth-last-child(3)) {
+        border-inline: none;
+    }
+
+    /* [GLOBAL] Adjusment ------------------------------------------- */
+    header {
+        padding-top: 0;
+    }
+
+    body > :not(:nth-child(-n + 1), footer) {
+        margin-left: calc(var(--margin-inline) + var(--nav-poking));
+        margin-right: var(--margin-inline);
+    }
+
+    header > :nth-child(n + 3) {
+        margin-left: calc(var(--margin-inline) + var(--nav-poking));
+        margin-right: var(--margin-inline);
+    }
+
+    footer {
+        margin-left: var(--nav-poking);
     }
 }
